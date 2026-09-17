@@ -1,21 +1,29 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { entriesForSection, getPublishedLegacy, sections } from '../lib/catalog';
 
-const lessons = await getCollection('lessons');
-lessons.sort((a, b) => a.data.title.localeCompare(b.data.title, 'ja'));
+const entries = await getPublishedLegacy();
 ---
 
-<BaseLayout title="ホーム">
-  <h1>数学を、一歩ずつ。</h1>
-  <p>Mathrao 2.0の準備中です。現在は表示確認用の教材のみ公開しています。</p>
-  <h2>教材</h2>
-  <ul>
-    {lessons.map((lesson) => (
+<BaseLayout title="ホーム" description="中学・高校数学の学習サイト">
+  <h1>Mathrao</h1>
+  <p class="lead">中学・高校数学の学習サイト</p>
+  <p>中学校・高校の数学を、基本事項から定理・公式・証明まで体系的にまとめています。</p>
+
+  <h2>分野から探す</h2>
+  <ul class="section-list">
+    {sections.map((section) => (
       <li>
-        <a href={`/lessons/${lesson.id}/`}>{lesson.data.title}</a>
-        {lesson.data.description && <p>{lesson.data.description}</p>}
+        <a href={`/browse/${section.slug}/`}>{section.title}</a>
+        <span>{entriesForSection(entries, section).length}件</span>
       </li>
     ))}
   </ul>
 </BaseLayout>
+
+<style>
+  .lead { font-size: 1.2rem; font-weight: 600; }
+  .section-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 0.65rem 1.5rem; }
+  .section-list li { border-bottom: 1px solid #d1d5db; padding: 0.35rem 0 0.6rem; display: flex; justify-content: space-between; gap: 1rem; }
+  .section-list span { color: #526171; white-space: nowrap; }
+</style>

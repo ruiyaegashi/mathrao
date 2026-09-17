@@ -20,6 +20,11 @@ const { title, description = '数学を学ぶための教材サイト' } = Astro
   <body>
     <header>
       <a class="site-name" href="/">Mathrao</a>
+      <nav class="site-nav" aria-label="主な分野">
+        <a href="/browse/junior-high/">中学数学</a>
+        <a href="/browse/high-school/">高校数学</a>
+        <a href="/browse/theorems/">定理・公式・証明</a>
+      </nav>
     </header>
     <main>
       <slot />
@@ -30,9 +35,11 @@ const { title, description = '数学を学ぶための教材サイト' } = Astro
 <style is:global>
   :root { color-scheme: light; font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; line-height: 1.8; }
   body { max-width: 48rem; margin: 0 auto; padding: 0 1.25rem 4rem; color: #1f2937; background: #fff; }
-  header { padding: 1.5rem 0; border-bottom: 1px solid #d1d5db; }
+  header { padding: 1.5rem 0; border-bottom: 1px solid #d1d5db; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
   main { padding-top: 2rem; }
   .site-name { color: inherit; font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+  .site-nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; }
+  .site-nav a { white-space: nowrap; }
   a { color: #155e75; }
   h1, h2, h3 { line-height: 1.4; }
   /* Keep long math within its own scroll area without changing the formula. */

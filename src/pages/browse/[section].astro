@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  entriesForSection,
+  getPublishedLegacy,
+  groupsForSection,
+  sections,
+  type LegacyEntry,
+  type Section,
+} from '../../lib/catalog';
+
+interface Props {
+  section: Section;
+  entries: LegacyEntry[];
+}
+
+export async function getStaticPaths() {
+  const allEntries = await getPublishedLegacy();
+  return sections.map((section) => ({
+    params: { section: section.slug },
+    props: { section, entries: entriesForSection(allEntries, section) },
+  }));
+}
+
+const { section, entries } = Astro.props;
+const groups = groupsForSection(entries, section);
+const byWpId = new Map(entries.map((entry) => [entry.data.wp_id, entry]));
+---
+
+<BaseLayout title={section.title}>
+  <nav class="breadcrumb" aria-label="現在位置"><a href="/">トップ</a> / {section.title}</nav>
+  <h1>{section.title}</h1>
+  <p>{entries.length}件の公開記事</p>
+
+  {section.grouping !== 'none' && (
+    <nav class="group-nav" aria-label={`${section.title}の目次`}>
+      {groups.map((group) => <a href={`#heading-${group.label}`}>{group.label}（{group.entries.length}）</a>)}
+    </nav>
+  )}
+
+  {groups.map((group) => (
+    <section class="catalog-group" aria-labelledby={`heading-${group.label}`}>
+      <h2 id={`heading-${group.label}`}>{group.label}</h2>
+      <ul class="article-list">
+        {group.entries.map((entry) => {
+          const parent = entry.data.parent_wp_id ? byWpId.get(entry.data.parent_wp_id) : undefined;
+          const nestedParent = parent?.data.parent_wp_id ? parent : undefined;
+          return (
+            <li>
+              <a href={entry.data.legacy_path!}>{entry.data.title}</a>
+              {nestedParent && <small>親ページ：<a href={nestedParent.data.legacy_path!}>{nestedParent.data.title}</a></small>}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  ))}
+</BaseLayout>
+
+<style>
+  .breadcrumb { color: #526171; font-size: 0.9rem; }
+  .group-nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; margin: 1.5rem 0 2rem; }
+  .catalog-group { margin-top: 2rem; }
+  .article-list { padding-left: 1.4rem; }
+  .article-list li { margin: 0.55rem 0; overflow-wrap: anywhere; }
+  .article-list small { display: block; color: #526171; }
+</style>
