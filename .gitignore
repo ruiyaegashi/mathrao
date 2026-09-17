@@ -5,6 +5,9 @@ dist/
 .env.*
 !.env.example
 .DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
 
 # Legacy WordPress backups and local rescue artifacts
 *.sql

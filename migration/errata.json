@@ -1,0 +1,34 @@
+[
+  {
+    "wp_id": 2582,
+    "location": "source line 134; expansion of the b-multiplied parenthesis",
+    "original": "+a^2b+b^3+c^2a-ab^2",
+    "replacement": "+a^2b+b^3+bc^2-ab^2",
+    "reason": "Distributing b over c^2 gives bc^2; the earlier a-multiplied c^2a remains unchanged.",
+    "verification_status": "confirmed_by_user"
+  },
+  {
+    "wp_id": 2582,
+    "location": "source line 134; expansion of the c-multiplied parenthesis",
+    "original": "+b^2c+c^4-cba",
+    "replacement": "+b^2c+c^3-cba",
+    "reason": "Distributing c over c^2 gives c^3, consistent with the final identity.",
+    "verification_status": "confirmed_by_user"
+  },
+  {
+    "wp_id": 3022,
+    "location": "source line 115; numerator of the displayed mean",
+    "original": "x_{1} + x_{2} + x_{n}",
+    "replacement": "x_{1} + x_{2} + \\cdots + x_{n}",
+    "reason": "The expression is the mean of n values; the immediately following variance expression uses the omitted ellipsis.",
+    "verification_status": "confirmed_by_user"
+  },
+  {
+    "wp_id": 3022,
+    "location": "source line 115; parenthetical positivity claim after the general variance formula",
+    "original": "\\ ( \\gt 0 )",
+    "replacement": "",
+    "reason": "一般の分散は0以上であり、記事内に分散が正であるとの仮定が存在しないため。全データが等しい場合の分散は0。",
+    "verification_status": "confirmed_by_user"
+  }
+]

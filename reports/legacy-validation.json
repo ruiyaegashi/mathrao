@@ -1,0 +1,161 @@
+{
+  "source_total": 309,
+  "source_status": {
+    "publish": 306,
+    "draft": 3
+  },
+  "imported_files": 309,
+  "source_byte_mismatch_wp_ids": [],
+  "unique_published_paths": 306,
+  "built_pages_total": 308,
+  "built_legacy_pages": 306,
+  "output_missing": [],
+  "drafts_with_output": [],
+  "assets_matched": 23,
+  "asset_match_types": {
+    "exact": 23
+  },
+  "asset_type_counts": {
+    ".png": 18,
+    ".pdf": 4,
+    ".gif": 1
+  },
+  "assets_unmatched_in_source": [],
+  "assets_missing_from_build": [],
+  "missing_local_assets": [],
+  "broken_internal_links": [],
+  "old_domain_dependencies": [
+    {
+      "wp_id": 1563,
+      "kind": "href",
+      "url": "http://mathrao.com/recommended-study-aid-books-of-mathematics/"
+    },
+    {
+      "wp_id": 1563,
+      "kind": "href",
+      "url": "http://mathrao.com/recommended-study-aid-books-of-mathematics/"
+    },
+    {
+      "wp_id": 1566,
+      "kind": "href",
+      "url": "http://mathrao.com/recommended-study-aid-books-of-mathematics/"
+    },
+    {
+      "wp_id": 1566,
+      "kind": "href",
+      "url": "http://mathrao.com/recommended-study-aid-books-of-mathematics/"
+    }
+  ],
+  "old_domain_asset_dependencies": [],
+  "old_domain_text_references": 291,
+  "shortcode_counts": {
+    "overrule": 110,
+    "wpex": 4
+  },
+  "shortcode_pages": {
+    "overrule": [
+      2586,
+      2616,
+      2649,
+      2651,
+      2711,
+      2753,
+      2763,
+      2868,
+      2874,
+      2892,
+      2953,
+      2959,
+      2970,
+      2973,
+      2976,
+      2981,
+      2984,
+      2994,
+      3040,
+      3046,
+      3059,
+      3080,
+      3087,
+      3105,
+      3110,
+      3115,
+      3130,
+      3141,
+      3191,
+      3214,
+      3222
+    ],
+    "wpex": [
+      1620,
+      2535
+    ]
+  },
+  "embed_pages": {
+    "1568": 28,
+    "1739": 54,
+    "1741": 18,
+    "24": 13,
+    "57": 2,
+    "1388": 2,
+    "1390": 3
+  },
+  "static_katex_errors": {},
+  "remaining_eqnarray_wp_ids": [],
+  "unresolved_shortcodes": [],
+  "shortcode_rendered": {
+    "overrule": 55,
+    "wpex": 1
+  },
+  "redirect_rules": {
+    "/firstofall/": "/first-of-all/",
+    "/early-to-bed-and-early-to-rise/": "/the-early-bird-catches-the-worm/",
+    "/brush-up-your-junior-high-study/": "/brush-up-your-past-study/",
+    "/how-to-make-a-daily-schedule/": "/how-to-make-a-weekly-schedule/"
+  },
+  "redirect_issues": [],
+  "errata_checks": [
+    {
+      "wp_id": 2582,
+      "location": "source line 134; expansion of the b-multiplied parenthesis",
+      "source_original_once": true,
+      "imported_original_once": true,
+      "rendered_correction_added_once": true,
+      "rendered_old_context_absent": true
+    },
+    {
+      "wp_id": 2582,
+      "location": "source line 134; expansion of the c-multiplied parenthesis",
+      "source_original_once": true,
+      "imported_original_once": true,
+      "rendered_correction_added_once": true,
+      "rendered_old_context_absent": true
+    },
+    {
+      "wp_id": 3022,
+      "location": "source line 115; numerator of the displayed mean",
+      "source_original_once": true,
+      "imported_original_once": true,
+      "rendered_correction_added_once": true,
+      "rendered_old_context_absent": true
+    },
+    {
+      "wp_id": 3022,
+      "location": "source line 115; parenthetical positivity claim after the general variance formula",
+      "source_original_once": true,
+      "imported_original_once": true,
+      "rendered_correction_added_once": true,
+      "rendered_old_context_absent": true
+    }
+  ],
+  "review_status": {
+    "needs_review": 45,
+    "passed": 264
+  },
+  "wp1125": {
+    "path": "/basics-of-high-school-math/basics-hb-4-6/",
+    "html_exists": true,
+    "image_local_exists": true,
+    "source_byte_identical": true
+  }
+}

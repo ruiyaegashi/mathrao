@@ -1,0 +1,12 @@
+{
+  "published_articles_checked": 306,
+  "pages_with_client_math": 215,
+  "client_math_expressions_checked": 4986,
+  "expression_counts_for_regressions": {
+    "714": 5,
+    "1125": 5,
+    "2582": 46,
+    "2586": 2
+  },
+  "errors": []
+}

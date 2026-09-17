@@ -1,0 +1,22 @@
+[
+  {
+    "wp_id": 15,
+    "former_slug": "firstofall",
+    "canonical_path": "/first-of-all/"
+  },
+  {
+    "wp_id": 1463,
+    "former_slug": "early-to-bed-and-early-to-rise",
+    "canonical_path": "/the-early-bird-catches-the-worm/"
+  },
+  {
+    "wp_id": 1510,
+    "former_slug": "brush-up-your-junior-high-study",
+    "canonical_path": "/brush-up-your-past-study/"
+  },
+  {
+    "wp_id": 1813,
+    "former_slug": "how-to-make-a-daily-schedule",
+    "canonical_path": "/how-to-make-a-weekly-schedule/"
+  }
+]

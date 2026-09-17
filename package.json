@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/clear_astro_cache.mjs",
     "build": "astro build",
     "check": "astro check"
   },

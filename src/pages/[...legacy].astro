@@ -1,0 +1,60 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import review from '../../migration/review.json';
+
+interface Props {
+  entry: CollectionEntry<'legacy'>;
+}
+
+export async function getStaticPaths() {
+  const entries = await getCollection('legacy', ({ data }) => data.status === 'publish');
+  return entries.map((entry) => ({
+    params: { legacy: entry.data.legacy_path!.replace(/^\/+|\/+$/g, '') },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const state = (review as Record<string, { migration: string }>)[String(entry.data.wp_id)];
+---
+
+<BaseLayout title={entry.data.title}>
+  <article data-legacy-content data-wp-id={entry.data.wp_id} data-migration-review={state?.migration}>
+    <h1>{entry.data.title}</h1>
+    <Content />
+  </article>
+</BaseLayout>
+
+<script>
+  import renderMathInElement from 'katex/contrib/auto-render';
+
+  const article = document.querySelector<HTMLElement>('[data-legacy-content]');
+  if (article) {
+    renderMathInElement(article, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '\\[', right: '\\]', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+      ],
+      ignoredClasses: ['katex', 'katex-display'],
+      throwOnError: false,
+    });
+
+    // Legacy source often wraps display-sized formulas in inline $...$.
+    // Scroll only formulas wider than their text container; retain normal
+    // inline rendering for the many short expressions.
+    const updateMathOverflow = () => {
+      for (const math of article.querySelectorAll<HTMLElement>('.katex')) {
+        if (math.closest('.katex-display')) continue;
+        const container = math.closest<HTMLElement>('p, li, blockquote, td, th, div, aside, section, article');
+        if (!container) continue;
+        math.classList.toggle('katex-scroll', math.getBoundingClientRect().width > container.clientWidth + 4 || math.scrollWidth > container.clientWidth + 4);
+      }
+    };
+    updateMathOverflow();
+    window.addEventListener('resize', updateMathOverflow, { passive: true });
+  }
+</script>

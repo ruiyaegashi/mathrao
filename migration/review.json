@@ -1,0 +1,1856 @@
+{
+  "157": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "162": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "169": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "191": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "226": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "243": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "249": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "255": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "258": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "270": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "274": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "277": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "299": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "304": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "309": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "317": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "323": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "326": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "329": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "338": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "341": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "344": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "350": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "362": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "364": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "366": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "369": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "390": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "393": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "395": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "402": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "411": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "414": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "416": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "420": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "424": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "428": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "433": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "437": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "439": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "443": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "448": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "458": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "474": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "500": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "507": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "511": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "529": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "575": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "591": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "606": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "616": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "624": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "629": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "636": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "650": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "659": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "664": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "672": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "679": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "687": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "696": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "702": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "706": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "714": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "732": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "753": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "768": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "772": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "776": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "780": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "783": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "789": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "792": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "796": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "800": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "807": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "809": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "811": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "817": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "819": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "821": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "824": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "830": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "835": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "837": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "839": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "843": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "846": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "849": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "851": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "856": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "865": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "872": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "877": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "886": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "891": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "894": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "897": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "900": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "908": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "914": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "924": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "943": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "952": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "955": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "957": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "960": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "969": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "976": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "983": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "998": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1000": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1003": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1010": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1012": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1020": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1023": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1027": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1031": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1038": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1052": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1056": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1064": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1067": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1070": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1094": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1100": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1104": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1112": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1125": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1129": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1135": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1146": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1152": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1159": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1165": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1167": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1174": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1178": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1180": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1184": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1194": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1203": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1209": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1216": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1218": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1231": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1234": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1236": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1240": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1242": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1245": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1253": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1258": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1262": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1265": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1268": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1274": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1278": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1283": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1286": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1288": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1402": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1492": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1500": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1538": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1563": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1566": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1568": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1599": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1739": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1741": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2564": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2582": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2586": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2616": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2649": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2651": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2711": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2737": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2753": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2763": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2790": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2797": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2807": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2822": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2831": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2849": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2868": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2874": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2892": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2953": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2959": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2970": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2973": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2976": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2981": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2984": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2994": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3022": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3040": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3046": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3059": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3080": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3084": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3087": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3100": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3105": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3110": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3115": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3120": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3124": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3130": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3135": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3138": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3141": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3147": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3157": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3165": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3191": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3214": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3222": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3228": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3233": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3268": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3281": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3294": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "15": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "24": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "38": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "57": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "88": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "115": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "120": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "131": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "140": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "145": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1303": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1311": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1317": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1329": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1341": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1344": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1350": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1377": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1380": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1384": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1386": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1388": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1390": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1425": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1429": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1431": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1434": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1463": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1465": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1510": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1614": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1620": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1634": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1657": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1734": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1764": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1775": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1782": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1794": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1799": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1811": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1813": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1815": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1817": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1819": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1823": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1826": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1828": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1874": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1876": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1885": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1889": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1891": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1900": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1914": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1916": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1944": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1954": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1956": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1960": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "1962": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2000": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2005": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2036": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2038": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2047": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2049": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2052": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2054": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2070": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2072": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2136": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2202": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2261": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2356": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2392": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2428": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2498": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "2535": {
+    "migration": "needs_review",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3298": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  },
+  "3315": {
+    "migration": "passed",
+    "mathematical": "pending",
+    "curriculum": "pending",
+    "readability": "pending"
+  }
+}
