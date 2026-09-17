@@ -1,0 +1,18 @@
+node_modules/
+.astro/
+dist/
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Legacy WordPress backups and local rescue artifacts
+*.sql
+*.sql.gz
+*.sql.zip
+mathrao-rescue.zip
+mathrao-rescue/
+wp-admin/
+wp-content/
+wp-includes/
+wp-config.php

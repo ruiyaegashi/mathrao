@@ -1,0 +1,23 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const lessons = await getCollection('lessons');
+  return lessons.map((lesson) => ({ params: { id: lesson.id }, props: { lesson } }));
+}
+
+interface Props {
+  lesson: CollectionEntry<'lessons'>;
+}
+
+const { lesson } = Astro.props;
+const { Content } = await render(lesson);
+---
+
+<BaseLayout title={lesson.data.title} description={lesson.data.description}>
+  <nav aria-label="パンくずリスト"><a href="/">ホーム</a> / 教材</nav>
+  <article>
+    <Content />
+  </article>
+</BaseLayout>

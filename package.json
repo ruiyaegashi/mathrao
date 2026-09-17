@@ -1,0 +1,27 @@
+{
+  "name": "mathrao",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.1",
+    "astro": "^7.3.2",
+    "katex": "^0.18.7",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/katex": "^0.16.8",
+    "typescript": "^5.9.3"
+  }
+}

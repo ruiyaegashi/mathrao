@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lessons = await getCollection('lessons');
+lessons.sort((a, b) => a.data.title.localeCompare(b.data.title, 'ja'));
+---
+
+<BaseLayout title="ホーム">
+  <h1>数学を、一歩ずつ。</h1>
+  <p>Mathrao 2.0の準備中です。現在は表示確認用の教材のみ公開しています。</p>
+  <h2>教材</h2>
+  <ul>
+    {lessons.map((lesson) => (
+      <li>
+        <a href={`/lessons/${lesson.id}/`}>{lesson.data.title}</a>
+        {lesson.data.description && <p>{lesson.data.description}</p>}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
