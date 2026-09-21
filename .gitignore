@@ -1,4 +1,7 @@
 node_modules/
+affiliate/products.generated.json
+.dev.vars
+.wrangler/
 .astro/
 dist/
 .env
