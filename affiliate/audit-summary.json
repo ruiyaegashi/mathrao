@@ -1,0 +1,14 @@
+{
+  "public_articles": 306,
+  "articles_with_amazon_signals": 10,
+  "product_occurrences": 120,
+  "unique_asins": 118,
+  "unresolved_short_urls": 4,
+  "observed_associate_tags": {
+    "mathrao-22": 120
+  },
+  "high": 120,
+  "medium": 4,
+  "low": 0,
+  "articles_without_selected_product": 299
+}

@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AmazonProductCards from '../components/AmazonProductCards.astro';
 import review from '../../migration/review.json';
 
 interface Props {
@@ -24,6 +25,7 @@ const state = (review as Record<string, { migration: string }>)[String(entry.dat
   <article data-legacy-content data-wp-id={entry.data.wp_id} data-migration-review={state?.migration}>
     <h1>{entry.data.title}</h1>
     <Content />
+    <AmazonProductCards wpId={entry.data.wp_id} />
   </article>
 </BaseLayout>
 
