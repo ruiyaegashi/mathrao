@@ -2436,7 +2436,7 @@
           "selection_type": "legacy",
           "confidence": "high",
           "current_status": "unknown",
-          "display_status": "pending",
+          "display_status": "validation",
           "reason": "旧Amazon widgetのasinsから抽出"
         },
         {
@@ -4724,6 +4724,20 @@
       "review_status": "not-needed",
       "products": [],
       "unresolved_urls": []
+    }
+  ],
+  "test_searches": [
+    {
+      "key": "normal-distribution-books",
+      "keywords": "高校数学 統計 正規分布 参考書",
+      "search_index": "Books",
+      "item_count": 5
+    },
+    {
+      "key": "math-study-books",
+      "keywords": "高校数学 参考書 数学I A",
+      "search_index": "Books",
+      "item_count": 5
     }
   ]
 }
