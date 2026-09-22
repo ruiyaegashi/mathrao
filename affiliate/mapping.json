@@ -35,7 +35,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4478022593",
@@ -46,7 +48,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4798156264",
@@ -57,7 +61,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4627016514",
@@ -68,7 +74,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "479176305X",
@@ -79,7 +87,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "B01HRI0FLQ",
@@ -90,7 +100,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "B01DDJV4PO",
@@ -101,7 +113,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4797345268",
@@ -112,7 +126,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "415050282X",
@@ -123,7 +139,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4046019972",
@@ -134,7 +152,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4822259218",
@@ -145,7 +165,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4816353275",
@@ -156,7 +178,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4041026261",
@@ -167,7 +191,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         }
       ],
       "unresolved_urls": []
@@ -201,7 +227,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4822259218",
@@ -212,7 +240,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         }
       ],
       "unresolved_urls": []
@@ -2215,7 +2245,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "B013G06ENC",
@@ -2226,7 +2258,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         }
       ],
       "unresolved_urls": []
@@ -2249,7 +2283,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4166610104",
@@ -2260,7 +2296,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4198646201",
@@ -2271,7 +2309,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         }
       ],
       "unresolved_urls": []
@@ -2437,7 +2477,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "validation",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "486615098X",
@@ -2448,7 +2490,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150858",
@@ -2459,7 +2503,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150815",
@@ -2470,7 +2516,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "486615067X",
@@ -2481,7 +2529,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150742",
@@ -2492,7 +2542,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150890",
@@ -2503,7 +2555,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150750",
@@ -2514,7 +2568,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "486615084X",
@@ -2525,7 +2581,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150149",
@@ -2536,7 +2594,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4053035333",
@@ -2547,7 +2607,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4053038561",
@@ -2558,7 +2620,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "405303857X",
@@ -2569,7 +2633,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010348003",
@@ -2580,7 +2646,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010348011",
@@ -2591,7 +2659,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "401034802X",
@@ -2602,7 +2672,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "B01E3U6FHE",
@@ -2613,7 +2685,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010348046",
@@ -2624,7 +2698,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010347880",
@@ -2635,7 +2711,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010347899",
@@ -2646,7 +2724,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010347902",
@@ -2657,7 +2737,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010347910",
@@ -2668,7 +2750,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410105779",
@@ -2679,7 +2763,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410105868",
@@ -2690,7 +2776,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410105566",
@@ -2701,7 +2789,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4402272858",
@@ -2712,7 +2802,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4402272866",
@@ -2723,7 +2815,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4402282179",
@@ -2734,7 +2828,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         }
       ],
       "unresolved_urls": []
@@ -2823,7 +2919,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010347856",
@@ -2834,7 +2932,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010347864",
@@ -2845,7 +2945,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010346051",
@@ -2856,7 +2958,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010340088",
@@ -2867,7 +2971,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010340096",
@@ -2878,7 +2984,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410142771",
@@ -2889,7 +2997,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410142720",
@@ -2900,7 +3010,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410142534",
@@ -2911,7 +3023,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410142569",
@@ -2922,7 +3036,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777213617",
@@ -2933,7 +3049,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777213625",
@@ -2944,7 +3062,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777214877",
@@ -2955,7 +3075,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777214885",
@@ -2966,7 +3088,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777214893",
@@ -2977,7 +3101,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4860669924",
@@ -2988,7 +3114,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4860669916",
@@ -2999,7 +3127,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4860669932",
@@ -3010,7 +3140,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4053029678",
@@ -3021,7 +3153,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796113436",
@@ -3032,7 +3166,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796113444",
@@ -3043,7 +3179,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150157",
@@ -3054,7 +3192,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150599",
@@ -3065,7 +3205,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150459",
@@ -3076,7 +3218,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150696",
@@ -3087,7 +3231,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150823",
@@ -3098,7 +3244,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150165",
@@ -3109,7 +3257,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777213633",
@@ -3120,7 +3270,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777213641",
@@ -3131,7 +3283,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4866150041",
@@ -3142,7 +3296,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4907165927",
@@ -3153,7 +3309,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4907165544",
@@ -3164,7 +3322,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4046007311",
@@ -3175,7 +3335,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887420447",
@@ -3186,7 +3348,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4010341076",
@@ -3197,7 +3361,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887422369",
@@ -3208,7 +3374,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887422377",
@@ -3219,7 +3387,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410106368",
@@ -3230,7 +3400,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796122869",
@@ -3241,7 +3413,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796122885",
@@ -3252,7 +3426,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410142429",
@@ -3263,7 +3439,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4410142259",
@@ -3274,7 +3452,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777215067",
@@ -3285,7 +3465,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777215075",
@@ -3296,7 +3478,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887422202",
@@ -3307,7 +3491,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887422229",
@@ -3318,7 +3504,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887422296",
@@ -3329,7 +3517,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887422334",
@@ -3340,7 +3530,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887421788",
@@ -3351,7 +3543,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887421796",
@@ -3362,7 +3556,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887421931",
@@ -3373,7 +3569,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "488742194X",
@@ -3384,7 +3582,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887422067",
@@ -3395,7 +3595,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4887422075",
@@ -3406,7 +3608,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         }
       ],
       "unresolved_urls": []
@@ -3429,7 +3633,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777220044",
@@ -3440,7 +3646,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796162712",
@@ -3451,7 +3659,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796162720",
@@ -3462,7 +3672,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4865311882",
@@ -3473,7 +3685,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4865311890",
@@ -3484,7 +3698,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4777220230",
@@ -3495,7 +3711,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4325223614",
@@ -3506,7 +3724,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796162917",
@@ -3517,7 +3737,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4890857834",
@@ -3528,7 +3750,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4578240703",
@@ -3539,7 +3763,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4578240711",
@@ -3550,7 +3776,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4578240835",
@@ -3561,7 +3789,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4876477779",
@@ -3572,7 +3802,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4876477949",
@@ -3583,7 +3815,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796113118",
@@ -3594,7 +3828,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796113126",
@@ -3605,7 +3841,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         },
         {
           "old_asin": "4796113134",
@@ -3616,7 +3854,9 @@
           "confidence": "high",
           "current_status": "unknown",
           "display_status": "pending",
-          "reason": "旧Amazon widgetのasinsから抽出"
+          "reason": "旧Amazon widgetのasinsから抽出",
+          "text_link_status": "approved",
+          "text_link_reason": "旧原稿からASINを直接抽出"
         }
       ],
       "unresolved_urls": []
@@ -4739,5 +4979,13 @@
       "search_index": "Books",
       "item_count": 5
     }
-  ]
+  ],
+  "legacy_text_link_policy": {
+    "enabled": true,
+    "associate_tag": "mathrao-22",
+    "format": "https://www.amazon.co.jp/dp/{ASIN}/ref=nosim?tag={TAG}",
+    "label_policy": "asin_only",
+    "product_metadata_source": "none",
+    "note": "旧原稿から直接抽出できたASINだけを、商品名・画像・価格・在庫を伴わないテキスト特別リンクとして表示"
+  }
 }

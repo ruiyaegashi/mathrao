@@ -1,0 +1,32 @@
+{
+  "site": "mathrao",
+  "associate_tag": "mathrao-22",
+  "restorable_occurrences": 120,
+  "rendered_unique_article_asin_links": 120,
+  "target_articles": 7,
+  "unique_asins": 118,
+  "unresolved_short_urls": 4,
+  "manual_review": [
+    {
+      "wp_id": 1799,
+      "legacy_path": "/how-to-concentrate-at-home/",
+      "url": "https://amzn.to/2Vt8l46"
+    },
+    {
+      "wp_id": 1960,
+      "legacy_path": "/how-to-shape-your-future/",
+      "url": "https://amzn.to/2PALyhc"
+    },
+    {
+      "wp_id": 1960,
+      "legacy_path": "/how-to-shape-your-future/",
+      "url": "https://amzn.to/2GPrjd9"
+    },
+    {
+      "wp_id": 1960,
+      "legacy_path": "/how-to-shape-your-future/",
+      "url": "https://amzn.to/2vs6uOe"
+    }
+  ],
+  "verification_scope": "ASIN形式・旧原稿内直接参照・特別リンク形式のみ。現在の商品名・画像・価格・在庫・販売可否は保証しない。"
+}
