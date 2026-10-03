@@ -42,3 +42,10 @@ node scripts/check_rendered_math.mjs
 
 新規教材は `src/content/lessons/` にMarkdownを追加します。数式はKaTeXで表示します。旧原稿の内容を変更する前にレビュー状態を確認してください。
 `pnpm build` はAstroの内容キャッシュを再生成し、校訂台帳の変更を確実に反映します。
+
+## Current implementation locators
+
+- Amazon affiliate current design / pending approval boundary: [reports/AMAZON_AFFILIATE_MIGRATION.md](reports/AMAZON_AFFILIATE_MIGRATION.md)
+- Affiliate mapping regeneration tool: [scripts/extract_affiliates.py](scripts/extract_affiliates.py)
+
+`scripts/extract_affiliates.py` はcurrent `affiliate/mapping.json` を再生成し得るため、通常onboardingでは実行しない。Amazon関連を再調査・再生成する明示的な作業でだけ、差分を確認しながら使用する。
