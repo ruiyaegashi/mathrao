@@ -1,0 +1,12 @@
+name = "mathrao"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-04"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "mathrao-media"
+preview_bucket_name = "mathrao-media"
+
+[[env.production.r2_buckets]]
+binding = "MEDIA"
+bucket_name = "mathrao-media"
