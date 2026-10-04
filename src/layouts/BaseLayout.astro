@@ -3,16 +3,23 @@ import 'katex/dist/katex.min.css';
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = 'Mathrao' } = Astro.props;
+const {
+  title = 'Mathrao',
+  description = '数学を学ぶための教材サイト',
+} = Astro.props;
 const fullTitle = title === 'Mathrao' ? title : `${title} | Mathrao`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <title>{fullTitle}</title>
   </head>
   <body>

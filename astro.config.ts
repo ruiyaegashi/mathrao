@@ -5,6 +5,7 @@ import remarkMath from 'remark-math';
 import { remarkLegacyMarkdown } from './src/lib/legacyMarkdown';
 
 export default defineConfig({
+  site: 'https://mathrao.com',
   output: 'static',
   markdown: {
     processor: unified({
