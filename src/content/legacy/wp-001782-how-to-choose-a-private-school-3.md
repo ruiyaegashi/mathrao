@@ -41,7 +41,7 @@ http://mathrao.com/how-to-choose-a-private-school-4/
 
 
 
-<img class="aligncenter size-full wp-image-1784" src="http://mathrao.com/images/benesse_graph_1.gif" alt="" width="600" height="291" />
+<img class="aligncenter size-full wp-image-1784" src="/media/benesse_graph_1.gif" alt="" width="600" height="291" />
 
 
 

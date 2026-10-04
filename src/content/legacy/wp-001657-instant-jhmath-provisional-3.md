@@ -31,7 +31,7 @@ http://mathrao.com/instant-jhmath-provisional-2/
 
 
 
-<img class="aligncenter size-full wp-image-1672" src="http://mathrao.com/images/numberline1.png" alt="" width="600" height="94" />
+<img class="aligncenter size-full wp-image-1672" src="/media/numberline1.png" alt="" width="600" height="94" />
 
 
 
@@ -51,7 +51,7 @@ http://mathrao.com/instant-jhmath-provisional-2/
 
 
 
-<img class="aligncenter size-full wp-image-1673" src="http://mathrao.com/images/numberline2.png" alt="" width="600" height="97" />
+<img class="aligncenter size-full wp-image-1673" src="/media/numberline2.png" alt="" width="600" height="97" />
 
 
 

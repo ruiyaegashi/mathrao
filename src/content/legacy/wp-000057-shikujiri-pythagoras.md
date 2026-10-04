@@ -530,7 +530,7 @@ source_content_sha256: "3288be1bf691d747a40d4a87d2054990d9fae4a3a65b11466b5f0ddd
 
 
 
-<img class="aligncenter size-full wp-image-68" src="http://mathrao.com/images/triangle-circle.png" alt="" width="400" height="400" />
+<img class="aligncenter size-full wp-image-68" src="/media/triangle-circle.png" alt="" width="400" height="400" />
 
 
 
@@ -694,7 +694,7 @@ source_content_sha256: "3288be1bf691d747a40d4a87d2054990d9fae4a3a65b11466b5f0ddd
 
 
 
-<img class="aligncenter size-full wp-image-69" src="http://mathrao.com/images/b347244a51c40ac66479b0fa3a470b4c.png" alt="" width="400" height="400" />
+<img class="aligncenter size-full wp-image-69" src="/media/b347244a51c40ac66479b0fa3a470b4c.png" alt="" width="400" height="400" />
 
 
 

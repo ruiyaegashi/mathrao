@@ -33,7 +33,7 @@ source_content_sha256: "fda906d5f585198d65f4fce33de5b471b668f87b8e9ec8f7ac98013a
 <p style="padding-left: 30px;">$\sigma=\sqrt{npq}=\sqrt{16\times0.5\times0.5}=2$</p>
 
 
-<img class="size-full wp-image-1126 alignnone" src="http://mathrao.com/images/hanseisuhosei.png" alt="" width="600" height="460" />
+<img class="size-full wp-image-1126 alignnone" src="/media/hanseisuhosei.png" alt="" width="600" height="460" />
 
 
 

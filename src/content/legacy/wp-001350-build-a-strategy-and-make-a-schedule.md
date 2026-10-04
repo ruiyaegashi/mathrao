@@ -121,7 +121,7 @@ http://mathrao.com/take-a-small-step-for-studying/
 
 
 
-<img class="size-full wp-image-1363 alignnone" src="http://mathrao.com/images/schedule1.png" alt="" width="303" height="600" />
+<img class="size-full wp-image-1363 alignnone" src="/media/schedule1.png" alt="" width="303" height="600" />
 
 
 
@@ -131,7 +131,7 @@ http://mathrao.com/take-a-small-step-for-studying/
 
 
 
-<img class="size-full wp-image-1364 alignnone" src="http://mathrao.com/images/schedule2.png" alt="" width="418" height="600" />
+<img class="size-full wp-image-1364 alignnone" src="/media/schedule2.png" alt="" width="418" height="600" />
 
 
 
@@ -206,7 +206,7 @@ http://mathrao.com/take-a-small-step-for-studying/
 
 
 
-<img class="size-full wp-image-1360 alignnone" src="http://mathrao.com/images/schedule3.png" alt="" width="600" height="127" />
+<img class="size-full wp-image-1360 alignnone" src="/media/schedule3.png" alt="" width="600" height="127" />
 
 
 
@@ -246,12 +246,12 @@ http://mathrao.com/take-a-small-step-for-studying/
 
 
 
-<img class="size-full wp-image-1373 alignnone" src="http://mathrao.com/images/schedule4.png" alt="" width="600" height="571" />
+<img class="size-full wp-image-1373 alignnone" src="/media/schedule4.png" alt="" width="600" height="571" />
 
 
 
 
-<img class="size-full wp-image-1374 alignnone" src="http://mathrao.com/images/schedule5.png" alt="" width="600" height="417" />
+<img class="size-full wp-image-1374 alignnone" src="/media/schedule5.png" alt="" width="600" height="417" />
 
 
 
