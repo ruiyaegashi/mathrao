@@ -1,6 +1,7 @@
 ---
 title: "受験勉強の「不安」と「焦り」に打ち勝ちたいなら「小さな成功」をつかめ"
 wp_id: 1388
+featured_image: /media/howtoovercomeimpatienceandanxiety.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-30 14:10:01"

@@ -11,6 +11,7 @@ const articles = defineCollection({
     path: z.string().optional(),
     legacy_path: z.string().nullable().optional(),
     wp_id: z.number().optional(),
+    featured_image: z.string().optional(),
   }).refine((data) => data.status === 'draft' || Boolean(data.path ?? data.legacy_path), {
     message: 'published article requires path or legacy_path',
   }),

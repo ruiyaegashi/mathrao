@@ -1,6 +1,7 @@
 ---
 title: "勉強のやる気スイッチは早押しボタン！出題元は自分の将来"
 wp_id: 1811
+featured_image: /media/howtosetpriorities.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-06 19:07:29"

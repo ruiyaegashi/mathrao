@@ -1,6 +1,7 @@
 ---
 title: "【英語・古典・理科・社会の暗記対策】暗記方法の種類と単語・熟語・古語・文法が覚えられる暗記カードの作り方"
 wp_id: 1916
+featured_image: /media/howtomekeawordcard.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-25 17:58:44"

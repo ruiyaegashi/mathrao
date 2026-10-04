@@ -1,6 +1,7 @@
 ---
 title: "大学受験に帰宅部はあり？なし？時間はあるけど自律が大変…"
 wp_id: 1377
+featured_image: /media/difficultyofobeyingmyownrules.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-28 19:41:07"

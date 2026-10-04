@@ -1,6 +1,7 @@
 ---
 title: "【大学受験】合格から逆算して無駄な勉強を省く「学習計画逆算ダイエット」"
 wp_id: 2038
+featured_image: /media/thinkaboutthegoalfirst.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-02 23:35:38"

@@ -1,6 +1,7 @@
 ---
 title: "勉強の効率を上げる方法「理解」のハードルを上げ続けろ"
 wp_id: 1465
+featured_image: /media/thedegreeofcomprehension.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-11-15 13:54:01"

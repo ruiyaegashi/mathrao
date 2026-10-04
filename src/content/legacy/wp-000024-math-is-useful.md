@@ -1,6 +1,7 @@
 ---
 title: "小中高の算数・数学は人生で何の役に立つの？なんで勉強しなきゃいけないの？"
 wp_id: 24
+featured_image: /media/yakunitatu.jpg
 content_type: "post"
 status: "publish"
 published_at: "2017-05-28 18:04:54"

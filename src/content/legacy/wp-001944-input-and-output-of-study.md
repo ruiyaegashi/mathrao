@@ -1,6 +1,7 @@
 ---
 title: "初見問題に立ち向かって成績・結果をつかみ取れ！アウトプットすることでしか実践力はつかない！"
 wp_id: 1944
+featured_image: /media/inputandoutputofstudy.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-27 12:38:59"

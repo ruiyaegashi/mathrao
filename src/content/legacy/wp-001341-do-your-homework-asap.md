@@ -1,6 +1,7 @@
 ---
 title: "選別せよ！無駄な宿題は学校で友達と協力して計画的に終わらせるべし"
 wp_id: 1341
+featured_image: /media/doyourhomeworkasap.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-27 22:03:22"

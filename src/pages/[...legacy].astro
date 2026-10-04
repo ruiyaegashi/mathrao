@@ -21,6 +21,7 @@ const { Content } = await render(entry);
   <article data-article-content>
     <h1>{entry.data.title}</h1>
     {entry.data.published_at && <p><time datetime={entry.data.published_at}>{entry.data.published_at.slice(0, 10)}</time></p>}
+    {entry.data.featured_image && <img class="featured-image" src={entry.data.featured_image} alt="" />}
     <Content />
   </article>
 </BaseLayout>

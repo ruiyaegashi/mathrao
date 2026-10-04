@@ -1,6 +1,7 @@
 ---
 title: "【朝にすっきり目覚める方法】自分の睡眠スパンを知り不快でない方法で起きて朝勉強しよう"
 wp_id: 1891
+featured_image: /media/howtowakeupwelltostudy.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-21 19:44:42"

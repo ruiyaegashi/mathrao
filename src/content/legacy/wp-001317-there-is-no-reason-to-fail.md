@@ -1,6 +1,7 @@
 ---
 title: "「偏差値◯◯ですけど◯◯大学受かりますか？」→「受からない理由、ある？」"
 wp_id: 1317
+featured_image: /media/thereisnoreasontofail.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-26 02:44:14"

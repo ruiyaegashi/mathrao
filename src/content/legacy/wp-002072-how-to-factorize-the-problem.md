@@ -1,6 +1,7 @@
 ---
 title: "【脱一問一答症候群】高校生よ，知識や問題を因数分解・展開する練習をしよう！入試難問を教科書レベルにまで下げる方法"
 wp_id: 2072
+featured_image: /media/howtofactorizetheproblem.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-09 12:35:10"

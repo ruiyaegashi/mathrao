@@ -1,6 +1,7 @@
 ---
 title: "【パブロフの犬】勉強中ではなく勉強前に音楽を聞いてやる気を奮い立たせろ！"
 wp_id: 1815
+featured_image: /media/listentomusictostudy.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-12 15:43:01"

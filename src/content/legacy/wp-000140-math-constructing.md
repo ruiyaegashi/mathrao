@@ -1,6 +1,7 @@
 ---
 title: "算数・数学の構成力を高めるなら問題集選びが重要！"
 wp_id: 140
+featured_image: /media/kouseiryokutomondaishu.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-06-25 21:44:38"

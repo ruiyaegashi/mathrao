@@ -1,6 +1,7 @@
 ---
 title: "【勉強のスランプからの脱出】成績の伸び悩みを解決する方法"
 wp_id: 1828
+featured_image: /media/howtogetoutofaslump.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-14 16:35:09"

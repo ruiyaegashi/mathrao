@@ -1,6 +1,7 @@
 ---
 title: "【定義・定理・公式】高校数学基本事項 - 数学B - 【補足】正規分布による近似の半整数補正"
 wp_id: 1125
+featured_image: /media/hanseisuhosei.png
 content_type: "page"
 status: "publish"
 published_at: "2018-10-22 13:44:41"

@@ -1,6 +1,7 @@
 ---
 title: "【大学受験】保護者の方へ，高校生の塾へ行かせる時期と塾の選び方【後編】"
 wp_id: 1823
+featured_image: /media/howtochooseaprivateschool.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-02 17:38:10"

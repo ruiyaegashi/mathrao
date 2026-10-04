@@ -1,6 +1,7 @@
 ---
 title: "【検定】英検・漢検・数検は高校受験・大学受験の役に立つ！取得する学年と級の関係"
 wp_id: 1817
+featured_image: /media/certificationtestofenglishkanjimath.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-13 13:28:03"

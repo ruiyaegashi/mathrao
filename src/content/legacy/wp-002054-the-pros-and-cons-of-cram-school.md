@@ -1,6 +1,7 @@
 ---
 title: "【中高生向け】塾・予備校のメリットとデメリット！通う理由をはっきり決めよう"
 wp_id: 2054
+featured_image: /media/theprosandconsofcramschool.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-08 13:21:48"

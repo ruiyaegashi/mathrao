@@ -1,6 +1,7 @@
 ---
 title: "クソマジメからの脱却「真面目に勉強しろ」なんて語彙力のない大人の戯言"
 wp_id: 1329
+featured_image: /media/dontstayseriousstayactive.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-27 18:07:33"

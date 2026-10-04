@@ -1,6 +1,7 @@
 ---
 title: "教科書に線を引くだけでは勉強にならない！ノートを使って覚える仕組み作りを"
 wp_id: 1889
+featured_image: /media/drawlinesandtranscribe.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-21 16:32:55"

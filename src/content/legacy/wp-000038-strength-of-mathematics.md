@@ -1,6 +1,7 @@
 ---
 title: "【定義】「数学力」とは何か？"
 wp_id: 38
+featured_image: /media/strength-of-mathematics.png
 content_type: "post"
 status: "publish"
 published_at: "2017-05-28 22:27:19"

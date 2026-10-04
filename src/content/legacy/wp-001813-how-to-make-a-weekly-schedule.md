@@ -1,6 +1,7 @@
 ---
 title: "1週間毎の簡易版スケジュール「やることリスト」を使って無駄なく効率的に勉強を"
 wp_id: 1813
+featured_image: /media/howtomakeaweeklyschedule.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-11 16:30:17"

@@ -1,6 +1,7 @@
 ---
 title: "「○○大学合格！」壁に目標を張り出すくらいなら自分でニンジンぶら下げた方がやる気は出る"
 wp_id: 1303
+featured_image: /media/danglingthecarrot.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-25 22:22:54"

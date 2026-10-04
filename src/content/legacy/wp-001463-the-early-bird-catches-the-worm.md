@@ -1,6 +1,7 @@
 ---
 title: "「夜型」で良いことなんて何もない！「朝型」生活で健康的に勉強を"
 wp_id: 1463
+featured_image: /media/theearlybirdcatchestheworm.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-11-18 00:49:42"

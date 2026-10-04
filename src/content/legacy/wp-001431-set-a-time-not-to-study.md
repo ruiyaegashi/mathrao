@@ -1,6 +1,7 @@
 ---
 title: "逆転の発想！勉強時間ではなく、勉強しない時間を決める"
 wp_id: 1431
+featured_image: /media/setatimenottostudy.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-11-02 15:35:15"

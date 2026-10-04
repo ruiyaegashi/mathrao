@@ -1,6 +1,7 @@
 ---
 title: "受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方"
 wp_id: 1350
+featured_image: /media/buildastrategyandmakeaschedule.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-28 18:11:25"

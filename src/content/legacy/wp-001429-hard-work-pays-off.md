@@ -1,6 +1,7 @@
 ---
 title: "「勉強しても結果が出ない」ってどういうこと？ちゃんと結果を分析してる？"
 wp_id: 1429
+featured_image: /media/hardworkpaysoff.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-11-18 16:56:36"

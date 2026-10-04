@@ -1,6 +1,7 @@
 ---
 title: "勉強が「つまらない・好きになれない」のは「分かってない」からだけじゃない"
 wp_id: 1425
+featured_image: /media/aptitudeofenjoyingthingswhichyoucantunderstand.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-11-02 18:14:43"

@@ -1,6 +1,7 @@
 ---
 title: "質問上手は勉強上手！疑問の解決から記述力まで伸びる先生への質問術"
 wp_id: 1956
+featured_image: /media/askteachersgoodquestions.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-27 23:09:14"

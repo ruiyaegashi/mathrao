@@ -1,6 +1,7 @@
 ---
 title: "【しくじり先生】中田塾：ピタゴラスのしくじりから学ぶ「勉強する理由」【しくじり偉人伝】"
 wp_id: 57
+featured_image: /media/pythagoras.png
 content_type: "post"
 status: "publish"
 published_at: "2017-06-16 14:47:02"

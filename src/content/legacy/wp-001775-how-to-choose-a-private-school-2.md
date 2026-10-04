@@ -1,6 +1,7 @@
 ---
 title: "【私立中学受験・公立中学進学】保護者の方へ，小学生の塾へ行かせる時期と塾の選び方【後編】"
 wp_id: 1775
+featured_image: /media/howtochooseaprivateschool.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-03-22 18:31:40"

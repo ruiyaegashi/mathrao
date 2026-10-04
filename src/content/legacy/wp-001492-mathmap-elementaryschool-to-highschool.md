@@ -1,6 +1,7 @@
 ---
 title: "小学校算数・中学校数学・高等学校数学単元対応表(系統一覧表)"
 wp_id: 1492
+featured_image: /media/mathmapelementaryschooltohighschool.jpg
 content_type: "page"
 status: "publish"
 published_at: "2018-11-21 18:14:20"

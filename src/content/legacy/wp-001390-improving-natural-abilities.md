@@ -1,6 +1,7 @@
 ---
 title: "「地頭」っぽいものを鍛えれば勉強が加速していく"
 wp_id: 1390
+featured_image: /media/improvingnaturalabilities.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-30 19:07:41"

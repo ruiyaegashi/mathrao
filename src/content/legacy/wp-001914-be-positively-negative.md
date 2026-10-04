@@ -1,6 +1,7 @@
 ---
 title: "【精神論】現実を受け入れて勉強しよう！ポジティブにネガティブであれ"
 wp_id: 1914
+featured_image: /media/bepositivelynegative.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-24 12:30:49"

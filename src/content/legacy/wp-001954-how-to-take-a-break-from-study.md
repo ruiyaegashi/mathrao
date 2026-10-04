@@ -1,6 +1,7 @@
 ---
 title: "勉強にメリハリをつけるためには休憩が大事！オンオフを切り替える時間別おすすめ休憩方法"
 wp_id: 1954
+featured_image: /media/howtotakeabreakfromstudy.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-27 20:24:46"

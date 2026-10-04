@@ -1,6 +1,7 @@
 ---
 title: "試験の本番は焦るもの！テストでテンパらないための対策とテンパったときの対処法"
 wp_id: 1876
+featured_image: /media/howtopullyourselftogether.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-18 13:17:28"

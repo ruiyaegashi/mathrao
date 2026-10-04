@@ -1,6 +1,7 @@
 ---
 title: "【大学受験】独学でも合格できる！挑戦・成長したいなら独学，安心・効率を求めるなら塾・予備校"
 wp_id: 2136
+featured_image: /media/studyonyourown.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-09 20:55:23"
