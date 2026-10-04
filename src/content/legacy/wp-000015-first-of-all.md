@@ -1,6 +1,7 @@
 ---
 title: "はじめに"
 wp_id: 15
+featured_image: /media/math_classroom.jpg
 content_type: "post"
 status: "publish"
 published_at: "2017-05-26 14:33:55"

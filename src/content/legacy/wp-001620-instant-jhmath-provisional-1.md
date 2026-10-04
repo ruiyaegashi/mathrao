@@ -46,7 +46,7 @@ http://mathrao.com/instant-jhmath-provisional-0/
 
 
 
-<a href="http://mathrao.com/images/mathmap.png"><img class="aligncenter size-full wp-image-1490" src="http://mathrao.com/images/mathmap_s.png" alt="" width="600" height="424" /></a>
+<a href="/media/mathmap.png"><img class="aligncenter size-full wp-image-1490" src="/media/mathmap_s.png" alt="" width="600" height="424" /></a>
 
 
 

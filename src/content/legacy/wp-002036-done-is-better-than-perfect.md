@@ -1,6 +1,7 @@
 ---
 title: "勉強における \"Done is better than perfect.\" 受験生は完璧主義より完遂主義であれ"
 wp_id: 2036
+featured_image: /media/doneisbetterthanperfect.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-01 01:20:26"

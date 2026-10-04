@@ -1,6 +1,7 @@
 ---
 title: "【私立・公立高校受験】保護者の方へ，中学生の塾へ行かせる時期と塾の選び方【前編】"
 wp_id: 1782
+featured_image: /media/howtochooseaprivateschool.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-03-27 13:32:46"
@@ -41,7 +42,7 @@ http://mathrao.com/how-to-choose-a-private-school-4/
 
 
 
-<img class="aligncenter size-full wp-image-1784" src="http://mathrao.com/images/benesse_graph_1.gif" alt="" width="600" height="291" />
+<img class="aligncenter size-full wp-image-1784" src="/media/benesse_graph_1.gif" alt="" width="600" height="291" />
 
 
 

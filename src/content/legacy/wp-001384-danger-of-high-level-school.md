@@ -1,6 +1,7 @@
 ---
 title: "選ぶなキケン！高校受験で進学校に行きたいならカリキュラムを調べろ"
 wp_id: 1384
+featured_image: /media/dangerofhighlevelschool.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-29 18:38:06"

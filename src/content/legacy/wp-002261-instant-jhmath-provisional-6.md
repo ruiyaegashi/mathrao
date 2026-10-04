@@ -190,7 +190,7 @@ http://mathrao.com/instant-jhmath-provisional-5/
 
 
 
-<img class="alignnone size-full wp-image-2270" src="http://mathrao.com/images/complexnumber.png" alt="" width="600" height="261" />
+<img class="alignnone size-full wp-image-2270" src="/media/complexnumber.png" alt="" width="600" height="261" />
 
 
 </div>

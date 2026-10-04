@@ -1,6 +1,7 @@
 ---
 title: "「勉強できる」=「才能がある」？そもそも「才能」って何？誰にでも「才能」はある？"
 wp_id: 1380
+featured_image: /media/whatisaptitude.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-29 02:41:44"

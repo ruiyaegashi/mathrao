@@ -1,6 +1,7 @@
 ---
 title: "算数・数学は計算ミスとの戦い！必ず対策をしよう"
 wp_id: 120
+featured_image: /media/keisanmiss.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-05-28 21:23:34"

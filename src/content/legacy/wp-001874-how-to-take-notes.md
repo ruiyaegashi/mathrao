@@ -1,6 +1,7 @@
 ---
 title: "中高生必見！授業を最大限に活用して得点に結びつける教科別ノートの取り方・テクニック"
 wp_id: 1874
+featured_image: /media/howtotakenotes.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-16 17:55:48"

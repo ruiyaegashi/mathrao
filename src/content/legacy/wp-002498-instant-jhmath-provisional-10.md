@@ -717,7 +717,7 @@ $∠\mathrm{AOB}$ の二等分線の作図
 
 
 
-<img class="alignnone wp-image-2518" src="http://mathrao.com/images/instant-jhmath-provisional-10_ex1-2.png" alt="" width="300" height="262" />
+<img class="alignnone wp-image-2518" src="/media/instant-jhmath-provisional-10_ex1-2.png" alt="" width="300" height="262" />
 
 
 
@@ -758,7 +758,7 @@ $\triangle \mathrm{OAB}$ と $\triangle \mathrm{ODC}$ において
 
 
 
-<img class="alignnone wp-image-2518" src="http://mathrao.com/images/instant-jhmath-provisional-10_ex1-2.png" alt="" width="300" height="262" />
+<img class="alignnone wp-image-2518" src="/media/instant-jhmath-provisional-10_ex1-2.png" alt="" width="300" height="262" />
 
 
 

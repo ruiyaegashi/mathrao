@@ -1,6 +1,7 @@
 ---
 title: "高校・大学受験には仲間・ライバル・目標・救世主になる友達がほしい"
 wp_id: 1826
+featured_image: /media/studywithfriends.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-14 00:56:33"

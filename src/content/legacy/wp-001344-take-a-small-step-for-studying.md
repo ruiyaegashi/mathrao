@@ -1,6 +1,7 @@
 ---
 title: "面倒くささを振り払って勉強に1歩踏み出すなら「超スモールステップ→次回予告→習慣化」"
 wp_id: 1344
+featured_image: /media/takeasmallstepforstudying.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-28 03:25:12"

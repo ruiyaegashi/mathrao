@@ -1,6 +1,7 @@
 ---
 title: "【飽き性万歳】草彅くんの言う通り！「三日坊主でいいじゃない，やらないよりさ」的な勉強法"
 wp_id: 2000
+featured_image: /media/threedaysmonksyndrome.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-28 20:32:02"

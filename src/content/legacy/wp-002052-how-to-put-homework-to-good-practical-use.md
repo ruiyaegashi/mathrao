@@ -1,6 +1,7 @@
 ---
 title: "【運ゲー】授業・教科書・宿題だけで大学に受かるかどうかは学校の方針と先生の質次第"
 wp_id: 2052
+featured_image: /media/howtoputhomeworktogoodpracticaluse.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-07 17:39:53"

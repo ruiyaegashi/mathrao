@@ -1,6 +1,7 @@
 ---
 title: "算数・数学で記述・証明問題ができないのは単純に練習してこなかったから"
 wp_id: 145
+featured_image: /media/shomeinorenshu.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-06-29 20:13:05"

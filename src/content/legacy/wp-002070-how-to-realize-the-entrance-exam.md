@@ -1,6 +1,7 @@
 ---
 title: "【百想は一見にしかず】目の前に数年後の君がいる！中高1，2年生は受験前後の3年生を目に焼き付けろ"
 wp_id: 2070
+featured_image: /media/howtorealizetheentranceexam.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-08 16:51:29"

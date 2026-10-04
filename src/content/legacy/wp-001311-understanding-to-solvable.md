@@ -1,6 +1,7 @@
 ---
 title: "勉強が「わかる」から「できる」に変わらないのは単純に反復練習不足"
 wp_id: 1311
+featured_image: /media/understandingtosolvable.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-26 00:38:26"

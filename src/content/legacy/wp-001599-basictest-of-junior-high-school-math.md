@@ -115,9 +115,9 @@ source_content_sha256: "1df85073071ef95039bdcfa2d633dee01f8b6963c4638540ee398e10
 
 
 <ul>
-	<li><a href="http://mathrao.com/images/test_j1_basic.pdf" target="_blank">中学１年 基本確認テスト</a></li>
-	<li><a href="http://mathrao.com/images/test_j2_basic.pdf" target="_blank">中学２年 基本確認テスト</a></li>
-	<li><a href="http://mathrao.com/images/test_j3_basic.pdf" target="_blank">中学３年 基本確認テスト</a></li>
+	<li><a href="/media/test_j1_basic.pdf" target="_blank">中学１年 基本確認テスト</a></li>
+	<li><a href="/media/test_j2_basic.pdf" target="_blank">中学２年 基本確認テスト</a></li>
+	<li><a href="/media/test_j3_basic.pdf" target="_blank">中学３年 基本確認テスト</a></li>
 </ul>
 
 

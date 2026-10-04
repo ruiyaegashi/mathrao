@@ -1,6 +1,7 @@
 ---
 title: "小中高生が自宅で集中して勉強する方法「人目のあるリビングで監視されろ！」は正しいのか？"
 wp_id: 1799
+featured_image: /media/howtoconcentrateathome.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-05 12:44:19"

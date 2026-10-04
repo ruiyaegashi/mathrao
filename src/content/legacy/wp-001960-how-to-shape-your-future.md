@@ -1,6 +1,7 @@
 ---
 title: "【将来の夢の見つけ方】色々なことに興味を持って自分の選択肢を広げよう"
 wp_id: 1960
+featured_image: /media/howtoshapeyourfuture.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-28 14:48:44"

@@ -1,6 +1,7 @@
 ---
 title: "勉強における「失敗は成功のもと」とにかくクールに試験・模試の解き直しとPDCAを回す"
 wp_id: 1386
+featured_image: /media/everyfailureisasteppingstonetosuccess.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-10-30 10:47:43"

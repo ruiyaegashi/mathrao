@@ -1,6 +1,7 @@
 ---
 title: "算数・数学が苦手な君、「覚えることが多すぎる」って思ってない？"
 wp_id: 88
+featured_image: /media/senbiki.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-05-22 21:50:39"

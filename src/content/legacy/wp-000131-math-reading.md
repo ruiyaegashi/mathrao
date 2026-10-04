@@ -1,6 +1,7 @@
 ---
 title: "算数・数学の「ちゃんと問題読みなさいよ」は聞き飽きた？"
 wp_id: 131
+featured_image: /media/chantoyomu.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-06-01 22:05:26"

@@ -1,6 +1,7 @@
 ---
 title: "「珠算(そろばん)」ができるとと算数・数学が得意になる？"
 wp_id: 115
+featured_image: /media/soroban.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-05-23 22:03:15"

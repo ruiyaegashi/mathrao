@@ -1,6 +1,7 @@
 ---
 title: "【中高生向け苦手教科を克服する方法】課題を決めて短期集中で小卒・中卒レベルまで持っていく"
 wp_id: 1900
+featured_image: /media/howtoovercomeweaknessesofstudy.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-23 16:37:00"

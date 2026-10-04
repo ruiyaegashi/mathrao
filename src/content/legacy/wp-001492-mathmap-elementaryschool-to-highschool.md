@@ -1,6 +1,7 @@
 ---
 title: "小学校算数・中学校数学・高等学校数学単元対応表(系統一覧表)"
 wp_id: 1492
+featured_image: /media/mathmapelementaryschooltohighschool.jpg
 content_type: "page"
 status: "publish"
 published_at: "2018-11-21 18:14:20"
@@ -26,12 +27,12 @@ source_content_sha256: "fbee3cb639dc814559d5b662e70086eea102b9e0e4527c4aee35a0bd
 
 
 
-<a href="http://mathrao.com/images/mathmap.png"><img class="aligncenter wp-image-1490 size-full" src="http://mathrao.com/images/mathmap_s.png" alt="" width="600" height="424" /></a>
+<a href="/media/mathmap.png"><img class="aligncenter wp-image-1490 size-full" src="/media/mathmap_s.png" alt="" width="600" height="424" /></a>
 
 
 
 
-<a href="http://mathrao.com/images/mathmap.pdf" target="_blank" rel="noopener">PDF</a>
+<a href="/media/mathmap.pdf" target="_blank" rel="noopener">PDF</a>
 
 
 

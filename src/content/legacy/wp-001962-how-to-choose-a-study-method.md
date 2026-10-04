@@ -1,6 +1,7 @@
 ---
 title: "【中高生向け】勉強法の選び方！自分に合った方法を見つけるための判断基準"
 wp_id: 1962
+featured_image: /media/howtochooseastudymethod.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-28 18:27:50"

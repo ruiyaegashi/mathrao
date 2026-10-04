@@ -1,6 +1,7 @@
 ---
 title: "受験勉強での優先順位の決め方！計画の自由度を上げてやる気を引き出す"
 wp_id: 2047
+featured_image: /media/howtogiveprioritytostudy.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-04 18:59:24"

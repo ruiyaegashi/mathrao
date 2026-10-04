@@ -1,6 +1,7 @@
 ---
 title: "【しくじり先生】中田塾：ピタゴラスのしくじりから学ぶ「勉強する理由」【しくじり偉人伝】"
 wp_id: 57
+featured_image: /media/pythagoras.png
 content_type: "post"
 status: "publish"
 published_at: "2017-06-16 14:47:02"
@@ -530,7 +531,7 @@ source_content_sha256: "3288be1bf691d747a40d4a87d2054990d9fae4a3a65b11466b5f0ddd
 
 
 
-<img class="aligncenter size-full wp-image-68" src="http://mathrao.com/images/triangle-circle.png" alt="" width="400" height="400" />
+<img class="aligncenter size-full wp-image-68" src="/media/triangle-circle.png" alt="" width="400" height="400" />
 
 
 
@@ -694,7 +695,7 @@ source_content_sha256: "3288be1bf691d747a40d4a87d2054990d9fae4a3a65b11466b5f0ddd
 
 
 
-<img class="aligncenter size-full wp-image-69" src="http://mathrao.com/images/b347244a51c40ac66479b0fa3a470b4c.png" alt="" width="400" height="400" />
+<img class="aligncenter size-full wp-image-69" src="/media/b347244a51c40ac66479b0fa3a470b4c.png" alt="" width="400" height="400" />
 
 
 

@@ -1,6 +1,7 @@
 ---
 title: "本番は1回きり！「本番に弱い」「本番は実力の8割しか出せない」なんて言い訳は聞き飽きた"
 wp_id: 1434
+featured_image: /media/thereforeyouarebadwhenitcounts.jpg
 content_type: "post"
 status: "publish"
 published_at: "2018-11-19 01:27:23"

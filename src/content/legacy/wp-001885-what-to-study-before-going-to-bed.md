@@ -1,6 +1,7 @@
 ---
 title: "スマホをいじるな！勉強の夢を見ろ！寝る直前にすべき勉強は暗記と復習"
 wp_id: 1885
+featured_image: /media/whattostudybeforegoingtobed.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-19 13:44:05"

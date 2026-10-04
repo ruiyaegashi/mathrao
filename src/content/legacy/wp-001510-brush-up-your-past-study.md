@@ -1,6 +1,7 @@
 ---
 title: "中学・高校に進学しても勉強はリセットされない！つまずいたら小学・中学レベルを見直そう"
 wp_id: 1510
+featured_image: /media/brushupyourpaststudy.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-21 13:07:26"

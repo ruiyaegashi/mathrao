@@ -1,6 +1,7 @@
 ---
 title: "【試験におけるエラー・ミス・不勉強の違い】受験・定期試験でのケアレスミスが招く重大な問題とその対策"
 wp_id: 2005
+featured_image: /media/howtomakelesscarelessmistakes.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-04-30 13:42:20"

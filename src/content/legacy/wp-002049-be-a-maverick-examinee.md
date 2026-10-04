@@ -1,6 +1,7 @@
 ---
 title: "【団体戦から個人戦へ】受験を経て英雄になろう！烏合の衆から一匹狼へ【マズローの自己実現理論と受験】"
 wp_id: 2049
+featured_image: /media/beamaverickexaminee.jpg
 content_type: "post"
 status: "publish"
 published_at: "2019-05-05 00:36:48"
