@@ -46,7 +46,7 @@ jobs:
 
           article_paths = []
           media_keys = set()
-          media_re = re.compile(r'/media/([^"\'<>\\s)]+)')
+          media_re = re.compile(r'/media/([^"\'<>\s)]+)')
 
           for p in sorted(ARTICLES.glob("*.md")):
               text = p.read_text(encoding="utf-8")
