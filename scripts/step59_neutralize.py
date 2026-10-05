@@ -206,7 +206,7 @@ def normalize_eqnarray(body: str, stats: Counter, eqn_articles: set[str]) -> str
         elif kind == "wrapper_removed":
             stats["eqnarray_wrapper_removed"] += 1
         stats["bare_eqnarray_delimited"] += 1
-        return "$$" + new + "$$"
+        return "&#36;&#36;" + new + "&#36;&#36;"
 
     return EQN_RE.sub(bare_repl, body)
 
@@ -439,6 +439,17 @@ def transform() -> None:
         body = normalize_markdown_math_entities(body, stats)
         body = normalize_eqnarray(body, stats, eqn_articles)
 
+        def standalone_local_url(m: re.Match[str]) -> str:
+            path = m.group("path")
+            stats["standalone_local_links"] += 1
+            return f"{m.group('indent')}[{path}]({path}){m.group('trail')}"
+
+        body = re.sub(
+            r"(?m)^(?P<indent>[ \\t]*)(?:https?:)?//(?:www\\.)?mathrao\\.com(?P<path>/[^\\s<>]+)(?P<trail>[ \\t]*)$",
+            standalone_local_url,
+            body,
+        )
+
         body, url_count = LOCAL_HOST_RE.subn("", body)
         stats["body_local_url_normalized"] += url_count
 
@@ -526,6 +537,7 @@ def transform() -> None:
         "old_absolute_local_urls_frontmatter": url_header,
         "old_absolute_local_urls_body": url_body,
         "normalized_body_urls": stats["body_local_url_normalized"],
+        "standalone_local_links": stats["standalone_local_links"],
         "standalone_nbsp_removed": stats["standalone_nbsp_removed"],
         "errata_applied": stats["errata_applied"],
         "overrule_pairs": stats["overrule_open"],
