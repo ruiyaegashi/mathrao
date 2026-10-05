@@ -69,10 +69,19 @@ def shortcode_label(token: str) -> str:
 def transform_shortcodes(body: str, stats: Counter, articles: dict[str, set[str]]) -> str:
     stack: list[str] = []
     out: list[str] = []
-    for line in body.splitlines(keepends=True):
-        matches = list(SHORTCODE_RE.finditer(line))
+
+    parts = re.split(r"(\n[ \t]*\n(?:[ \t]*\n)*)", body)
+
+    for index, block in enumerate(parts):
+        if index % 2 == 1:
+            out.append(block)
+            continue
+        if not block:
+            continue
+
+        matches = list(SHORTCODE_RE.finditer(block))
         if not matches:
-            out.append(line)
+            out.append(block)
             continue
 
         opens = [m for m in matches if not m.group(1)]
@@ -83,12 +92,14 @@ def transform_shortcodes(body: str, stats: Counter, articles: dict[str, set[str]
             stats[f"{name}_open"] += 1
             articles[name].add(CURRENT_ARTICLE)
             if name == "overrule":
-                out.append('<aside class="article-note">\n')
+                out.append('<aside class="article-note">\n\n')
             else:
-                out.append(f'<details class="article-details"><summary>{shortcode_label(m.group(0))}</summary>\n')
+                out.append(
+                    f'<details class="article-details"><summary>{shortcode_label(m.group(0))}</summary>\n\n'
+                )
             stack.append(name)
 
-        cleaned = SHORTCODE_RE.sub("", line)
+        cleaned = SHORTCODE_RE.sub("", block)
         if cleaned.strip():
             out.append(cleaned)
 
@@ -99,11 +110,12 @@ def transform_shortcodes(body: str, stats: Counter, articles: dict[str, set[str]
             if not stack or stack[-1] != name:
                 raise RuntimeError(f"shortcode nesting mismatch in {CURRENT_ARTICLE}: {m.group(0)}")
             stack.pop()
-            out.append("</aside>\n" if name == "overrule" else "</details>\n")
+            out.append("\n\n</aside>" if name == "overrule" else "\n\n</details>")
 
     if stack:
         raise RuntimeError(f"unclosed shortcode in {CURRENT_ARTICLE}: {stack}")
     return "".join(out)
+
 
 HTML_BLOCK_START_RE = re.compile(
     r"^\s*</?(?:address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?:\s|>|/>)",
@@ -449,6 +461,17 @@ def transform() -> None:
         body = normalize_markdown_math_entities(body, stats)
         body = normalize_eqnarray(body, stats, eqn_articles)
 
+        def bracketed_local_url(m: re.Match[str]) -> str:
+            path = m.group("path")
+            stats["bracketed_local_links"] += 1
+            return f"\\[[{path}]({path})\\]"
+
+        body = re.sub(
+            r"\[(?:https?:)?//(?:www\.)?mathrao\.com(?P<path>/[^\]\s<>]+)\]",
+            bracketed_local_url,
+            body,
+        )
+
         def standalone_local_url(m: re.Match[str]) -> str:
             path = m.group("path")
             stats["standalone_local_links"] += 1
@@ -530,6 +553,8 @@ def transform() -> None:
         raise RuntimeError(f"bare eqnarray count mismatch: {stats['bare_eqnarray_delimited']}")
     if stats["standalone_local_links"] <= 0:
         raise RuntimeError("standalone local URL conversion count is zero")
+    if stats["bracketed_local_links"] != 1:
+        raise RuntimeError(f"bracketed local URL count mismatch: {stats['bracketed_local_links']}")
 
     all_new = "\n".join(p.read_text(encoding="utf-8") for p in sorted(CONTENT_NEW.glob("*.md")))
     if SHORTCODE_RE.search(all_new):
@@ -552,6 +577,7 @@ def transform() -> None:
         "old_absolute_local_urls_body": url_body,
         "normalized_body_urls": stats["body_local_url_normalized"],
         "standalone_local_links": stats["standalone_local_links"],
+        "bracketed_local_links": stats["bracketed_local_links"],
         "standalone_nbsp_removed": stats["standalone_nbsp_removed"],
         "errata_applied": stats["errata_applied"],
         "overrule_pairs": stats["overrule_open"],
