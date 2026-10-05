@@ -181,7 +181,7 @@ def normalize_eqnarray(body: str, stats: Counter, eqn_articles: set[str]) -> str
         eqn_articles.add(CURRENT_ARTICLE)
 
     raw_html_eqn = re.compile(
-        r"(<p\\b[^>]*>)(\\s*)(\\begin\\{eqnarray\\}[\\s\\S]*?\\end\\{eqnarray\\})(\\s*)(</p>)",
+        r"(<p\b[^>]*>)(\s*)(\\begin\{eqnarray\}[\s\S]*?\\end\{eqnarray\})(\s*)(</p>)",
         re.I,
     )
 
