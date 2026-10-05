@@ -11,14 +11,3 @@ dist/
 __pycache__/
 *.py[cod]
 .pytest_cache/
-
-# Legacy WordPress backups and local rescue artifacts
-*.sql
-*.sql.gz
-*.sql.zip
-mathrao-rescue.zip
-mathrao-rescue/
-wp-admin/
-wp-content/
-wp-includes/
-wp-config.php

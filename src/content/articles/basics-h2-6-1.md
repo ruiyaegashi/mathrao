@@ -1,0 +1,159 @@
+---
+title: "【定義・定理・公式】高校数学基本事項 - 数学Ⅱ - 微分係数と導関数"
+status: "published"
+published_at: "2018-10-13 23:06:51"
+path: "/basics-of-high-school-math/basics-h2-6-1/"
+---
+
+## 平均変化率
+
+
+
+
+【定義】
+
+
+
+
+関数 $y=f(x)$ において，$y$ の変化量 $f(b)-f(a)$ の $x$ の変化量 $b-a$ に対する割合 $\boldsymbol{\frac{f(b)-f(a)}{b-a}}$ ( $a \neq b$ )を，$x$ が $a$ から $b$ まで変化するときの関数 $f(x)$ の<strong>平均変化率</strong>という。
+
+
+
+
+
+
+
+
+
+## 極限値と微分係数
+
+
+
+
+<strong>極限値</strong>
+
+
+
+
+関数 $f(x)$ において，$x$ が $a$ と異なる値をとりながら $a$ に限りなく近づくとき，$f(x)$ がある一定の値 $\alpha$ に限りなく近づく場合，この $\alpha$ を $f(x)$ の<strong>極限値</strong>という。
+
+
+<p style="padding-left: 30px;">$\displaystyle \lim_{x \to a} f(x)= \alpha$</p>
+<p style="padding-left: 30px;">$x \to a$ のとき $f(x) \to \alpha$</p>
+
+
+<strong>微分係数</strong>
+
+
+
+
+関数 $f(x)$ の $x=a$ における微分係数(変化率) $f'(a)$ は
+
+
+<p style="padding-left: 30px;">$f'(a)= \displaystyle \lim_{b \to a} \frac{f(b)-f(a)}{b-a}$</p>
+<p style="padding-left: 30px;">$f'(a)= \displaystyle \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}$</p>
+
+
+<strong>微分係数の図形的な意味</strong>
+
+
+
+
+曲線 $y=f(x)$ 上の点 $\mathrm{A} (a,f(a))$ における曲線の接線の傾きは，関数 $f(x)$ の $x=a$ における微分係数 $f'(a)$ で表される。
+
+
+
+
+
+
+
+
+
+## 導関数
+
+
+
+
+【定義】
+
+
+
+
+<strong>導関数</strong>
+
+
+
+
+関数 $f(x)$ の導関数 $f'(x)$ は
+
+
+<p style="padding-left: 30px;">$f'(x)= \displaystyle \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} = \displaystyle \lim_{x \to 0} \frac{\Delta y}{\Delta x}$</p>
+<p style="padding-left: 30px;">※導関数の表記は，$f'(x)$，$y'$，$\frac{dy}{dx}$，$\frac{d}{dx} f(x)$ 等を用いる。</p>
+
+
+$\boldsymbol{x}$ <strong>の増分( $\boldsymbol{\Delta x}$ )</strong>：導関数の定義における $h$
+
+
+
+
+$\boldsymbol{y}$ <strong>の増分( $\boldsymbol{\Delta y}$ )</strong>：導関数の定義における $f(x+h)-f(x)$
+
+
+
+
+<strong>微分する</strong>：関数 $f(x)$ から導関数 $f'(x)$ を求めること
+
+
+<p style="padding-left: 30px;">関数 $y=x^n$ の導関数は $y'=nx^{n-1}$ ( $n$ は正の整数)</p>
+<p style="padding-left: 30px;">定数関数 $y=c$ の導関数は $y'=0$</p>
+
+
+
+
+
+
+
+## 導関数の公式
+
+
+
+
+【定理】
+
+
+
+
+<strong>導関数の公式</strong>
+
+
+
+
+$k$，$l$ を定数とする
+
+
+<ul>
+	<li>定数倍：$y=kf(x)$ $\Rightarrow$ $y'=kf'(x)$</li>
+	<li>和：$y=f(x)+g(x)$ $\Rightarrow$ $y'=f'(x)+g'(x)$</li>
+	<li>差：$y=f(x)-g(x)$ $\Rightarrow$ $y'=f'(x)-g'(x)$</li>
+	<li>$y=kf(x)+lg(x)$ $\Rightarrow$ $y'=kf'(x)+lg'(x)$</li>
+</ul>
+
+
+
+
+
+
+
+## 接線の方程式
+
+
+
+
+曲線 $y=f(x)$ 上の点 $\mathrm{A} (a,f(a))$ における接線について
+
+
+<ul>
+	<li>接線の傾き：$f(a)$</li>
+	<li>接線の方程式：$y-f(a)=f'(a)(x-a)$</li>
+</ul>
+<p style="padding-left: 30px;">$\mathrm{A}$ をこの接線の接点という。</p>

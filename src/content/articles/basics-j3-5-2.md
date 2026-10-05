@@ -1,0 +1,93 @@
+---
+title: "【定義・定理・公式】中学数学基本事項 - 3年生 - 平行線と相似"
+status: "published"
+published_at: "2018-09-07 18:30:44"
+path: "/basics-of-junior-high-school-math/basics-j3-5-2/"
+featured_image: /media/heikousentohi.png
+---
+
+## 平行線と比
+
+
+
+
+【定理】
+
+
+
+
+<strong>平行線と比</strong>
+
+
+
+
+$\triangle \mathrm{ABC}$ の辺 $\mathrm{AB}$，$\mathrm{AC}$ 上の点をそれぞれ $\mathrm{P}$，$\mathrm{Q}$ とすると，$\mathrm{PQ} /\!/ \mathrm{BC}$ ならば，
+
+
+<p style="padding-left: 30px;">$\mathrm{AP} : \mathrm{AB} = \mathrm{AQ} : \mathrm{AC} = \mathrm{PQ} : \mathrm{BC}$</p>
+<p style="padding-left: 30px;">$\mathrm{AP} : \mathrm{PB} = \mathrm{AQ} : \mathrm{QC}$</p>
+
+
+
+
+
+
+
+## 3本の平行線と線分の比
+
+
+
+
+<img class="size-full wp-image-426 alignnone" src="/media/heikousentohi.png" alt="" width="600" height="473" />
+
+
+
+
+$l /\!/ m /\!/ n$ のとき，$a:c=b:d$
+
+
+
+
+
+
+
+
+
+## 比と平行線
+
+
+
+
+【定理】
+
+
+
+
+<strong>比と平行線</strong>
+
+
+<p style="padding-left: 30px;">$\triangle \mathrm{ABC}$ の辺 $\mathrm{AB}$，$\mathrm{AC}$ 上の点をそれぞれ $\mathrm{P}$，$\mathrm{Q}$ とすると，</p>
+<p style="padding-left: 60px;">$\mathrm{AP} : \mathrm{AB} = \mathrm{AQ} : \mathrm{AC}$ ならば，$\mathrm{PQ} /\!/ \mathrm{BC}$</p>
+<p style="padding-left: 60px;">$\mathrm{AP} : \mathrm{PB} = \mathrm{AQ} : \mathrm{QC}$ ならば，$\mathrm{PQ} /\!/ \mathrm{BC}$</p>
+
+
+
+
+
+
+
+## 中点連結定理
+
+
+
+
+【定理】
+
+
+
+
+<strong>中点連結定理</strong>
+
+
+<p style="padding-left: 30px;">$\triangle \mathrm{ABC}$ の辺 $\mathrm{AB}$，$\mathrm{AC}$ の中点をそれぞれ $\mathrm{M}$，$\mathrm{N}$ とすると，</p>
+<p style="padding-left: 60px;">$\mathrm{MN} /\!/ \mathrm{BC}$，$\mathrm{MN} = \displaystyle{\frac{1}{2}} \mathrm{BC}$</p>

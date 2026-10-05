@@ -3,10 +3,10 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const articles = (await getCollection('articles'))
-  .filter((entry) => entry.data.status === 'publish')
+  .filter((entry) => entry.data.status === 'published')
   .sort((a, b) => (b.data.published_at ?? '').localeCompare(a.data.published_at ?? ''));
 
-const articlePath = (entry: (typeof articles)[number]) => entry.data.path ?? entry.data.legacy_path!;
+const articlePath = (entry: (typeof articles)[number]) => entry.data.path!;
 ---
 <BaseLayout>
   <h1>Mathrao</h1>
