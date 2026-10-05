@@ -180,6 +180,22 @@ def normalize_eqnarray(body: str, stats: Counter, eqn_articles: set[str]) -> str
     if r"\begin{eqnarray}" in body:
         eqn_articles.add(CURRENT_ARTICLE)
 
+    raw_html_eqn = re.compile(
+        r"(<p\\b[^>]*>)(\\s*)(\\begin\\{eqnarray\\}[\\s\\S]*?\\end\\{eqnarray\\})(\\s*)(</p>)",
+        re.I,
+    )
+
+    def raw_html_repl(m: re.Match[str]) -> str:
+        new, kind = compatible_eqnarray(m.group(3))
+        if kind == "array_rcl":
+            stats["eqnarray_to_array_rcl"] += 1
+        elif kind == "wrapper_removed":
+            stats["eqnarray_wrapper_removed"] += 1
+        stats["bare_eqnarray_delimited"] += 1
+        return m.group(1) + m.group(2) + "&#36;&#36;" + new + "&#36;&#36;" + m.group(4) + m.group(5)
+
+    body = raw_html_eqn.sub(raw_html_repl, body)
+
     math_with_eqn = re.compile(
         r"(?<!\\)(\$\$?)([^$]*?\\begin\{eqnarray\}[\s\S]*?\\end\{eqnarray\}[^$]*?)(?<!\\)\1"
     )
@@ -199,16 +215,10 @@ def normalize_eqnarray(body: str, stats: Counter, eqn_articles: set[str]) -> str
 
     body = math_with_eqn.sub(math_repl, body)
 
-    def bare_repl(m: re.Match[str]) -> str:
-        new, kind = compatible_eqnarray(m.group(0))
-        if kind == "array_rcl":
-            stats["eqnarray_to_array_rcl"] += 1
-        elif kind == "wrapper_removed":
-            stats["eqnarray_wrapper_removed"] += 1
-        stats["bare_eqnarray_delimited"] += 1
-        return "&#36;&#36;" + new + "&#36;&#36;"
+    if EQN_RE.search(body):
+        raise RuntimeError(f"unclassified bare eqnarray remains in {CURRENT_ARTICLE}")
 
-    return EQN_RE.sub(bare_repl, body)
+    return body
 
 def write_runtime_files() -> None:
     (ROOT / "src/content.config.ts").write_text(
@@ -445,7 +455,7 @@ def transform() -> None:
             return f"{m.group('indent')}[{path}]({path}){m.group('trail')}"
 
         body = re.sub(
-            r"(?m)^(?P<indent>[ \\t]*)(?:https?:)?//(?:www\\.)?mathrao\\.com(?P<path>/[^\\s<>]+)(?P<trail>[ \\t]*)$",
+            r"(?m)^(?P<indent>[ \t]*)(?:https?:)?//(?:www\.)?mathrao\.com(?P<path>/[^\s<>]+)(?P<trail>[ \t]*)$",
             standalone_local_url,
             body,
         )
@@ -516,6 +526,10 @@ def transform() -> None:
         raise RuntimeError(f"eqnarray article count mismatch: {len(eqn_articles)}")
     if len(output_names) != 309:
         raise RuntimeError(f"new filename uniqueness mismatch: {len(output_names)}")
+    if stats["bare_eqnarray_delimited"] != 1:
+        raise RuntimeError(f"bare eqnarray count mismatch: {stats['bare_eqnarray_delimited']}")
+    if stats["standalone_local_links"] <= 0:
+        raise RuntimeError("standalone local URL conversion count is zero")
 
     all_new = "\n".join(p.read_text(encoding="utf-8") for p in sorted(CONTENT_NEW.glob("*.md")))
     if SHORTCODE_RE.search(all_new):
