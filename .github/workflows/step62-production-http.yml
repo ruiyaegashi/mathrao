@@ -1,0 +1,153 @@
+name: STEP62 Production HTTP validation
+
+on:
+  push:
+    branches:
+      - step59-mathrao-neutralize-20261005
+
+permissions:
+  contents: read
+
+jobs:
+  production-http:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Mathrao Production
+        env:
+          BASE_URL: https://mathrao.com
+        run: |
+          python - <<'PY'
+          import concurrent.futures
+          import pathlib
+          import re
+          import urllib.error
+          import urllib.request
+
+          BASE = "https://mathrao.com"
+          ARTICLES = pathlib.Path("src/content/articles")
+          UA = "YDI-STEP62-Production-Validator/1.0"
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+
+          opener = urllib.request.build_opener(NoRedirect)
+
+          def request(path, method="GET"):
+              req = urllib.request.Request(BASE + path, method=method, headers={"User-Agent": UA})
+              try:
+                  with opener.open(req, timeout=30) as r:
+                      body = r.read() if method != "HEAD" else b""
+                      return r.status, dict(r.headers), body
+              except urllib.error.HTTPError as e:
+                  body = e.read() if method != "HEAD" else b""
+                  return e.code, dict(e.headers), body
+
+          article_paths = []
+          media_keys = set()
+          media_re = re.compile(r'/media/([^"\'<>\s)]+)')
+
+          for p in sorted(ARTICLES.glob("*.md")):
+              text = p.read_text(encoding="utf-8")
+              front = text.split("---", 2)[1]
+              status = re.search(r'^status:\s*["\']?([^"\'\s]+)', front, re.M)
+              path = re.search(r'^path:\s*["\']([^"\']+)["\']', front, re.M)
+              if status and status.group(1) == "published":
+                  if not path:
+                      raise SystemExit(f"published path missing: {p}")
+                  article_paths.append(path.group(1))
+              media_keys.update(media_re.findall(text))
+
+          layout = pathlib.Path("src/layouts/BaseLayout.astro").read_text(encoding="utf-8")
+          media_keys.update(media_re.findall(layout))
+
+          if len(article_paths) != 306:
+              raise SystemExit(f"published article count mismatch: {len(article_paths)}")
+          if len(media_keys) != 87:
+              raise SystemExit(f"media ref count mismatch: {len(media_keys)}")
+          if "logo_wide.png" not in media_keys:
+              raise SystemExit("top logo missing from media refs")
+          if "test_j1_basic.pdf" not in media_keys:
+              raise SystemExit("PDF missing from media refs")
+
+          failures = []
+
+          def check_article(path):
+              code, _, _ = request(path)
+              return None if code == 200 else f"article {path}: {code}"
+
+          with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:
+              for result in ex.map(check_article, article_paths):
+                  if result:
+                      failures.append(result)
+
+          def check_media(key):
+              code, _, _ = request("/media/" + key, "HEAD")
+              return None if code == 200 else f"media {key}: {code}"
+
+          with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:
+              for result in ex.map(check_media, sorted(media_keys)):
+                  if result:
+                      failures.append(result)
+
+          code, _, _ = request("/")
+          if code != 200:
+              failures.append(f"home: {code}")
+
+          code, _, math_note = request("/theorems-proof-of-high-school-math/theorems-h1-2-1/")
+          text = math_note.decode("utf-8", "replace")
+          if code != 200 or 'class="article-note"' not in text or 'class="katex"' not in text:
+              failures.append("math/article-note representative failed")
+
+          code, _, details = request("/instant-jhmath-provisional-1/")
+          text = details.decode("utf-8", "replace")
+          if code != 200 or 'class="article-details"' not in text or "定理の詳細" not in text or "/media/mathmap_s.png" not in text:
+              failures.append("details/body-media representative failed")
+
+          code, _, featured = request("/basics-of-junior-high-school-math/basics-j2-6-1/")
+          text = featured.decode("utf-8", "replace")
+          if code != 200 or 'src="/media/jukeizu.png"' not in text:
+              failures.append("featured-image representative failed")
+
+          code, _, pdf_article = request("/basictest-of-junior-high-school-math/")
+          if code != 200 or "/media/test_j1_basic.pdf" not in pdf_article.decode("utf-8", "replace"):
+              failures.append("PDF article representative failed")
+
+          code, headers, pdf = request("/media/test_j1_basic.pdf")
+          if code != 200 or "pdf" not in headers.get("Content-Type", headers.get("content-type", "")).lower() or len(pdf) == 0:
+              failures.append("PDF object failed")
+
+          code, headers, logo = request("/media/logo_wide.png")
+          if code != 200 or "image/" not in headers.get("Content-Type", headers.get("content-type", "")).lower() or len(logo) == 0:
+              failures.append("Top logo object failed")
+
+          code, _, _ = request("/__ydi_step62_not_found__")
+          if code != 404:
+              failures.append(f"unknown URL expected 404, got {code}")
+
+          code, _, _ = request("/images/jukeizu.png")
+          if code != 404:
+              failures.append(f"old /images compatibility expected 404, got {code}")
+
+          if failures:
+              print("\n".join(failures[:50]))
+              raise SystemExit(f"STEP62 Production validation failed: {len(failures)}")
+
+          print({
+              "production": BASE,
+              "published_articles": len(article_paths),
+              "article_failures": 0,
+              "source_media_refs": len(media_keys),
+              "media_failures": 0,
+              "home": 200,
+              "math_note": "PASS",
+              "details": "PASS",
+              "featured_image": "PASS",
+              "body_media": "PASS",
+              "pdf": "PASS",
+              "top_logo": "PASS",
+              "unknown_404": "PASS",
+              "old_images_404": "PASS",
+          })
+          PY
