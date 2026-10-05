@@ -353,6 +353,13 @@ def transform() -> None:
         body, url_count = LOCAL_HOST_RE.subn("", body)
         stats["body_local_url_normalized"] += url_count
 
+        body, nbsp_count = re.subn(
+            r"(?mi)^[ \\t]*(?:&nbsp;|&#160;|&#x0*a0;)[ \\t]*(?:\\r?\\n|$)",
+            "",
+            body,
+        )
+        stats["standalone_nbsp_removed"] += nbsp_count
+
         body = transform_shortcodes(body, stats, shortcode_articles)
 
         title_raw = fm.get("title")
@@ -430,6 +437,7 @@ def transform() -> None:
         "old_absolute_local_urls_frontmatter": url_header,
         "old_absolute_local_urls_body": url_body,
         "normalized_body_urls": stats["body_local_url_normalized"],
+        "standalone_nbsp_removed": stats["standalone_nbsp_removed"],
         "errata_applied": stats["errata_applied"],
         "overrule_pairs": stats["overrule_open"],
         "overrule_articles": len(shortcode_articles["overrule"]),
@@ -468,6 +476,12 @@ class CanonicalHTML(HTMLParser):
                 v = LOCAL_HOST_RE.sub("", v)
                 if k == "href":
                     v = re.sub(r"^(/_astro/.+)\.[A-Za-z0-9_-]{6,}\.css$", r"\1.<hash>.css", v)
+                if k == "src":
+                    v = re.sub(
+                        r"^/_astro/_\.\.\.(?:legacy|path)_\.astro_astro_type_script_index_0_lang\.([A-Za-z0-9_-]+)\.js$",
+                        r"/_astro/<route-page>.astro_astro_type_script_index_0_lang.\1.js",
+                        v,
+                    )
             norm.append((k, v))
         self.tokens.append(("start", tag, tuple(sorted(norm))))
 
@@ -480,6 +494,12 @@ class CanonicalHTML(HTMLParser):
                 v = LOCAL_HOST_RE.sub("", v)
                 if k == "href":
                     v = re.sub(r"^(/_astro/.+)\.[A-Za-z0-9_-]{6,}\.css$", r"\1.<hash>.css", v)
+                if k == "src":
+                    v = re.sub(
+                        r"^/_astro/_\.\.\.(?:legacy|path)_\.astro_astro_type_script_index_0_lang\.([A-Za-z0-9_-]+)\.js$",
+                        r"/_astro/<route-page>.astro_astro_type_script_index_0_lang.\1.js",
+                        v,
+                    )
             norm.append((k, v))
         self.tokens.append(("empty", tag, tuple(sorted(norm))))
 
