@@ -45,7 +45,10 @@ jobs:
           test ! -e public/images
           test -z "$(find src/content/articles -type f -name 'wp-*.md' -print -quit)"
           ! grep -REn '^(wp_id|legacy_url|legacy_path|legacy_slug|former_slugs|parent_wp_id|parent_title|hierarchy|content_type|wp_date|modified_at|mathrao_section|mathrao_grade|mathrao_course|source_content_sha256):' src/content/articles
-          ! grep -REn 'legacy_path|remarkLegacyMarkdown|LEGACY_MEDIA_KEYS|/images/' src/content.config.ts src/pages astro.config.ts functions README.md .gitignore
+          if grep -REn 'legacy_path|remarkLegacyMarkdown|LEGACY_MEDIA_KEYS|/images/' src/content.config.ts src/pages astro.config.ts functions README.md .gitignore; then
+            echo 'technical residue remains'
+            exit 1
+          fi
           cat /tmp/step59-summary.json
           git diff --check
       - name: Build transformed site
