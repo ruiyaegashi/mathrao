@@ -1,0 +1,197 @@
+---
+title: "【定義・定理・公式】中学数学基本事項 - 2年生 - 平行線と多角形"
+status: "published"
+published_at: "2018-09-03 17:38:04"
+path: "/basics-of-junior-high-school-math/basics-j2-4-1/"
+featured_image: /media/Corresponding_angles.png
+---
+
+## 対頂角，同位角，錯角
+
+
+
+
+<img class="size-full wp-image-353 alignnone" src="/media/Corresponding_angles.png" alt="" width="584" height="481" />
+
+
+
+
+『<a href="https://ja.wikipedia.org/wiki/%E5%90%8C%E4%BD%8D%E8%A7%92"><em>同位角 - Wikipedia</em></a>』
+
+
+
+
+【定義】
+
+
+
+
+<strong>対頂角</strong>：上の図の $\angle a$ と $\angle d$，$\angle b$ と $\angle c$ のように，2直線が交わってできる4つの角のうち，向かい合った2つの角
+
+
+
+
+<strong>同位角</strong>：上の図の $\angle a$ と $\angle w$，$\angle b$ と $\angle x$ のような位置にある2つの角
+
+
+
+
+<strong>錯角</strong>：上の図の $\angle b$ と $\angle y$，$\angle d$ と $\angle w$ のような位置にある2つの角
+
+
+
+
+【定理】
+
+
+
+
+<strong>対頂角</strong>
+
+
+
+
+対頂角は等しい。
+
+
+
+
+
+
+
+
+
+## 平行線と同位角・錯角
+
+
+
+
+【定理】
+
+
+
+
+<strong>平行線と同位角・錯角</strong>
+
+
+<p style="padding-left: 30px;">同位角または錯角が等しければ，2直線は平行である。</p>
+<p style="padding-left: 30px;">2直線が平行ならば，同位角，錯角は等しい。</p>
+
+
+
+
+
+
+
+## 三角形の角
+
+
+
+
+【定義】
+
+
+
+
+$\triangle \mathrm{ABC}$ において，
+
+
+
+
+<strong>内角</strong>：$\angle \mathrm{A}$，$\angle \mathrm{B}$，$\angle \mathrm{C}$
+
+
+
+
+頂点 $\mathrm{C}$ における<strong>外角</strong>：直線 $\mathrm{AC}$ 上に，点 $\mathrm{C}$ に関して点 $\mathrm{A}$ と反対側に点 $\mathrm{D}$ を，直線 $\mathrm{BC}$ 上に，点 $\mathrm{C}$ に関して点 $\mathrm{B}$ と反対側に点 $\mathrm{E}$ をとったときの $\angle \mathrm{ACE}$ と $\angle \mathrm{BCD}$
+
+
+
+
+
+
+
+
+
+## 三角形の角の性質
+
+
+
+
+【定理】
+
+
+
+
+<strong>三角形の角の性質</strong>
+
+
+<p style="padding-left: 30px;">三角形の内角の和は $180^{ \circ }$ である</p>
+<p style="padding-left: 30px;">三角形の外角は，これと隣り合わない2つの内角の和に等しい</p>
+
+
+
+
+
+
+
+## 角と三角形の分類
+
+
+
+
+【定義】
+
+
+
+
+<strong>鋭角</strong>：$0^{ \circ }$ より大きく $90^{ \circ }$ より小さい角
+
+
+
+
+<strong>鈍角</strong>：$90^{ \circ }$ より大きく $180^{ \circ }$ より小さい角
+
+
+
+
+<strong>鈍角三角形</strong>：3つの内角が鋭角である三角形
+
+
+
+
+<strong>直角三角形</strong>：1つの内角が直角である三角形
+
+
+
+
+<strong>鈍角三角形</strong>：1つの内角が鈍角である三角形
+
+
+
+
+
+
+
+
+
+## 多角形の内角の和・外角の和
+
+
+
+
+【定理】
+
+
+
+
+<strong>多角形の内角の和</strong>
+
+
+<p style="padding-left: 30px;">$n$ 角形の内角の和：$180^{ \circ } \times (n-2)$</p>
+
+
+<strong>多角形の外角の和</strong>
+
+
+<p style="padding-left: 30px;">多角形の外角の和：$360^{ \circ }$</p>
