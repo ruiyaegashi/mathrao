@@ -160,6 +160,12 @@ export const collections = { articles };
     astro = astro.replace("remarkPlugins: [remarkMath, remarkLegacyMarkdown],", "remarkPlugins: [remarkMath],")
     (ROOT / "astro.config.ts").write_text(astro, encoding="utf-8")
 
+    index_page = ROOT / "src/pages/index.astro"
+    index_text = index_page.read_text(encoding="utf-8")
+    index_text = index_text.replace("entry.data.status === 'publish'", "entry.data.status === 'published'")
+    index_text = index_text.replace("entry.data.path ?? entry.data.legacy_path!", "entry.data.path!")
+    index_page.write_text(index_text, encoding="utf-8")
+
     layout = (ROOT / "src/layouts/BaseLayout.astro").read_text(encoding="utf-8")
     layout = layout.replace(".legacy-overrule", ".article-note")
     layout = layout.replace(".legacy-wpex", ".article-details")
