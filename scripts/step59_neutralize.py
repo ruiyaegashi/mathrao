@@ -105,22 +105,110 @@ def transform_shortcodes(body: str, stats: Counter, articles: dict[str, set[str]
         raise RuntimeError(f"unclosed shortcode in {CURRENT_ARTICLE}: {stack}")
     return "".join(out)
 
+HTML_BLOCK_START_RE = re.compile(
+    r"^\s*</?(?:address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|nav|noframes|ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?:\s|>|/>)",
+    re.I,
+)
+DOLLAR_MATH_RE = re.compile(r"(?<!\\)(\$\$?)([\s\S]*?)(?<!\\)\1")
+
+
+def normalize_markdown_math_entities(body: str, stats: Counter) -> str:
+    chunks: list[tuple[bool, str]] = []
+    buffer: list[str] = []
+    html_block = False
+
+    def flush(is_html: bool):
+        nonlocal buffer
+        if buffer:
+            chunks.append((is_html, "".join(buffer)))
+            buffer = []
+
+    for line in body.splitlines(keepends=True):
+        if html_block:
+            buffer.append(line)
+            if not line.strip():
+                flush(True)
+                html_block = False
+            continue
+
+        if HTML_BLOCK_START_RE.match(line):
+            flush(False)
+            html_block = True
+            buffer.append(line)
+            if not line.strip():
+                flush(True)
+                html_block = False
+            continue
+
+        buffer.append(line)
+
+    flush(html_block)
+
+    def decode_math(m: re.Match[str]) -> str:
+        delim, value = m.group(1), m.group(2)
+        old = value
+        value = value.replace("&gt;", ">").replace("&lt;", "<").replace("&amp;", "&")
+        if value != old:
+            stats["markdown_math_entity_spans"] += 1
+            stats["markdown_math_entity_replacements"] += (
+                old.count("&gt;") + old.count("&lt;") + old.count("&amp;")
+            )
+        return delim + value + delim
+
+    out: list[str] = []
+    for is_html, chunk in chunks:
+        out.append(chunk if is_html else DOLLAR_MATH_RE.sub(decode_math, chunk))
+    return "".join(out)
+
+
+def compatible_eqnarray(formula: str) -> tuple[str, str]:
+    start = r"\begin{eqnarray}"
+    end = r"\end{eqnarray}"
+    if formula.count(start) != 1 or formula.count(end) != 1:
+        return formula, "unchanged"
+
+    if re.search(r"&(?:amp;)?\s*=\s*&(?:amp;)?", formula):
+        return formula.replace(start, r"\begin{array}{rcl}").replace(end, r"\end{array}"), "array_rcl"
+
+    if re.search(r"\\left\s*\\\{[\s\S]*?\\begin\{array\}", formula):
+        return formula.replace(start, "").replace(end, ""), "wrapper_removed"
+
+    return formula, "unchanged"
+
+
 def normalize_eqnarray(body: str, stats: Counter, eqn_articles: set[str]) -> str:
-    if "\\begin{eqnarray}" in body:
+    if r"\begin{eqnarray}" in body:
         eqn_articles.add(CURRENT_ARTICLE)
 
-    def repl(m: re.Match[str]) -> str:
-        whole = m.group(0)
-        inner = m.group(1)
-        if re.search(r"&(?:amp;)?\s*=\s*&(?:amp;)?", whole):
-            stats["eqnarray_to_array_rcl"] += 1
-            return r"\begin{array}{rcl}" + inner + r"\end{array}"
-        if re.search(r"\\left\s*\\\{[\s\S]*?\\begin\{array\}", whole):
-            stats["eqnarray_wrapper_removed"] += 1
-            return inner
-        return whole
+    math_with_eqn = re.compile(
+        r"(?<!\\)(\$\$?)([^$]*?\\begin\{eqnarray\}[\s\S]*?\\end\{eqnarray\}[^$]*?)(?<!\\)\1"
+    )
 
-    return EQN_RE.sub(repl, body)
+    def math_repl(m: re.Match[str]) -> str:
+        delim, value = m.group(1), m.group(2)
+
+        def one(x: re.Match[str]) -> str:
+            new, kind = compatible_eqnarray(x.group(0))
+            if kind == "array_rcl":
+                stats["eqnarray_to_array_rcl"] += 1
+            elif kind == "wrapper_removed":
+                stats["eqnarray_wrapper_removed"] += 1
+            return new
+
+        return delim + EQN_RE.sub(one, value) + delim
+
+    body = math_with_eqn.sub(math_repl, body)
+
+    def bare_repl(m: re.Match[str]) -> str:
+        new, kind = compatible_eqnarray(m.group(0))
+        if kind == "array_rcl":
+            stats["eqnarray_to_array_rcl"] += 1
+        elif kind == "wrapper_removed":
+            stats["eqnarray_wrapper_removed"] += 1
+        stats["bare_eqnarray_delimited"] += 1
+        return "$$" + new + "$$"
+
+    return EQN_RE.sub(bare_repl, body)
 
 def write_runtime_files() -> None:
     (ROOT / "src/content.config.ts").write_text(
@@ -348,6 +436,7 @@ def transform() -> None:
         body, embed_count = EMBED_RE.subn('<span class="article-embed-placeholder">[旧埋め込み]</span>', body)
         stats["embed_replaced"] += embed_count
 
+        body = normalize_markdown_math_entities(body, stats)
         body = normalize_eqnarray(body, stats, eqn_articles)
 
         body, url_count = LOCAL_HOST_RE.subn("", body)
@@ -445,9 +534,12 @@ def transform() -> None:
         "wpex_articles": len(shortcode_articles["wpex"]),
         "embed_articles": len(embed_articles),
         "embed_occurrences": stats["embed_replaced"],
+        "markdown_math_entity_spans": stats["markdown_math_entity_spans"],
+        "markdown_math_entity_replacements": stats["markdown_math_entity_replacements"],
         "eqnarray_articles": len(eqn_articles),
         "eqnarray_to_array_rcl": stats["eqnarray_to_array_rcl"],
         "eqnarray_wrapper_removed": stats["eqnarray_wrapper_removed"],
+        "bare_eqnarray_delimited": stats["bare_eqnarray_delimited"],
     }
 
     Path("/tmp/step59-summary.json").write_text(
