@@ -466,6 +466,8 @@ class CanonicalHTML(HTMLParser):
                 v = " ".join(CLASS_MAP.get(c, c) for c in v.split())
             if v:
                 v = LOCAL_HOST_RE.sub("", v)
+                if k == "href":
+                    v = re.sub(r"^(/_astro/.+)\.[A-Za-z0-9_-]{6,}\.css$", r"\1.<hash>.css", v)
             norm.append((k, v))
         self.tokens.append(("start", tag, tuple(sorted(norm))))
 
@@ -476,6 +478,8 @@ class CanonicalHTML(HTMLParser):
                 v = " ".join(CLASS_MAP.get(c, c) for c in v.split())
             if v:
                 v = LOCAL_HOST_RE.sub("", v)
+                if k == "href":
+                    v = re.sub(r"^(/_astro/.+)\.[A-Za-z0-9_-]{6,}\.css$", r"\1.<hash>.css", v)
             norm.append((k, v))
         self.tokens.append(("empty", tag, tuple(sorted(norm))))
 
