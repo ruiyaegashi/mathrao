@@ -51,8 +51,8 @@ jobs:
           for p in sorted(ARTICLES.glob("*.md")):
               text = p.read_text(encoding="utf-8")
               front = text.split("---", 2)[1]
-              status = re.search(r'^status:\\s*["\']?([^"\'\\s]+)', front, re.M)
-              path = re.search(r'^path:\\s*["\']([^"\']+)["\']', front, re.M)
+              status = re.search(r'^status:\s*["\']?([^"\'\s]+)', front, re.M)
+              path = re.search(r'^path:\s*["\']([^"\']+)["\']', front, re.M)
               if status and status.group(1) == "published":
                   if not path:
                       raise SystemExit(f"published path missing: {p}")
