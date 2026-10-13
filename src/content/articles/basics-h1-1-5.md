@@ -21,7 +21,7 @@ featured_image: /media/jissu.png
 
 
 
-<img class="size-full wp-image-512 alignnone" src="/media/jissu.png" alt="" width="600" height="191" />
+<img class="size-full wp-image-512 alignnone" src="/media/jissu.png" alt="実数を有理数と無理数などに分類した図"/>
 
 
 
