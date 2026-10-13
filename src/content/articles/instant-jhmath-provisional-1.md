@@ -30,7 +30,7 @@ path: "/instant-jhmath-provisional-1/"
 
 
 
-<a href="/media/mathmap.png"><img class="aligncenter size-full wp-image-1490" src="/media/mathmap_s.png" alt="" width="600" height="424" /></a>
+<a href="/media/mathmap.png"><img class="aligncenter size-full wp-image-1490" src="/media/mathmap_s.png" alt="小学校算数から高校数学までの単元のつながりを示す系統一覧図"/></a>
 
 
 
