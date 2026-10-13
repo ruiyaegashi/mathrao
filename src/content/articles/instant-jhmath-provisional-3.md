@@ -15,7 +15,7 @@ path: "/instant-jhmath-provisional-3/"
 
 
 
-<img class="aligncenter size-full wp-image-1672" src="/media/numberline1.png" alt="" width="600" height="94" />
+<img class="aligncenter size-full wp-image-1672" src="/media/numberline1.png" alt="0以上の数を示した数直線"/>
 
 
 
@@ -35,7 +35,7 @@ path: "/instant-jhmath-provisional-3/"
 
 
 
-<img class="aligncenter size-full wp-image-1673" src="/media/numberline2.png" alt="" width="600" height="97" />
+<img class="aligncenter size-full wp-image-1673" src="/media/numberline2.png" alt="負の数まで広がった数直線"/>
 
 
 
