@@ -11,7 +11,7 @@ featured_image: /media/Corresponding_angles.png
 
 
 
-<img class="size-full wp-image-353 alignnone" src="/media/Corresponding_angles.png" alt="" width="584" height="481" />
+<img class="size-full wp-image-353 alignnone" src="/media/Corresponding_angles.png" alt="対頂角、同位角、錯角の位置関係を示す図"/>
 
 
 
