@@ -44,7 +44,7 @@ featured_image: /media/pythagoras.png
 ↓この本もオススメ！
 
 
-<p><span class="article-embed-placeholder">[旧埋め込み]</span><span class="article-embed-placeholder">[旧埋め込み]</span></p>
+<p><a href="https://www.amazon.co.jp/dp/4046019972/ref=nosim?tag=mathrao-22" rel="sponsored noopener noreferrer" target="_blank">旧掲載商品をAmazonで確認（4046019972）</a><a href="https://www.amazon.co.jp/dp/4822259218/ref=nosim?tag=mathrao-22" rel="sponsored noopener noreferrer" target="_blank">旧掲載商品をAmazonで確認（4822259218）</a></p>
 
 
 ## プロローグ
