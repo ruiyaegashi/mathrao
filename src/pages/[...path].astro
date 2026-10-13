@@ -17,15 +17,119 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
+
 <BaseLayout title={entry.data.title}>
-  <article data-article-content>
-    <h1>{entry.data.title}</h1>
-    {entry.data.published_at && <p><time datetime={entry.data.published_at}>{entry.data.published_at.slice(0, 10)}</time></p>}
-    {entry.data.featured_image && <img class="featured-image" src={entry.data.featured_image} alt="" />}
-    <Content />
+  <article class="article-page" data-article-content>
+    <header class="article-header">
+      <a class="article-back-link" href="/">← 記事一覧へ</a>
+      {entry.data.published_at && (
+        <p class="article-date">
+          <time datetime={entry.data.published_at.slice(0, 10)}>
+            {entry.data.published_at.slice(0, 10)}
+          </time>
+        </p>
+      )}
+      <h1>{entry.data.title}</h1>
+    </header>
+    {entry.data.featured_image && (
+      <figure class="article-featured">
+        <img src={entry.data.featured_image} alt="" loading="lazy" decoding="async" />
+      </figure>
+    )}
+    <div class="article-body">
+      <Content />
+    </div>
+    <nav class="article-bottom-nav" aria-label="記事を読み終えた方へ">
+      <a href="/">← 記事一覧へ戻る</a>
+    </nav>
   </article>
 </BaseLayout>
 
+<style>
+  .article-page {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: clamp(1.4rem, 4vw, 3rem);
+    background: #fff;
+    border: 1px solid #e2e9e9;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(31, 57, 64, 0.03);
+  }
+
+  .article-header {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.7rem;
+    border-bottom: 1px solid #e2e9e9;
+  }
+
+  .article-back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .article-back-link:hover {
+    text-decoration: underline;
+  }
+
+  .article-date {
+    margin: 1.4rem 0 0.55rem;
+    color: #64777d;
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .article-header h1 {
+    margin: 0.8rem 0 0;
+    font-size: clamp(1.65rem, 4.2vw, 2.2rem);
+    line-height: 1.5;
+  }
+
+  .article-featured {
+    margin: 0 0 2rem;
+    text-align: center;
+  }
+
+  .article-featured img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .article-body {
+    min-width: 0;
+    font-size: clamp(1rem, 1.1vw + 0.8rem, 1.075rem);
+    line-height: 1.95;
+  }
+
+  .article-bottom-nav {
+    margin-top: 3.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e9e9;
+    font-weight: 600;
+  }
+
+  @media (max-width: 680px) {
+    .article-page {
+      padding: 1.5rem 1.1rem 2rem;
+      border-radius: 12px;
+    }
+
+    .article-header {
+      margin-bottom: 1.4rem;
+    }
+
+    .article-date {
+      margin-top: 1rem;
+    }
+  }
+</style>
 <script>
   import renderMathInElement from 'katex/contrib/auto-render';
 
