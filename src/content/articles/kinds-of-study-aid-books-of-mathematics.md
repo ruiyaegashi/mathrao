@@ -5,12 +5,12 @@ published_at: "2019-01-12 13:24:43"
 path: "/kinds-of-study-aid-books-of-mathematics/"
 ---
 
-[/how-to-use-study-aid-books-of-mathematics/](/how-to-use-study-aid-books-of-mathematics/)
+[高校数学学習参考書の使い方](/how-to-use-study-aid-books-of-mathematics/)
 
 
 
 
-[/recommended-study-aid-books-of-mathematics/](/recommended-study-aid-books-of-mathematics/)
+[高校数学の種類別おすすめ学習参考書①](/recommended-study-aid-books-of-mathematics-1/)
 
 
 
@@ -321,9 +321,9 @@ path: "/kinds-of-study-aid-books-of-mathematics/"
 
 
 
-[/how-to-use-study-aid-books-of-mathematics/](/how-to-use-study-aid-books-of-mathematics/)
+[高校数学学習参考書の使い方](/how-to-use-study-aid-books-of-mathematics/)
 
 
 
 
-[/recommended-study-aid-books-of-mathematics/](/recommended-study-aid-books-of-mathematics/)
+[高校数学の種類別おすすめ学習参考書①](/recommended-study-aid-books-of-mathematics-1/)

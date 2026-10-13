@@ -61,7 +61,7 @@ featured_image: /media/drawlinesandtranscribe.jpg
 
 
 
-[/how-to-take-notes/](/how-to-take-notes/)
+[中高生必見！授業を最大限に活用して得点に結びつける教科別ノートの取り方・テクニック](/how-to-take-notes/)
 
 
 

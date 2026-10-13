@@ -5,7 +5,7 @@ published_at: "2019-02-03 19:23:13"
 path: "/instant-jhmath-provisional-1/"
 ---
 
-[/instant-jhmath-provisional-0/](/instant-jhmath-provisional-0/)
+[【インスタント中高数学】第0講 インスタント中高数学とは何か？なぜつくろうと思ったのか？](/instant-jhmath-provisional-0/)
 
 
 
@@ -539,9 +539,9 @@ $a$，$b$ を0でない実数とする。
 
 
 
-[/instant-jhmath-provisional-0/](/instant-jhmath-provisional-0/)
+[【インスタント中高数学】第0講 インスタント中高数学とは何か？なぜつくろうと思ったのか？](/instant-jhmath-provisional-0/)
 
 
 
 
-[/instant-jhmath-provisional-2/](/instant-jhmath-provisional-2/)
+[【インスタント中高数学】第2講 数学において「正しい」とは何か？【集合と論証】](/instant-jhmath-provisional-2/)

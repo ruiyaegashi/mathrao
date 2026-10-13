@@ -11,7 +11,7 @@ featured_image: /media/howtowakeupwelltostudy.jpg
 
 
 
-[/the-early-bird-catches-the-worm/](/the-early-bird-catches-the-worm/)
+[「夜型」で良いことなんて何もない！「朝型」生活で健康的に勉強を](/the-early-bird-catches-the-worm/)
 
 
 
@@ -46,7 +46,7 @@ featured_image: /media/howtowakeupwelltostudy.jpg
 
 
 
-[/what-to-study-before-going-to-bed/](/what-to-study-before-going-to-bed/)
+[スマホをいじるな！勉強の夢を見ろ！寝る直前にすべき勉強は暗記と復習](/what-to-study-before-going-to-bed/)
 
 
 

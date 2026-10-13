@@ -5,7 +5,7 @@ published_at: "2019-07-03 14:09:50"
 path: "/instant-jhmath-provisional-10/"
 ---
 
-[/instant-jhmath-provisional-9/](/instant-jhmath-provisional-9/)
+[【インスタント中高数学】第9講 未知なる解を求めて②【恒等式・方程式・不等式】](/instant-jhmath-provisional-9/)
 
 
 
@@ -2221,4 +2221,4 @@ $\stackrel{ \Large \frown }{\mathrm{AB}}$ に対する<strong>中心角</strong>
 
 
 
-[/instant-jhmath-provisional-9/](/instant-jhmath-provisional-9/)
+[【インスタント中高数学】第9講 未知なる解を求めて②【恒等式・方程式・不等式】](/instant-jhmath-provisional-9/)

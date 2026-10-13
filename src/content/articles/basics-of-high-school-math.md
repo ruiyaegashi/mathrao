@@ -5,12 +5,12 @@ published_at: "2018-09-12 18:37:53"
 path: "/basics-of-high-school-math/"
 ---
 
-[/difference-in-meaning-of-each-of-the-words/](/difference-in-meaning-of-each-of-the-words/)
+[算数・数学の命題・公理・公準・定義・定理・系・性質・公式・原理・法則の違い](/difference-in-meaning-of-each-of-the-words/)
 
 
 
 
-[/mathmap-elementaryschool-to-highschool/](/mathmap-elementaryschool-to-highschool/)
+[小学校算数・中学校数学・高等学校数学単元対応表(系統一覧表)](/mathmap-elementaryschool-to-highschool/)
 
 
 
@@ -363,9 +363,9 @@ path: "/basics-of-high-school-math/"
 </ol>
 
 
-[/difference-in-meaning-of-each-of-the-words/](/difference-in-meaning-of-each-of-the-words/)
+[算数・数学の命題・公理・公準・定義・定理・系・性質・公式・原理・法則の違い](/difference-in-meaning-of-each-of-the-words/)
 
 
 
 
-[/mathmap-elementaryschool-to-highschool/](/mathmap-elementaryschool-to-highschool/)
+[小学校算数・中学校数学・高等学校数学単元対応表(系統一覧表)](/mathmap-elementaryschool-to-highschool/)

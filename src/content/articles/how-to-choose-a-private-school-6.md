@@ -6,7 +6,7 @@ path: "/how-to-choose-a-private-school-6/"
 featured_image: /media/howtochooseaprivateschool.jpg
 ---
 
-[/how-to-choose-a-private-school-5/](/how-to-choose-a-private-school-5/)
+[【大学受験】保護者の方へ，高校生の塾へ行かせる時期と塾の選び方【前編】](/how-to-choose-a-private-school-5/)
 
 
 
@@ -624,7 +624,7 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-[/build-a-strategy-and-make-a-schedule/](/build-a-strategy-and-make-a-schedule/)
+[受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方](/build-a-strategy-and-make-a-schedule/)
 
 
 
@@ -674,4 +674,4 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-[/how-to-choose-a-private-school-5/](/how-to-choose-a-private-school-5/)
+[【大学受験】保護者の方へ，高校生の塾へ行かせる時期と塾の選び方【前編】](/how-to-choose-a-private-school-5/)

@@ -85,7 +85,7 @@ featured_image: /media/howtogetoutofaslump.jpg
 
 
 
-[/hard-work-pays-off/](/hard-work-pays-off/)
+[「勉強しても結果が出ない」ってどういうこと？ちゃんと結果を分析してる？](/hard-work-pays-off/)
 
 
 

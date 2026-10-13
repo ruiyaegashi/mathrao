@@ -66,7 +66,7 @@ featured_image: /media/setatimenottostudy.jpg
 
 
 
-[/build-a-strategy-and-make-a-schedule/](/build-a-strategy-and-make-a-schedule/)
+[受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方](/build-a-strategy-and-make-a-schedule/)
 
 
 
@@ -91,7 +91,7 @@ featured_image: /media/setatimenottostudy.jpg
 
 
 
-[/do-your-homework-asap/](/do-your-homework-asap/)
+[選別せよ！無駄な宿題は学校で友達と協力して計画的に終わらせるべし](/do-your-homework-asap/)
 
 
 

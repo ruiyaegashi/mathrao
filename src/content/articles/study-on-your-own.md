@@ -56,12 +56,12 @@ featured_image: /media/studyonyourown.jpg
 
 
 
-[/difficulty-of-obeying-my-own-rules/](/difficulty-of-obeying-my-own-rules/)
+[大学受験に帰宅部はあり？なし？時間はあるけど自律が大変…](/difficulty-of-obeying-my-own-rules/)
 
 
 
 
-[/be-a-maverick-examinee/](/be-a-maverick-examinee/)
+[【団体戦から個人戦へ】受験を経て英雄になろう！烏合の衆から一匹狼へ【マズローの自己実現理論と受験】](/be-a-maverick-examinee/)
 
 
 
@@ -111,12 +111,12 @@ featured_image: /media/studyonyourown.jpg
 
 
 
-[/how-to-concentrate-at-home/](/how-to-concentrate-at-home/)
+[小中高生が自宅で集中して勉強する方法「人目のあるリビングで監視されろ！」は正しいのか？](/how-to-concentrate-at-home/)
 
 
 
 
-[/study-with-friends/](/study-with-friends/)
+[高校・大学受験には仲間・ライバル・目標・救世主になる友達がほしい](/study-with-friends/)
 
 
 
@@ -206,7 +206,7 @@ featured_image: /media/studyonyourown.jpg
 
 
 
-[/ask-teachers-good-questions/](/ask-teachers-good-questions/)
+[質問上手は勉強上手！疑問の解決から記述力まで伸びる先生への質問術](/ask-teachers-good-questions/)
 
 
 
@@ -241,7 +241,7 @@ featured_image: /media/studyonyourown.jpg
 
 
 
-[/listen-to-music-to-study/](/listen-to-music-to-study/)
+[【パブロフの犬】勉強中ではなく勉強前に音楽を聞いてやる気を奮い立たせろ！](/listen-to-music-to-study/)
 
 
 

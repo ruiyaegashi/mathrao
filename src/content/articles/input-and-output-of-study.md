@@ -85,7 +85,7 @@ featured_image: /media/inputandoutputofstudy.jpg
 
 
 
-[/study-aid-books-of-mathematics/](/study-aid-books-of-mathematics/)
+[高校数学学習参考書の種類、使い方、選び方、おすすめ](/study-aid-books-of-mathematics/)
 
 
 
@@ -120,7 +120,7 @@ featured_image: /media/inputandoutputofstudy.jpg
 
 
 
-[/how-to-meke-a-word-card/](/how-to-meke-a-word-card/)
+[【英語・古典・理科・社会の暗記対策】暗記方法の種類と単語・熟語・古語・文法が覚えられる暗記カードの作り方](/how-to-meke-a-word-card/)
 
 
 

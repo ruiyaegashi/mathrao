@@ -51,7 +51,7 @@ featured_image: /media/howtoovercomeimpatienceandanxiety.jpg
 
 
 
-[/every-failure-is-a-stepping-stone-to-success/](/every-failure-is-a-stepping-stone-to-success/)
+[勉強における「失敗は成功のもと」とにかくクールに試験・模試の解き直しとPDCAを回す](/every-failure-is-a-stepping-stone-to-success/)
 
 
 
@@ -162,7 +162,7 @@ featured_image: /media/howtoovercomeimpatienceandanxiety.jpg
 
 
 
-[/take-a-small-step-for-studying/](/take-a-small-step-for-studying/)
+[面倒くささを振り払って勉強に1歩踏み出すなら「超スモールステップ→次回予告→習慣化」](/take-a-small-step-for-studying/)
 
 
 

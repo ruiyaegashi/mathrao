@@ -11,7 +11,7 @@ featured_image: /media/bepositivelynegative.jpg
 
 
 
-[/how-to-choose-a-private-school-1/](/how-to-choose-a-private-school-1/)
+[【私立中学受験・公立中学進学】保護者の方へ，小学生の塾へ行かせる時期と塾の選び方【前編】](/how-to-choose-a-private-school-1/)
 
 
 
@@ -171,7 +171,7 @@ featured_image: /media/bepositivelynegative.jpg
 
 
 
-[/how-to-get-out-of-a-slump/](/how-to-get-out-of-a-slump/)
+[【勉強のスランプからの脱出】成績の伸び悩みを解決する方法](/how-to-get-out-of-a-slump/)
 
 
 

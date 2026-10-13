@@ -31,7 +31,7 @@ featured_image: /media/buildastrategyandmakeaschedule.jpg
 
 
 
-[/take-a-small-step-for-studying/](/take-a-small-step-for-studying/)
+[面倒くささを振り払って勉強に1歩踏み出すなら「超スモールステップ→次回予告→習慣化」](/take-a-small-step-for-studying/)
 
 
 

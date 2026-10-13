@@ -62,12 +62,12 @@ featured_image: /media/hardworkpaysoff.jpg
 
 
 
-[/build-a-strategy-and-make-a-schedule/](/build-a-strategy-and-make-a-schedule/)
+[受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方](/build-a-strategy-and-make-a-schedule/)
 
 
 
 
-[/every-failure-is-a-stepping-stone-to-success/](/every-failure-is-a-stepping-stone-to-success/)
+[勉強における「失敗は成功のもと」とにかくクールに試験・模試の解き直しとPDCAを回す](/every-failure-is-a-stepping-stone-to-success/)
 
 
 

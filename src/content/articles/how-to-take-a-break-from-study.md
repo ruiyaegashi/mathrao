@@ -171,7 +171,7 @@ featured_image: /media/howtotakeabreakfromstudy.jpg
 
 
 
-[/how-to-meke-a-word-card/](/how-to-meke-a-word-card/)
+[【英語・古典・理科・社会の暗記対策】暗記方法の種類と単語・熟語・古語・文法が覚えられる暗記カードの作り方](/how-to-meke-a-word-card/)
 
 
 
@@ -211,7 +211,7 @@ featured_image: /media/howtotakeabreakfromstudy.jpg
 
 
 
-[/listen-to-music-to-study/](/listen-to-music-to-study/)
+[【パブロフの犬】勉強中ではなく勉強前に音楽を聞いてやる気を奮い立たせろ！](/listen-to-music-to-study/)
 
 
 
@@ -256,7 +256,7 @@ featured_image: /media/howtotakeabreakfromstudy.jpg
 
 
 
-[/what-to-study-before-going-to-bed/](/what-to-study-before-going-to-bed/)
+[スマホをいじるな！勉強の夢を見ろ！寝る直前にすべき勉強は暗記と復習](/what-to-study-before-going-to-bed/)
 
 
 
@@ -386,22 +386,22 @@ featured_image: /media/howtotakeabreakfromstudy.jpg
 
 
 
-[/build-a-strategy-and-make-a-schedule/](/build-a-strategy-and-make-a-schedule/)
+[受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方](/build-a-strategy-and-make-a-schedule/)
 
 
 
 
-[/how-to-make-a-weekly-schedule/](/how-to-make-a-weekly-schedule/)
+[1週間毎の簡易版スケジュール「やることリスト」を使って無駄なく効率的に勉強を](/how-to-make-a-weekly-schedule/)
 
 
 
 
-[/set-a-time-not-to-study/](/set-a-time-not-to-study/)
+[逆転の発想！勉強時間ではなく、勉強しない時間を決める](/set-a-time-not-to-study/)
 
 
 
 
-[/take-a-small-step-for-studying/](/take-a-small-step-for-studying/)
+[面倒くささを振り払って勉強に1歩踏み出すなら「超スモールステップ→次回予告→習慣化」](/take-a-small-step-for-studying/)
 
 
 

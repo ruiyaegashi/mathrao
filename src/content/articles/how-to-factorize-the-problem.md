@@ -41,7 +41,7 @@ featured_image: /media/howtofactorizetheproblem.jpg
 
 
 
-[/how-to-meke-a-word-card/](/how-to-meke-a-word-card/)
+[【英語・古典・理科・社会の暗記対策】暗記方法の種類と単語・熟語・古語・文法が覚えられる暗記カードの作り方](/how-to-meke-a-word-card/)
 
 
 
@@ -256,7 +256,7 @@ featured_image: /media/howtofactorizetheproblem.jpg
 
 
 
-[/think-about-the-goal-first/](/think-about-the-goal-first/)
+[【大学受験】合格から逆算して無駄な勉強を省く「学習計画逆算ダイエット」](/think-about-the-goal-first/)
 
 
 

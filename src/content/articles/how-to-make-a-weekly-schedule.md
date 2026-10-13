@@ -16,7 +16,7 @@ featured_image: /media/howtomakeaweeklyschedule.jpg
 
 
 
-[/build-a-strategy-and-make-a-schedule/](/build-a-strategy-and-make-a-schedule/)
+[受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方](/build-a-strategy-and-make-a-schedule/)
 
 
 

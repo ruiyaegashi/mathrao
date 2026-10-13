@@ -6,7 +6,7 @@ path: "/how-to-choose-a-private-school-5/"
 featured_image: /media/howtochooseaprivateschool.jpg
 ---
 
-[/how-to-choose-a-private-school-6/](/how-to-choose-a-private-school-6/)
+[【大学受験】保護者の方へ，高校生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-6/)
 
 
 
@@ -326,4 +326,4 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-[/how-to-choose-a-private-school-6/](/how-to-choose-a-private-school-6/)
+[【大学受験】保護者の方へ，高校生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-6/)

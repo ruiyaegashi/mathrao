@@ -5,7 +5,7 @@ published_at: "2020-01-09 20:55:45"
 path: "/theorems-proof-of-high-school-math/"
 ---
 
-[/difference-in-meaning-of-each-of-the-words/](/difference-in-meaning-of-each-of-the-words/)
+[算数・数学の命題・公理・公準・定義・定理・系・性質・公式・原理・法則の違い](/difference-in-meaning-of-each-of-the-words/)
 
 
 

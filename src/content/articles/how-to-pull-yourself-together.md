@@ -11,7 +11,7 @@ featured_image: /media/howtopullyourselftogether.jpg
 
 
 
-[/therefore-you-are-bad-when-it-counts/](/therefore-you-are-bad-when-it-counts/)
+[本番は1回きり！「本番に弱い」「本番は実力の8割しか出せない」なんて言い訳は聞き飽きた](/therefore-you-are-bad-when-it-counts/)
 
 
 

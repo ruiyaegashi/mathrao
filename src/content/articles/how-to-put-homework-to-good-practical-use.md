@@ -247,7 +247,7 @@ featured_image: /media/howtoputhomeworktogoodpracticaluse.jpg
 
 
 
-[/ask-teachers-good-questions/](/ask-teachers-good-questions/)
+[質問上手は勉強上手！疑問の解決から記述力まで伸びる先生への質問術](/ask-teachers-good-questions/)
 
 
 
@@ -272,7 +272,7 @@ featured_image: /media/howtoputhomeworktogoodpracticaluse.jpg
 
 
 
-[/danger-of-high-level-school/](/danger-of-high-level-school/)
+[選ぶなキケン！高校受験で進学校に行きたいならカリキュラムを調べろ](/danger-of-high-level-school/)
 
 
 
@@ -282,7 +282,7 @@ featured_image: /media/howtoputhomeworktogoodpracticaluse.jpg
 
 
 
-[/think-about-the-goal-first/](/think-about-the-goal-first/)
+[【大学受験】合格から逆算して無駄な勉強を省く「学習計画逆算ダイエット」](/think-about-the-goal-first/)
 
 
 

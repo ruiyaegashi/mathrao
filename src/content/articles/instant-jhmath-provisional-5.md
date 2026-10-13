@@ -5,7 +5,7 @@ published_at: "2019-05-13 00:21:06"
 path: "/instant-jhmath-provisional-5/"
 ---
 
-[/instant-jhmath-provisional-4/](/instant-jhmath-provisional-4/)
+[【インスタント中高数学】第4講 xyzという箱を自由自在に操ろう①【文字式と計算】](/instant-jhmath-provisional-4/)
 
 
 
@@ -1154,9 +1154,9 @@ $a$，$b$，$c$ の交代式は，必ず $(a-b)(b-c)(c-a)$ を因数にもつ。
 
 
 
-[/instant-jhmath-provisional-4/](/instant-jhmath-provisional-4/)
+[【インスタント中高数学】第4講 xyzという箱を自由自在に操ろう①【文字式と計算】](/instant-jhmath-provisional-4/)
 
 
 
 
-[/instant-jhmath-provisional-6/](/instant-jhmath-provisional-6/)
+[【インスタント中高数学】第6講 広がり続ける数の果て【数】](/instant-jhmath-provisional-6/)

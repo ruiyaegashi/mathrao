@@ -5,7 +5,7 @@ published_at: "2019-06-07 12:04:50"
 path: "/instant-jhmath-provisional-8/"
 ---
 
-[/instant-jhmath-provisional-7/](/instant-jhmath-provisional-7/)
+[【インスタント中高数学】第7講 整数は奥深くて悩ましい【整数の性質】](/instant-jhmath-provisional-7/)
 
 
 
@@ -1447,9 +1447,9 @@ $(a^2+b^2)(c^2+d^2)=(ac+bd)^2+(ad-bc)^2$ を示せ。
 
 
 
-[/instant-jhmath-provisional-7/](/instant-jhmath-provisional-7/)
+[【インスタント中高数学】第7講 整数は奥深くて悩ましい【整数の性質】](/instant-jhmath-provisional-7/)
 
 
 
 
-[/instant-jhmath-provisional-9/](/instant-jhmath-provisional-9/)
+[【インスタント中高数学】第9講 未知なる解を求めて②【恒等式・方程式・不等式】](/instant-jhmath-provisional-9/)

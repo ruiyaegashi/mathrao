@@ -5,7 +5,7 @@ published_at: "2019-02-09 15:19:30"
 path: "/instant-jhmath-provisional-2/"
 ---
 
-[/instant-jhmath-provisional-1/](/instant-jhmath-provisional-1/)
+[【インスタント中高数学】第1講 プロローグ](/instant-jhmath-provisional-1/)
 
 
 
@@ -732,9 +732,9 @@ $p \Rightarrow q$ と $q \Rightarrow p$ がともに真( $p \Leftrightarrow q$ )
 
 
 
-[/instant-jhmath-provisional-1/](/instant-jhmath-provisional-1/)
+[【インスタント中高数学】第1講 プロローグ](/instant-jhmath-provisional-1/)
 
 
 
 
-[/instant-jhmath-provisional-3/](/instant-jhmath-provisional-3/)
+[【インスタント中高数学】第3講 0より左側にも世界は広がっている【正負の数と計算】](/instant-jhmath-provisional-3/)

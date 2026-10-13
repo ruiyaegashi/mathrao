@@ -273,7 +273,7 @@ featured_image: /media/howtoovercomeweaknessesofstudy.jpg
 
 
 
-[/brush-up-your-past-study/](/brush-up-your-past-study/)
+[中学・高校に進学しても勉強はリセットされない！つまずいたら小学・中学レベルを見直そう](/brush-up-your-past-study/)
 
 
 
