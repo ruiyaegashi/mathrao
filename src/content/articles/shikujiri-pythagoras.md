@@ -515,7 +515,7 @@ featured_image: /media/pythagoras.png
 
 
 
-<img class="aligncenter size-full wp-image-68" src="/media/triangle-circle.png" alt="" width="400" height="400" />
+<img class="aligncenter size-full wp-image-68" src="/media/triangle-circle.png" alt="1、2、3、4の数の規則性を図形で示した図"/>
 
 
 
@@ -679,7 +679,7 @@ featured_image: /media/pythagoras.png
 
 
 
-<img class="aligncenter size-full wp-image-69" src="/media/b347244a51c40ac66479b0fa3a470b4c.png" alt="" width="400" height="400" />
+<img class="aligncenter size-full wp-image-69" src="/media/b347244a51c40ac66479b0fa3a470b4c.png" alt="正方形の対角線とピタゴラスの定理の関係を示す図"/>
 
 
 
