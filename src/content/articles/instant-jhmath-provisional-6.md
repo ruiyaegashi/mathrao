@@ -174,7 +174,7 @@ path: "/instant-jhmath-provisional-6/"
 
 
 
-<img class="alignnone size-full wp-image-2270" src="/media/complexnumber.png" alt="" width="600" height="261" />
+<img class="alignnone size-full wp-image-2270" src="/media/complexnumber.png" alt="実数・虚数・複素数などの数の分類と包含関係を示す図"/>
 
 
 </div>
