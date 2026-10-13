@@ -178,3 +178,17 @@ const articlePath = (entry: (typeof articles)[number]) => entry.data.path!;
     }
   }
 </style>
+<script>
+  import renderMathInElement from 'katex/contrib/auto-render';
+
+  for (const title of document.querySelectorAll<HTMLElement>('.article-list-title')) {
+    renderMathInElement(title, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+      ],
+      throwOnError: false,
+    });
+  }
+</script>
