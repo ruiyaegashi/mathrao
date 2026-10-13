@@ -106,7 +106,7 @@ featured_image: /media/buildastrategyandmakeaschedule.jpg
 
 
 
-<img class="size-full wp-image-1363 alignnone" src="/media/schedule1.png" alt="" width="303" height="600" />
+<img class="size-full wp-image-1363 alignnone" src="/media/schedule1.png" alt="ターゲット1900の学習セット表の例"/>
 
 
 
@@ -116,7 +116,7 @@ featured_image: /media/buildastrategyandmakeaschedule.jpg
 
 
 
-<img class="size-full wp-image-1364 alignnone" src="/media/schedule2.png" alt="" width="418" height="600" />
+<img class="size-full wp-image-1364 alignnone" src="/media/schedule2.png" alt="数学ⅠA基礎問題精講の学習セット表の例"/>
 
 
 
@@ -191,7 +191,7 @@ featured_image: /media/buildastrategyandmakeaschedule.jpg
 
 
 
-<img class="size-full wp-image-1360 alignnone" src="/media/schedule3.png" alt="" width="600" height="127" />
+<img class="size-full wp-image-1360 alignnone" src="/media/schedule3.png" alt="1日に取り組む学習セットを時間のコマに配置した例"/>
 
 
 
@@ -231,12 +231,12 @@ featured_image: /media/buildastrategyandmakeaschedule.jpg
 
 
 
-<img class="size-full wp-image-1373 alignnone" src="/media/schedule4.png" alt="" width="600" height="571" />
+<img class="size-full wp-image-1373 alignnone" src="/media/schedule4.png" alt="学習計画を実行するためのスケジュール表の例"/>
 
 
 
 
-<img class="size-full wp-image-1374 alignnone" src="/media/schedule5.png" alt="" width="600" height="417" />
+<img class="size-full wp-image-1374 alignnone" src="/media/schedule5.png" alt="学習計画の進捗を記録した表の例"/>
 
 
 
