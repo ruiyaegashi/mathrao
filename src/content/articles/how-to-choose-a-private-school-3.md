@@ -26,7 +26,7 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-<img class="aligncenter size-full wp-image-1784" src="/media/benesse_graph_1.gif" alt="" width="600" height="291" />
+<img class="aligncenter size-full wp-image-1784" src="/media/benesse_graph_1.gif" alt="ベネッセ教育総合研究所による2005年の調査グラフ"/>
 
 
 
