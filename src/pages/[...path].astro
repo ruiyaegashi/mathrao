@@ -17,26 +17,35 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-// Create a relevant page description from the article's own text.
-// Keep the original Markdown and mathematical content unchanged.
-const paragraphs = (entry.body ?? '')
+// Use an article-specific description. Avoid selecting tables, bare links,
+// or formula fragments as the snippet shown in search results.
+const isFormulaReference = (entry.data.path ?? '').startsWith('/basics-of-');
+const summaryText = isFormulaReference ? undefined : (entry.body ?? '')
   .replace(/<!--[\s\S]*?-->/g, ' ')
   .split(/\n\s*\n/)
   .map((paragraph) => paragraph.trim())
-  .filter((paragraph) => paragraph && !/^#{1,6}\s/.test(paragraph))
+  .filter((paragraph) =>
+    paragraph.length > 0 &&
+    !/^#{1,6}\s/.test(paragraph) &&
+    !/^<(?:table|tr|td|th|script|style|svg)\b/i.test(paragraph) &&
+    !/^(?:\[[^\]]+\]\([^)]+\)\s*)+$/.test(paragraph),
+  )
   .map((paragraph) => paragraph
     .replace(/<[^>]+>/g, ' ')
     .replace(/!\[[^\]]*\]\([^)]+\)/g, ' ')
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
     .replace(/\[旧埋め込み\]/g, ' ')
     .replace(/\$\$[\s\S]*?\$\$|\$[^$\n]*\$/g, ' ')
-    .replace(/[\x60*_]/g, '')
+    .replace(/[`*_]/g, '')
     .replace(/\s+/g, ' ')
     .trim())
-  .filter((paragraph) => paragraph.length >= 35 && !/^\//.test(paragraph));
-const descriptionText = paragraphs[0] ?? `${entry.data.title}について学べるMathraoの数学教材・記事です。`;
-const articleDescription = Array.from(descriptionText).slice(0, 125).join('') +
-  (Array.from(descriptionText).length > 125 ? '…' : '');
+  .find((paragraph) =>
+    (paragraph.match(/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/gu) ?? []).length >= 20 &&
+    (paragraph.match(/[0-9０-９]/g) ?? []).length <= paragraph.length * 0.2,
+  );
+const descriptionText = `${entry.data.title}。${summaryText ?? 'Mathraoで公開している算数・数学の学習記事です。'}`;
+const articleDescription = Array.from(descriptionText).slice(0, 140).join('') +
+  (Array.from(descriptionText).length > 140 ? '…' : '');
 ---
 
 <BaseLayout title={entry.data.title} description={articleDescription}>
