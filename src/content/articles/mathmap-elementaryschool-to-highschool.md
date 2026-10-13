@@ -11,7 +11,7 @@ featured_image: /media/mathmapelementaryschooltohighschool.jpg
 
 
 
-<a href="/media/mathmap.png"><img class="aligncenter wp-image-1490 size-full" src="/media/mathmap_s.png" alt="" width="600" height="424" /></a>
+<a href="/media/mathmap.png"><img class="aligncenter wp-image-1490 size-full" src="/media/mathmap_s.png" alt="小学校算数から高校数学までの単元のつながりを示す系統一覧図"/></a>
 
 
 
