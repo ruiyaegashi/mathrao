@@ -5,20 +5,6 @@ if (![appId, accessKey].every(Boolean)) {
   console.error('Required GitHub Actions secrets are missing.');
   process.exit(1);
 }
-// Temporary verification: compare two GitHub Secrets without printing either value.
-// The confirmation secret must be freshly copied from the official Rakuten dashboard.
-import { timingSafeEqual } from 'node:crypto';
-const confirmedKey = process.env.RAKUTEN_ACCESS_KEY_CONFIRM;
-if (!confirmedKey) {
-  console.error('Confirmation Secret is missing. No API request was made.');
-  process.exit(1);
-}
-const actualBuffer = Buffer.from(accessKey, 'utf8');
-const confirmBuffer = Buffer.from(confirmedKey, 'utf8');
-const matched = actualBuffer.length === confirmBuffer.length && timingSafeEqual(actualBuffer, confirmBuffer);
-console.log(JSON.stringify({ check: 'rakuten-access-key-match', matched }));
-process.exit(matched ? 0 : 1);
-
 const searches = [{ title: '数学' }]; // known-good search on the official API test form
 const results = [];
 for (const search of searches) {
