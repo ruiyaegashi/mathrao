@@ -10,13 +10,13 @@ const results = [];
 for (const search of searches) {
   const url = new URL('https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404');
   url.search = new URLSearchParams({
-    applicationId: appId, accessKey, ...search, format: 'json',
+    applicationId: appId, ...search, format: 'json',
   }).toString();
   let status = 'error', title = '', image = false, itemLink = false, affiliateLink = false;
   let errorCode = 'none', errorMessageCategory = 'none';
   try {
-    // This one-time comparison matches the official form. Never log the URL.
-    const response = await fetch(url, { redirect: 'error' });
+    // Send the access key in a header, never a URL or logs.
+    const response = await fetch(url, { headers: { accessKey }, redirect: 'error' });
     status = String(response.status);
     if (!response.ok) {
       // Extract only recognized, non-sensitive error categories. Never log raw responses.
