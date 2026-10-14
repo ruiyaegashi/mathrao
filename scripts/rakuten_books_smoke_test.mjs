@@ -1,0 +1,45 @@
+// Temporary, manual Rakuten Books API smoke test. Do not log credentials or raw responses.
+const appId = process.env.RAKUTEN_APP_ID;
+const accessKey = process.env.RAKUTEN_ACCESS_KEY;
+const affiliateId = process.env.RAKUTEN_AFFILIATE_ID;
+if (![appId, accessKey, affiliateId].every(Boolean)) {
+  console.error('Required GitHub Actions secrets are missing.');
+  process.exit(1);
+}
+const isbn10 = ['4866150807','486615098X','4866150858','4010343699','4777220036'];
+function isbn13(isbn) {
+  const prefix = '978' + isbn.slice(0, 9);
+  const checksum = (10 - [...prefix].reduce((s, n, i) => s + Number(n) * (i % 2 ? 3 : 1), 0) % 10) % 10;
+  return prefix + checksum;
+}
+const results = [];
+for (const code of isbn10) {
+  const isbn = isbn13(code);
+  const url = new URL('https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404');
+  url.search = new URLSearchParams({
+    applicationId: appId, affiliateId, isbn, format: 'json',
+    formatVersion: '2', hits: '1',
+  }).toString();
+  let status = 'error', title = '', image = false, itemLink = false, affiliateLink = false;
+  try {
+    const response = await fetch(url, { headers: { accessKey }, redirect: 'error' });
+    status = String(response.status);
+    if (response.ok) {
+      const payload = await response.json();
+      const item = payload.Items?.[0] ?? payload.items?.[0]?.Item ?? payload.items?.[0]?.item;
+      if (item) {
+        title = String(item.title ?? item.itemName ?? '').slice(0, 120);
+        image = Boolean(item.largeImageUrl || item.mediumImageUrl || item.smallImageUrl);
+        itemLink = /^https:\/\//.test(item.itemUrl ?? '');
+        affiliateLink = /^https:\/\//.test(item.affiliateUrl ?? '');
+      }
+    }
+  } catch {
+    status = 'network-error';
+  }
+  results.push({ isbn, status, found: Boolean(title), title, image, itemLink, affiliateLink });
+  // Respect the registered 1 request/second budget.
+  await new Promise(resolve => setTimeout(resolve, 1200));
+}
+console.log(JSON.stringify({ tested: results.length, results }, null, 2));
+if (results.some(x => x.status !== '200')) process.exitCode = 1;
