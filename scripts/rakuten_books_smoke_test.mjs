@@ -6,7 +6,7 @@ if (![appId, accessKey, affiliateId].every(Boolean)) {
   console.error('Required GitHub Actions secrets are missing.');
   process.exit(1);
 }
-const isbn10 = ['4866150807','486615098X','4866150858','4010343699','4777220036'];
+const isbn10 = ['4866150807']; // one-book diagnostic
 function isbn13(isbn) {
   const prefix = '978' + isbn.slice(0, 9);
   const checksum = (10 - [...prefix].reduce((s, n, i) => s + Number(n) * (i % 2 ? 3 : 1), 0) % 10) % 10;
@@ -21,9 +21,21 @@ for (const code of isbn10) {
     formatVersion: '2', hits: '1',
   }).toString();
   let status = 'error', title = '', image = false, itemLink = false, affiliateLink = false;
+  let errorCode = 'none', errorMessageCategory = 'none';
   try {
     const response = await fetch(url, { headers: { accessKey }, redirect: 'error' });
     status = String(response.status);
+    if (!response.ok) {
+      // Extract only recognized, non-sensitive error categories. Never log raw responses.
+      try {
+        const error = await response.json();
+        const rawCode = String(error.error ?? error.code ?? '').toLowerCase();
+        const rawMessage = String(error.error_description ?? error.message ?? '').toLowerCase();
+        const categories = ['invalid_application_id', 'invalid_access_key', 'invalid_parameter', 'forbidden', 'rate_limit', 'not_found', 'unauthorized'];
+        errorCode = categories.find(c => rawCode.includes(c) || rawMessage.includes(c.replaceAll('_', ' '))) ?? 'unclassified';
+        errorMessageCategory = /access.?key/.test(rawMessage) ? 'access-key' : /application.?id/.test(rawMessage) ? 'application-id' : /permission|scope/.test(rawMessage) ? 'permission' : /domain|origin|referer/.test(rawMessage) ? 'origin' : /limit|quota/.test(rawMessage) ? 'limit' : 'other';
+      } catch { errorCode = 'unreadable'; }
+    }
     if (response.ok) {
       const payload = await response.json();
       const item = payload.Items?.[0] ?? payload.items?.[0]?.Item ?? payload.items?.[0]?.item;
@@ -37,7 +49,7 @@ for (const code of isbn10) {
   } catch {
     status = 'network-error';
   }
-  results.push({ isbn, status, found: Boolean(title), title, image, itemLink, affiliateLink });
+  results.push({ isbn, status, errorCode, errorMessageCategory, found: Boolean(title), title, image, itemLink, affiliateLink });
   // Respect the registered 1 request/second budget.
   await new Promise(resolve => setTimeout(resolve, 1200));
 }
