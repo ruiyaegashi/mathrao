@@ -1,4 +1,4 @@
-name: Rakuten Books API smoke test and preview
+name: Rakuten Books refresh and preview
 on:
   workflow_dispatch:
 permissions:
@@ -12,14 +12,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Test Rakuten book search
-        env:
-          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
-          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
-          RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
-        run: node scripts/rakuten_books_smoke_test.mjs
-      - name: Verify book expiry boundaries (offline)
-        run: node scripts/refresh_rakuten_books.mjs --check-expiry
       - name: Generate a single private book snapshot for preview build
         env:
           RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
