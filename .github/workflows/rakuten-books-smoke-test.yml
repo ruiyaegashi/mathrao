@@ -12,6 +12,11 @@ on:
         required: false
         type: boolean
         default: false
+      build_without_books:
+        description: 'Build and verify articles without Rakuten book cards, never deploy'
+        required: false
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -58,14 +63,14 @@ jobs:
           NODE
 
       - name: Generate a single private book snapshot for preview build
-        if: github.event_name == 'workflow_dispatch' && !inputs.verify_candidates
+        if: github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books
         env:
           RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
           RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
           RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
         run: node scripts/refresh_rakuten_books.mjs
       - name: Check and build Rakuten pilot
-        if: github.event_name == 'workflow_dispatch' && !inputs.verify_candidates
+        if: github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books
         run: |
           corepack enable
           corepack pnpm install --frozen-lockfile
@@ -88,8 +93,37 @@ jobs:
             if (!allPass) process.exit(1);
           '
 
+      - name: Verify bookless build only (no deployment)
+        if: (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP17 bookless build')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && !inputs.verify_candidates)
+        run: |
+          test ! -e src/generated/rakuten-books.json
+          corepack enable
+          corepack pnpm install --frozen-lockfile
+          node scripts/refresh_rakuten_books.mjs --check-selections
+          corepack pnpm run check
+          corepack pnpm run build
+          test ! -e src/generated/rakuten-books.json
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const groups = JSON.parse(readFileSync('src/data/rakuten-book-selections.json', 'utf8')).selections;
+          const articlePaths = [...new Set(groups.map(group => group.articlePath))];
+          if (groups.length !== 90 || groups.reduce((n, group) => n + group.isbns.length, 0) !== 93 || articlePaths.length !== 5) {
+            throw Error('Approved book selection counts changed; stop the removal test');
+          }
+          let passed = true;
+          for (const articlePath of articlePaths) {
+            const html = readFileSync('dist' + articlePath + 'index.html', 'utf8');
+            const forbidden = ['data-rakuten-book-card', 'data-rakuten-book-slot', 'data-expires-at'];
+            const valid = html.includes('class="article-body"') && !forbidden.some(marker => html.includes(marker));
+            console.log(JSON.stringify({ articlePath, bookCards: 0, bookDataInHtml: !valid, valid }));
+            if (!valid) passed = false;
+          }
+          if (!passed) throw Error('Book-derived HTML remains in a no-data build');
+          console.log('Bookless build: PASS (not deployed)');
+          NODE
+
       - name: Deploy preview
-        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && !inputs.verify_candidates
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && !inputs.verify_candidates && !inputs.build_without_books
         id: deploy
         uses: cloudflare/wrangler-action@v4
         with:
@@ -98,7 +132,7 @@ jobs:
           command: pages deploy dist --project-name=mathrao --branch=improve/mathrao-layout-step2-20261013 --commit-hash=${{ github.sha }}
 
       - name: Verify published preview
-        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && !inputs.verify_candidates
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && !inputs.verify_candidates && !inputs.build_without_books
         env:
           PREVIEW_URL: ${{ steps.deploy.outputs.deployment-url }}
         run: |
@@ -109,7 +143,7 @@ jobs:
           echo "Published preview HTML: PASS"
 
       - name: Delete older previews from the same branch
-        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && !inputs.verify_candidates
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && !inputs.verify_candidates && !inputs.build_without_books
         env:
           CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
