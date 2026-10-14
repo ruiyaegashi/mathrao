@@ -6,18 +6,12 @@ if (![appId, accessKey, affiliateId].every(Boolean)) {
   console.error('Required GitHub Actions secrets are missing.');
   process.exit(1);
 }
-const isbn10 = ['4866150807']; // one-book diagnostic
-function isbn13(isbn) {
-  const prefix = '978' + isbn.slice(0, 9);
-  const checksum = (10 - [...prefix].reduce((s, n, i) => s + Number(n) * (i % 2 ? 3 : 1), 0) % 10) % 10;
-  return prefix + checksum;
-}
+const searches = [{ title: '数学' }]; // known-good search on the official API test form
 const results = [];
-for (const code of isbn10) {
-  const isbn = isbn13(code);
+for (const search of searches) {
   const url = new URL('https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404');
   url.search = new URLSearchParams({
-    applicationId: appId, affiliateId, isbn, format: 'json',
+    applicationId: appId, affiliateId, ...search, format: 'json',
     formatVersion: '2', hits: '1',
   }).toString();
   let status = 'error', title = '', image = false, itemLink = false, affiliateLink = false;
@@ -38,7 +32,7 @@ for (const code of isbn10) {
     }
     if (response.ok) {
       const payload = await response.json();
-      const item = payload.Items?.[0] ?? payload.items?.[0]?.Item ?? payload.items?.[0]?.item;
+      const item = payload.Items?.[0]?.Item ?? payload.Items?.[0] ?? payload.items?.[0]?.Item ?? payload.items?.[0]?.item;
       if (item) {
         title = String(item.title ?? item.itemName ?? '').slice(0, 120);
         image = Boolean(item.largeImageUrl || item.mediumImageUrl || item.smallImageUrl);
@@ -49,7 +43,7 @@ for (const code of isbn10) {
   } catch {
     status = 'network-error';
   }
-  results.push({ isbn, status, errorCode, errorMessageCategory, found: Boolean(title), title, image, itemLink, affiliateLink });
+  results.push({ search: 'title:数学', status, errorCode, errorMessageCategory, found: Boolean(title), title, image, itemLink, affiliateLink });
   // Respect the registered 1 request/second budget.
   await new Promise(resolve => setTimeout(resolve, 1200));
 }
