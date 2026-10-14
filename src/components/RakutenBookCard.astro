@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  imageUrl: string;
+  affiliateUrl: string;
+  isbn: string;
+  expiresAt: string;
+}
+const { title, imageUrl, affiliateUrl, isbn, expiresAt } = Astro.props;
+---
+<span class="rakuten-book-card" data-rakuten-book-card data-expires-at={expiresAt} hidden>
+  <span class="rakuten-book-badge">広告・書籍紹介</span>
+  <a class="rakuten-book-link" href={affiliateUrl} target="_blank" rel="sponsored nofollow noopener noreferrer">
+    <img src={imageUrl} alt={title + 'の表紙'} loading="lazy" decoding="async" width="80" />
+    <span class="rakuten-book-details">
+      <span class="rakuten-book-title">{title}</span>
+      <span class="rakuten-book-isbn">ISBN {isbn}</span>
+      <span class="rakuten-book-cta">楽天ブックスで見る ↗</span>
+    </span>
+  </a>
+</span>
+
+<style>
+  .rakuten-book-card {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #d8e5e6;
+    border-radius: 10px;
+    background: #f8fbfb;
+    overflow-wrap: anywhere;
+  }
+  .rakuten-book-card[hidden] { display: none !important; }
+  .rakuten-book-badge {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #596f75;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  .rakuten-book-link {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    min-width: 0;
+    text-decoration: none;
+  }
+  .rakuten-book-link img {
+    display: block;
+    max-width: 80px;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+    border-radius: 3px;
+  }
+  .rakuten-book-details { display: flex; flex-direction: column; min-width: 0; gap: 0.2rem; }
+  .rakuten-book-title { color: #203c42; font-weight: 650; font-size: 0.95rem; line-height: 1.55; }
+  .rakuten-book-isbn { color: #617379; font-size: 0.74rem; }
+  .rakuten-book-cta { color: #096b70; text-decoration: underline; text-underline-offset: 0.15em; font-weight: 600; font-size: 0.86rem; }
+  @media (max-width: 480px) {
+    .rakuten-book-card { padding: 0.75rem; }
+    .rakuten-book-link { gap: 0.7rem; }
+    .rakuten-book-link img { max-width: 60px; }
+  }
+</style>
