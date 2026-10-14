@@ -23,6 +23,68 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: STEP16 one-time preview branch protection
+        if: github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP16 temporary Cloudflare branch guard')
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          node --input-type=module <<'NODE'
+          const { CF_ACCOUNT, CF_TOKEN, GITHUB_REF, GITHUB_REPOSITORY } = process.env;
+          const branch = 'improve/mathrao-layout-step2-20261013';
+          if (GITHUB_REPOSITORY !== 'ruiyaegashi/mathrao' || GITHUB_REF !== 'refs/heads/' + branch) throw Error('Unexpected target');
+          if (!CF_ACCOUNT || !CF_TOKEN) throw Error('Missing existing Cloudflare secrets');
+          const endpoint = 'https://api.cloudflare.com/client/v4/accounts/' + encodeURIComponent(CF_ACCOUNT) + '/pages/projects/mathrao';
+          async function request(method, payload) {
+            const response = await fetch(endpoint, { method, redirect: 'error', headers: {
+              Authorization: 'Bearer ' + CF_TOKEN, 'Content-Type': 'application/json'
+            }, ...(payload ? { body: JSON.stringify(payload) } : {}) });
+            if (!response.ok) throw Error('Cloudflare project API HTTP ' + response.status + ' (' + method + ')');
+            const body = await response.json();
+            if (body.success !== true || !body.result) throw Error('Cloudflare project API returned unsuccessful result (' + method + ')');
+            return body.result;
+          }
+          const initial = await request('GET');
+          const source = initial.source;
+          if (initial.name !== 'mathrao' || initial.production_branch !== 'main' ||
+              source?.type !== 'github' || source.config?.owner !== 'ruiyaegashi' ||
+              source.config?.repo_name !== 'mathrao' ||
+              source.config?.production_branch !== 'main') throw Error('Unexpected Cloudflare project or GitHub source');
+          const old = source.config;
+          const previous = old.preview_deployment_setting;
+          if (!['all','custom','none'].includes(previous)) throw Error('Unknown preview deployment setting');
+          if (previous === 'none') {
+            console.log(JSON.stringify({state:'ALREADY_PREVIEW_DISABLED',productionUnchanged:true}));
+            process.exit(0);
+          }
+          const oldExcludes = old.preview_branch_excludes ?? [];
+          const oldIncludes = old.preview_branch_includes ?? [];
+          if (!Array.isArray(oldExcludes) || !Array.isArray(oldIncludes) ||
+              oldExcludes.some(x => typeof x !== 'string') ||
+              oldIncludes.some(x => typeof x !== 'string')) throw Error('Unknown preview branch rule format');
+          const includes = previous === 'all' ? ['*'] : [...oldIncludes];
+          const excludes = [...new Set([...oldExcludes, branch])];
+          const next = {...old, preview_deployment_setting:'custom',
+            preview_branch_includes:includes, preview_branch_excludes:excludes};
+          if (previous === 'custom' && oldExcludes.includes(branch)) {
+            console.log(JSON.stringify({state:'ALREADY_EXCLUDED',productionUnchanged:true}));
+            process.exit(0);
+          }
+          await request('PATCH', {source:{type:'github',config:next}});
+          const updated = await request('GET');
+          const verified = updated.source?.config;
+          const allowed = new Set(['preview_deployment_setting','preview_branch_excludes','preview_branch_includes']);
+          if (updated.name !== initial.name || updated.production_branch !== initial.production_branch ||
+              updated.source?.type !== source.type || !verified ||
+              verified.preview_deployment_setting !== 'custom' ||
+              !Array.isArray(verified.preview_branch_excludes) || !verified.preview_branch_excludes.includes(branch) ||
+              JSON.stringify(verified.preview_branch_includes) !== JSON.stringify(includes) ||
+              oldExcludes.some(x => !verified.preview_branch_excludes.includes(x)) ||
+              Object.keys(old).filter(k => !allowed.has(k)).some(k => JSON.stringify(verified[k]) !== JSON.stringify(old[k])))
+            throw Error('Unexpected project settings after PATCH; STOP');
+          console.log(JSON.stringify({state:'UPDATED',before:previous,after:'custom',
+            targetBranchExcluded:true,otherPreviewRulesPreserved:true,productionUnchanged:true}));
+          NODE
       - name: Verify candidate ISBNs only (no deployment)
         if: github.event_name == 'push' || inputs.verify_candidates
         env:
