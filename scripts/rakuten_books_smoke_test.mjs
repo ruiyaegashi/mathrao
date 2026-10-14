@@ -5,6 +5,15 @@ if (![appId, accessKey].every(Boolean)) {
   console.error('Required GitHub Actions secrets are missing.');
   process.exit(1);
 }
+// One-time diagnostic: compare app ID by SHA-256, without printing its value.
+// The expected digest corresponds to the app selected in the official test form.
+import { createHash } from 'node:crypto';
+const observed = createHash('sha256').update(appId).digest('hex');
+const expected = '72a36e5087cf7f1f99a525f800abeb01b7c357f4e55a0a2dd6268061e730f631';
+const matched = observed === expected;
+console.log(JSON.stringify({ check: 'rakuten-app-id-match', matched }));
+process.exit(matched ? 0 : 1);
+
 const searches = [{ title: '数学' }]; // known-good search on the official API test form
 const results = [];
 for (const search of searches) {
