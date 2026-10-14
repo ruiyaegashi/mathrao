@@ -78,7 +78,7 @@ path: "/recommended-study-aid-books-of-mathematics-1/"
 ## 参考書
 
 
-<p><span class="article-embed-placeholder">[旧埋め込み]</span><span class="article-embed-placeholder">[旧埋め込み]</span><span class="article-embed-placeholder">[旧埋め込み]</span></p>
+<p><span class="article-embed-placeholder" data-rakuten-slot="reference-23">[旧埋め込み]</span><span class="article-embed-placeholder">[旧埋め込み]</span><span class="article-embed-placeholder">[旧埋め込み]</span></p>
 <p><span class="article-embed-placeholder">[旧埋め込み]</span><span class="article-embed-placeholder">[旧埋め込み]</span><span class="article-embed-placeholder">[旧埋め込み]</span></p>
 
 
