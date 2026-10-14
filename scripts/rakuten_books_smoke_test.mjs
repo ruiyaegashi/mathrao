@@ -1,8 +1,7 @@
 // Temporary, manual Rakuten Books API smoke test. Do not log credentials or raw responses.
 const appId = process.env.RAKUTEN_APP_ID;
 const accessKey = process.env.RAKUTEN_ACCESS_KEY;
-const affiliateId = process.env.RAKUTEN_AFFILIATE_ID;
-if (![appId, accessKey, affiliateId].every(Boolean)) {
+if (![appId, accessKey].every(Boolean)) {
   console.error('Required GitHub Actions secrets are missing.');
   process.exit(1);
 }
@@ -11,13 +10,13 @@ const results = [];
 for (const search of searches) {
   const url = new URL('https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404');
   url.search = new URLSearchParams({
-    applicationId: appId, affiliateId, ...search, format: 'json',
-    formatVersion: '2', hits: '1',
+    applicationId: appId, accessKey, ...search, format: 'json',
   }).toString();
   let status = 'error', title = '', image = false, itemLink = false, affiliateLink = false;
   let errorCode = 'none', errorMessageCategory = 'none';
   try {
-    const response = await fetch(url, { headers: { accessKey }, redirect: 'error' });
+    // This one-time comparison matches the official form. Never log the URL.
+    const response = await fetch(url, { redirect: 'error' });
     status = String(response.status);
     if (!response.ok) {
       // Extract only recognized, non-sensitive error categories. Never log raw responses.
