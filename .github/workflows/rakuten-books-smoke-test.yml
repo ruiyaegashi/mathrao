@@ -1,4 +1,4 @@
-name: Rakuten Books API smoke test
+name: Rakuten Books API smoke test and preview
 on:
   workflow_dispatch:
 permissions:
@@ -6,7 +6,7 @@ permissions:
 jobs:
   smoke-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,7 +26,7 @@ jobs:
           RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
           RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
         run: node scripts/refresh_rakuten_books.mjs
-      - name: Check and build Rakuten pilot (no deployment)
+      - name: Check and build Rakuten pilot
         run: |
           corepack enable
           corepack pnpm install --frozen-lockfile
@@ -45,3 +45,63 @@ jobs:
             console.log(JSON.stringify({ checks, allPass: Object.values(checks).every(Boolean) }));
             if (!Object.values(checks).every(Boolean)) process.exit(1);
           '
+
+      - name: Deploy preview
+        if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        id: deploy
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=mathrao --branch=improve/mathrao-layout-step2-20261013 --commit-hash=${{ github.sha }}
+
+      - name: Verify published preview
+        if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          test -n "$PREVIEW_URL"
+          curl -fsSL --retry 5 --retry-delay 3 "$PREVIEW_URL/recommended-study-aid-books-of-mathematics-1/" -o /tmp/mathrao-preview.html
+          grep -q 'data-rakuten-book-card' /tmp/mathrao-preview.html
+          grep -q 'data-expires-at' /tmp/mathrao-preview.html
+          echo "Published preview HTML: PASS"
+
+      - name: Delete older previews from the same branch
+        if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CURRENT_ID: ${{ steps.deploy.outputs.pages-deployment-id }}
+        run: |
+          node --input-type=module <<'NODE'
+          const { CF_ACCOUNT, CF_TOKEN, CURRENT_ID } = process.env;
+          if (![CF_ACCOUNT, CF_TOKEN, CURRENT_ID].every(Boolean)) throw Error('Missing Cloudflare configuration or deployment ID');
+          const branch = 'improve/mathrao-layout-step2-20261013';
+          const base = `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT}/pages/projects/mathrao/deployments`;
+          const headers = { Authorization: `Bearer ${CF_TOKEN}` };
+          async function api(url, options = {}) {
+            const response = await fetch(url, { ...options, headers });
+            const body = await response.json();
+            if (!response.ok || !body.success) throw Error('Cloudflare deployment API failed: HTTP ' + response.status);
+            return body;
+          }
+          const deployments = [];
+          for (let page = 1; page <= 20; page++) {
+            const data = await api(`${base}?env=preview&per_page=100&page=${page}`);
+            deployments.push(...data.result);
+            if (page >= (data.result_info?.total_pages ?? 1)) break;
+            if (page === 20) throw Error('Too many deployments; do not delete from an incomplete list');
+          }
+          const same = deployments.filter(d => d.environment === 'preview' && d.deployment_trigger?.metadata?.branch === branch);
+          const current = same.find(d => d.id === CURRENT_ID);
+          if (!current || current.latest_stage?.status !== 'success') throw Error('Verified current preview not found');
+          const currentTime = Date.parse(current.created_on);
+          if (!Number.isFinite(currentTime) || same.some(d => d.id !== CURRENT_ID && Date.parse(d.created_on) >= currentTime)) {
+            throw Error('A newer or equal-time preview exists; cleanup stopped');
+          }
+          for (const old of same.filter(d => d.id !== CURRENT_ID)) {
+            await api(`${base}/${encodeURIComponent(old.id)}?force=true`, { method: 'DELETE' });
+            console.log('Deleted previous preview: ' + old.id.slice(0, 8));
+          }
+          console.log('Preview cleanup: PASS');
+          NODE
