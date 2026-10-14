@@ -19,15 +19,26 @@ for (const search of searches) {
     const response = await fetch(url, { headers: { accessKey }, redirect: 'error' });
     status = String(response.status);
     if (!response.ok) {
-      // Extract only recognized, non-sensitive error categories. Never log raw responses.
+      // Do not emit the error body, request URL, headers or any credentials.
+      // Map only preapproved diagnostic tokens from up to 2 KiB of error body.
+      const type = (response.headers.get('content-type') ?? '').toLowerCase();
+      errorCode = type.includes('json') ? 'json-response' : type.includes('html') ? 'html-response' : 'other-response';
       try {
-        const error = await response.json();
-        const rawCode = String(error.error ?? error.code ?? '').toLowerCase();
-        const rawMessage = String(error.error_description ?? error.message ?? '').toLowerCase();
-        const categories = ['invalid_application_id', 'invalid_access_key', 'invalid_parameter', 'forbidden', 'rate_limit', 'not_found', 'unauthorized'];
-        errorCode = categories.find(c => rawCode.includes(c) || rawMessage.includes(c.replaceAll('_', ' '))) ?? 'unclassified';
-        errorMessageCategory = /access.?key/.test(rawMessage) ? 'access-key' : /application.?id/.test(rawMessage) ? 'application-id' : /permission|scope/.test(rawMessage) ? 'permission' : /domain|origin|referer/.test(rawMessage) ? 'origin' : /limit|quota/.test(rawMessage) ? 'limit' : 'other';
-      } catch { errorCode = 'unreadable'; }
+        const body = (await response.text()).slice(0, 2048).toLowerCase();
+        const patterns = [
+          ['client-ip-not-allowed', /client_ip_not_allowed|client.ip.not.allowed/],
+          ['referer-not-allowed', /referer|referrer/],
+          ['origin-not-allowed', /origin|allowed.website|domain/],
+          ['not-authorized', /not_authorized|not authorized|permission|scope/],
+          ['access-key-error', /invalid.access.key|access.key|accesskey/],
+          ['app-id-error', /application.id|applicationid/],
+          ['rate-limited', /rate.limit|quota|too.many.requests/],
+          ['security-block', /access.denied|request.blocked|security.policy|forbidden/]
+        ];
+        errorMessageCategory = patterns.find(([, re]) => re.test(body))?.[0] ?? 'unknown';
+      } catch {
+        errorMessageCategory = 'unreadable';
+      }
     }
     if (response.ok) {
       const payload = await response.json();
