@@ -1,6 +1,10 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RakutenBookCard from '../components/RakutenBookCard.astro';
+import bookSelections from '../data/rakuten-book-selections.json';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
 interface Props {
   entry: CollectionEntry<'articles'>;
@@ -46,6 +50,42 @@ const summaryText = isFormulaReference ? undefined : (entry.body ?? '')
 const descriptionText = `${entry.data.title}。${summaryText ?? 'Mathraoで公開している算数・数学の学習記事です。'}`;
 const articleDescription = Array.from(descriptionText).slice(0, 140).join('') +
   (Array.from(descriptionText).length > 140 ? '…' : '');
+
+// Pilot only. The JSON file is produced during a manual, secret-backed CI test.
+// Ordinary builds without the file keep the existing article unchanged.
+const selection = bookSelections.selections.find((item) => item.articlePath === entry.data.path);
+let pilotBook: {
+  isbn: string;
+  title: string;
+  imageUrl: string;
+  affiliateUrl: string;
+  fetchedAt: string;
+  expiresAt: string;
+} | null = null;
+if (selection) {
+  try {
+    const json = await readFile(join(process.cwd(), 'src/generated/rakuten-books.json'), 'utf8');
+    const data = JSON.parse(json);
+    const candidate = data.books?.[selection.isbn];
+    const from = Date.parse(candidate?.fetchedAt ?? '');
+    const until = Date.parse(candidate?.expiresAt ?? '');
+    const now = Date.now();
+    const validHttps = (value: unknown) => {
+      try { return typeof value === 'string' && new URL(value).protocol === 'https:'; }
+      catch { return false; }
+    };
+    if (candidate && candidate.isbn === selection.isbn &&
+        typeof candidate.title === 'string' && candidate.title.length > 0 &&
+        validHttps(candidate.imageUrl) && validHttps(candidate.affiliateUrl) &&
+        Number.isFinite(from) && Number.isFinite(until) &&
+        from <= now && now < until && until - from <= 7 * 24 * 60 * 60 * 1000) {
+      pilotBook = candidate;
+    }
+  } catch {
+    // No generated data: do not expose a stale or unauthenticated book card.
+  }
+}
+
 ---
 
 <BaseLayout title={entry.data.title} description={articleDescription}>
@@ -73,6 +113,17 @@ const articleDescription = Array.from(descriptionText).slice(0, 140).join('') +
       <a href="/">← 記事一覧へ戻る</a>
     </nav>
   </article>
+  {pilotBook && (
+    <template data-rakuten-book-pilot>
+      <RakutenBookCard
+        title={pilotBook.title}
+        imageUrl={pilotBook.imageUrl}
+        affiliateUrl={pilotBook.affiliateUrl}
+        isbn={pilotBook.isbn}
+        expiresAt={pilotBook.expiresAt}
+      />
+    </template>
+  )}
 </BaseLayout>
 
 <style>
@@ -162,6 +213,25 @@ const articleDescription = Array.from(descriptionText).slice(0, 140).join('') +
 </style>
 <script>
   import renderMathInElement from 'katex/contrib/auto-render';
+
+  // Insert only the pilot card at its approved legacy slot.
+  // Hidden-by-default markup stays hidden without JavaScript.
+  const pilotSlot = document.querySelector<HTMLElement>('[data-rakuten-slot="reference-23"]');
+  const bookTemplate = document.querySelector<HTMLTemplateElement>('template[data-rakuten-book-pilot]');
+  if (pilotSlot && bookTemplate) {
+    const sourceCard = bookTemplate.content.querySelector<HTMLElement>('[data-rakuten-book-card]');
+    const expiresAt = Date.parse(sourceCard?.dataset.expiresAt ?? '');
+    const remaining = expiresAt - Date.now();
+    if (sourceCard && Number.isFinite(expiresAt) && remaining > 0 && remaining <= 7 * 24 * 60 * 60 * 1000) {
+      const visibleCard = document.importNode(sourceCard, true);
+      visibleCard.hidden = false;
+      pilotSlot.replaceWith(visibleCard);
+      window.setTimeout(() => visibleCard.remove(), remaining);
+    } else {
+      pilotSlot.remove();
+    }
+  }
+
 
   const article = document.querySelector<HTMLElement>('[data-article-content]');
   if (article) {
