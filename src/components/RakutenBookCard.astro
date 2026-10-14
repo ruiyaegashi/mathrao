@@ -4,11 +4,10 @@ interface Props {
   imageUrl: string;
   affiliateUrl: string;
   isbn: string;
-  expiresAt: string;
 }
-const { title, imageUrl, affiliateUrl, isbn, expiresAt } = Astro.props;
+const { title, imageUrl, affiliateUrl, isbn } = Astro.props;
 ---
-<span class="rakuten-book-card" data-rakuten-book-card data-expires-at={expiresAt} hidden>
+<span class="rakuten-book-card" data-rakuten-book-card hidden>
   <span class="rakuten-book-badge">広告・書籍紹介</span>
   <a class="rakuten-book-link" href={affiliateUrl} target="_blank" rel="sponsored nofollow noopener noreferrer">
     <img src={imageUrl} alt={title + 'の表紙'} loading="lazy" decoding="async" width="80" />
