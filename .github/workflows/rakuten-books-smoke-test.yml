@@ -78,10 +78,10 @@ jobs:
             let allPass = true;
             for (const [slug, expectedCards] of Object.entries(expected)) {
               const html = readFileSync("dist/" + slug + "/index.html", "utf8");
-              const cards = (html.match(/data-rakuten-book-card(?=[\\s>])/g) || []).length;
-              const slots = (html.match(/data-rakuten-book-slot(?=[\\s>])/g) || []).length;
+              const cards = (html.match(/data-rakuten-book-card(?=[\s>])/g) || []).length;
+              const slots = (html.match(/data-rakuten-book-slot(?=[\s>])/g) || []).length;
               const valid = cards === expectedCards && slots > 0 && html.includes("data-expires-at") &&
-                html.includes("rel=\\"sponsored nofollow noopener noreferrer\\"");
+                html.includes("rel=\"sponsored nofollow noopener noreferrer\"");
               console.log(JSON.stringify({ slug, expectedCards, cards, slots, valid }));
               if (!valid) allPass = false;
             }
