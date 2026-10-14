@@ -51,38 +51,47 @@ const descriptionText = `${entry.data.title}。${summaryText ?? 'Mathraoで公�
 const articleDescription = Array.from(descriptionText).slice(0, 140).join('') +
   (Array.from(descriptionText).length > 140 ? '…' : '');
 
-// Pilot only. The JSON file is produced during a manual, secret-backed CI test.
-// Ordinary builds without the file keep the existing article unchanged.
-const selection = bookSelections.selections.find((item) => item.articlePath === entry.data.path);
-let pilotBook: {
-  isbn: string;
-  title: string;
-  imageUrl: string;
-  affiliateUrl: string;
-  fetchedAt: string;
-  expiresAt: string;
-} | null = null;
-if (selection) {
+// Only approved article, ISBN and legacy position references are kept in Git.
+// API-derived products live in a private, temporary CI build file.
+const selectedBooks = bookSelections.selections.filter((s) => s.articlePath === entry.data.path);
+type Book = { isbn: string; title: string; imageUrl: string; affiliateUrl: string; fetchedAt: string; expiresAt: string; };
+const bookGroups: { slotIndex: number; slotEnd: number; books: Book[] }[] = [];
+if (selectedBooks.length) {
   try {
-    const json = await readFile(join(process.cwd(), 'src/generated/rakuten-books.json'), 'utf8');
-    const data = JSON.parse(json);
-    const candidate = data.books?.[selection.isbn];
-    const from = Date.parse(candidate?.fetchedAt ?? '');
-    const until = Date.parse(candidate?.expiresAt ?? '');
+    const raw = await readFile(join(process.cwd(), 'src/generated/rakuten-books.json'), 'utf8');
+    const data = JSON.parse(raw);
     const now = Date.now();
     const validHttps = (value: unknown) => {
       try { return typeof value === 'string' && new URL(value).protocol === 'https:'; }
       catch { return false; }
     };
-    if (candidate && candidate.isbn === selection.isbn &&
-        typeof candidate.title === 'string' && candidate.title.length > 0 &&
-        validHttps(candidate.imageUrl) && validHttps(candidate.affiliateUrl) &&
-        Number.isFinite(from) && Number.isFinite(until) &&
-        from <= now && now < until && until - from <= 7 * 24 * 60 * 60 * 1000) {
-      pilotBook = candidate;
+    if (data.schemaVersion === 2) {
+      for (const selected of selectedBooks) {
+        const books: Book[] = [];
+        for (const isbn of selected.isbns) {
+          const book = data.books?.[isbn];
+          const from = Date.parse(book?.fetchedAt ?? '');
+          const until = Date.parse(book?.expiresAt ?? '');
+          if (!book || book.isbn !== isbn ||
+              typeof book.title !== 'string' || !book.title ||
+              !validHttps(book.imageUrl) || !validHttps(book.affiliateUrl) ||
+              !Number.isFinite(from) || !Number.isFinite(until) ||
+              from > now || now >= until ||
+              until - from > 7 * 24 * 60 * 60 * 1000) {
+            books.length = 0;
+            break; // Suppress an incomplete approved multi-volume group.
+          }
+          books.push(book);
+        }
+        if (books.length === selected.isbns.length) {
+          const slotEnd = "legacySlotEnd" in selected && typeof selected.legacySlotEnd === "number"
+            ? selected.legacySlotEnd : selected.legacySlotIndex;
+          bookGroups.push({ slotIndex: selected.legacySlotIndex, slotEnd, books });
+        }
+      }
     }
   } catch {
-    // No generated data: do not expose a stale or unauthenticated book card.
+    // Normal Git-backed builds have no API snapshot; the original article remains.
   }
 }
 
@@ -113,17 +122,19 @@ if (selection) {
       <a href="/">← 記事一覧へ戻る</a>
     </nav>
   </article>
-  {pilotBook && (
-    <template data-rakuten-book-pilot>
-      <RakutenBookCard
-        title={pilotBook.title}
-        imageUrl={pilotBook.imageUrl}
-        affiliateUrl={pilotBook.affiliateUrl}
-        isbn={pilotBook.isbn}
-        expiresAt={pilotBook.expiresAt}
-      />
+  {bookGroups.map((group) => (
+    <template data-rakuten-book-slot data-slot-index={group.slotIndex} data-slot-end={group.slotEnd}>
+      {group.books.map((book) => (
+        <RakutenBookCard
+          title={book.title}
+          imageUrl={book.imageUrl}
+          affiliateUrl={book.affiliateUrl}
+          isbn={book.isbn}
+          expiresAt={book.expiresAt}
+        />
+      ))}
     </template>
-  )}
+  ))}
 </BaseLayout>
 
 <style>
@@ -214,24 +225,32 @@ if (selection) {
 <script>
   import renderMathInElement from 'katex/contrib/auto-render';
 
-  // Insert only the pilot card at its approved legacy slot.
-  // Hidden-by-default markup stays hidden without JavaScript.
-  const pilotSlot = document.querySelector<HTMLElement>('[data-rakuten-slot="reference-23"]');
-  const bookTemplate = document.querySelector<HTMLTemplateElement>('template[data-rakuten-book-pilot]');
-  if (pilotSlot && bookTemplate) {
-    const sourceCard = bookTemplate.content.querySelector<HTMLElement>('[data-rakuten-book-card]');
-    const expiresAt = Date.parse(sourceCard?.dataset.expiresAt ?? '');
-    const remaining = expiresAt - Date.now();
-    if (sourceCard && Number.isFinite(expiresAt) && remaining > 0 && remaining <= 7 * 24 * 60 * 60 * 1000) {
-      const visibleCard = document.importNode(sourceCard, true);
-      visibleCard.hidden = false;
-      pilotSlot.replaceWith(visibleCard);
-      window.setTimeout(() => visibleCard.remove(), remaining);
-    } else {
-      pilotSlot.remove();
+  // Reference the original, untouched 1-based article placeholders.
+  const placeholders = Array.from(document.querySelectorAll<HTMLElement>('.article-body .article-embed-placeholder'));
+  const templates = document.querySelectorAll<HTMLTemplateElement>('template[data-rakuten-book-slot]');
+  for (const template of templates) {
+    const start = Number(template.dataset.slotIndex);
+    const end = Number(template.dataset.slotEnd);
+    if (!Number.isInteger(start) || !Number.isInteger(end) ||
+        start < 1 || end < start || end > placeholders.length) continue;
+    const target = placeholders[start - 1];
+    if (!target || !target.isConnected) continue;
+    const cards = Array.from(template.content.querySelectorAll<HTMLElement>('[data-rakuten-book-card]'));
+    if (!cards.length) continue;
+    const remaining = cards.map(card => Date.parse(card.dataset.expiresAt ?? '') - Date.now());
+    if (remaining.some(ms => !Number.isFinite(ms) || ms <= 0 || ms > 7 * 24 * 60 * 60 * 1000)) continue;
+    const inserted = cards.map(card => {
+      const copy = document.importNode(card, true);
+      copy.hidden = false;
+      return copy;
+    });
+    target.replaceWith(...inserted);
+    // Previously separate positions 30-32 now describe two current series books.
+    for (let i = start + 1; i <= end; i++) placeholders[i - 1]?.remove();
+    for (let i = 0; i < inserted.length; i++) {
+      window.setTimeout(() => inserted[i].remove(), remaining[i]);
     }
   }
-
 
   const article = document.querySelector<HTMLElement>('[data-article-content]');
   if (article) {
