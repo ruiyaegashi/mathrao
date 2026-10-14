@@ -6,14 +6,21 @@ if (![appId, accessKey, affiliateId].every(Boolean)) {
   console.error('Required GitHub Actions secrets are missing.');
   process.exit(1);
 }
-const searches = [{ title: '数学' }]; // known-good search on the official API test form
+// Five representative title queries for mathematics books; first hit per query.
+const searches = [
+  { title: 'チャート式 基礎からの 数学1＋A' },
+  { title: 'チャート式 基礎からの 数学2＋B' },
+  { title: 'チャート式 基礎からの 数学3＋C' },
+  { title: '数学ガール' },
+  { title: '数学 入門問題精講' },
+];
 const results = [];
 for (const search of searches) {
   const url = new URL('https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404');
   url.search = new URLSearchParams({
     applicationId: appId, affiliateId, ...search, format: 'json',
   }).toString();
-  let status = 'error', title = '', image = false, itemLink = false, affiliateLink = false;
+  let status = 'error', title = '', isbn = '', image = false, itemLink = false, affiliateLink = false;
   let errorCode = 'none', errorMessageCategory = 'none';
   try {
     // Send the access key in a header, never a URL or logs.
@@ -46,6 +53,7 @@ for (const search of searches) {
       const item = payload.Items?.[0]?.Item ?? payload.Items?.[0] ?? payload.items?.[0]?.Item ?? payload.items?.[0]?.item;
       if (item) {
         title = String(item.title ?? item.itemName ?? '').slice(0, 120);
+        isbn = String(item.isbn ?? '').slice(0, 20);
         image = Boolean(item.largeImageUrl || item.mediumImageUrl || item.smallImageUrl);
         itemLink = /^https:\/\//.test(item.itemUrl ?? '');
         affiliateLink = /^https:\/\//.test(item.affiliateUrl ?? '');
@@ -54,9 +62,14 @@ for (const search of searches) {
   } catch {
     status = 'network-error';
   }
-  results.push({ search: 'title:数学', status, errorCode, errorMessageCategory, found: Boolean(title), title, image, itemLink, affiliateLink });
+  results.push({ search: search.title, status, errorCode, errorMessageCategory, found: Boolean(title), title, isbn, image, itemLink, affiliateLink });
   // Respect the registered 1 request/second budget.
   await new Promise(resolve => setTimeout(resolve, 1200));
 }
 console.log(JSON.stringify({ tested: results.length, results }, null, 2));
-if (results.some(x => x.status !== '200' || !x.found || !x.itemLink || !x.affiliateLink)) process.exitCode = 1;
+const uniqueIsbns = new Set(results.map(x => x.isbn).filter(Boolean));
+if (results.some(x => x.status !== '200' || !x.found || !x.image || !x.itemLink || !x.affiliateLink)) process.exitCode = 1;
+if (uniqueIsbns.size !== results.length) {
+  console.error('Five distinct ISBNs were not confirmed.');
+  process.exitCode = 1;
+}
