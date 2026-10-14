@@ -1,7 +1,8 @@
 // Temporary, manual Rakuten Books API smoke test. Do not log credentials or raw responses.
 const appId = process.env.RAKUTEN_APP_ID;
 const accessKey = process.env.RAKUTEN_ACCESS_KEY;
-if (![appId, accessKey].every(Boolean)) {
+const affiliateId = process.env.RAKUTEN_AFFILIATE_ID;
+if (![appId, accessKey, affiliateId].every(Boolean)) {
   console.error('Required GitHub Actions secrets are missing.');
   process.exit(1);
 }
@@ -10,7 +11,7 @@ const results = [];
 for (const search of searches) {
   const url = new URL('https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404');
   url.search = new URLSearchParams({
-    applicationId: appId, ...search, format: 'json',
+    applicationId: appId, affiliateId, ...search, format: 'json',
   }).toString();
   let status = 'error', title = '', image = false, itemLink = false, affiliateLink = false;
   let errorCode = 'none', errorMessageCategory = 'none';
@@ -58,4 +59,4 @@ for (const search of searches) {
   await new Promise(resolve => setTimeout(resolve, 1200));
 }
 console.log(JSON.stringify({ tested: results.length, results }, null, 2));
-if (results.some(x => x.status !== '200')) process.exitCode = 1;
+if (results.some(x => x.status !== '200' || !x.found || !x.itemLink || !x.affiliateLink)) process.exitCode = 1;
