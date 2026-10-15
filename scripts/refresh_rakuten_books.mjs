@@ -35,6 +35,8 @@ if (process.argv.includes('--check-selections')) {
 const { RAKUTEN_APP_ID: appId, RAKUTEN_ACCESS_KEY: accessKey, RAKUTEN_AFFILIATE_ID: affiliateId } = process.env;
 if (![appId, accessKey, affiliateId].every(Boolean)) throw new Error('Missing required GitHub Actions secrets.');
 const output = {};
+const noExactMatch = [];
+const incompleteMetadata = [];
 for (let i = 0; i < isbns.length; i++) {
   if (i) await sleep(1200);
   const isbn = isbns[i];
@@ -44,14 +46,28 @@ for (let i = 0; i < isbns.length; i++) {
   if (!response.ok) throw new Error('Rakuten Books API HTTP ' + response.status + ' for ISBN ' + isbn);
   const data = await response.json();
   const matched = (data.Items ?? []).map(x => x.Item ?? x).find(x => String(x.isbn ?? '') === isbn);
-  if (!matched) throw new Error('No exact ISBN match: ' + isbn);
+  if (!matched) { noExactMatch.push(isbn); continue; }
   const title = String(matched.title ?? '');
   const imageUrl = String(matched.largeImageUrl || matched.mediumImageUrl || matched.smallImageUrl || '');
   const affiliateUrl = String(matched.affiliateUrl ?? '');
   const validHttps = value => { try { return new URL(value).protocol === 'https:'; } catch { return false; } };
-  if (!title || !validHttps(imageUrl) || !validHttps(affiliateUrl)) throw new Error('Incomplete metadata for ISBN ' + isbn);
+  if (!title || !validHttps(imageUrl) || !validHttps(affiliateUrl)) { incompleteMetadata.push(isbn); continue; }
   const record = { isbn, title, imageUrl, affiliateUrl, fetchedAt: new Date().toISOString() };
   output[isbn] = record;
+}
+// Log only ISBN identifiers and verification status; never log product payloads or URLs.
+console.log(JSON.stringify({
+  checked: isbns.length,
+  exactMatches: Object.keys(output).length,
+  noExactMatch,
+  incompleteMetadata,
+}));
+if (noExactMatch.length || incompleteMetadata.length) {
+  throw new Error('Rakuten ISBN verification failed: ' + (noExactMatch.length + incompleteMetadata.length) + ' item(s)');
+}
+if (process.argv.includes('--audit')) {
+  console.log('ISBN audit: PASS (no file written and no deployment)');
+  process.exit(0);
 }
 await mkdir(join(cwd, 'src/generated'), { recursive: true });
 await writeFile(outputPath, JSON.stringify({ schemaVersion: 2, books: output }, null, 2) + '\n', { mode: 0o600 });
