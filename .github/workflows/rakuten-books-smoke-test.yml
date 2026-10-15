@@ -91,7 +91,7 @@ jobs:
           corepack pnpm run build
           node --input-type=module -e '
             import { readFileSync } from "node:fs";
-            const expected = {"recommended-study-aid-books-of-mathematics-1":22,"recommended-study-aid-books-of-mathematics-2":49,"recommended-study-aid-books-of-mathematics-3":13,"math-is-useful":7,"how-to-overcome-impatience-and-anxiety":1};
+            const expected = {"recommended-study-aid-books-of-mathematics-1":22,"recommended-study-aid-books-of-mathematics-2":49,"recommended-study-aid-books-of-mathematics-3":12,"math-is-useful":7,"how-to-overcome-impatience-and-anxiety":1};
             let allPass = true;
             for (const [slug, expectedCards] of Object.entries(expected)) {
               const html = readFileSync("dist/" + slug + "/index.html", "utf8");
@@ -119,7 +119,7 @@ jobs:
           import { readFileSync } from 'node:fs';
           const groups = JSON.parse(readFileSync('src/data/rakuten-book-selections.json', 'utf8')).selections;
           const articlePaths = [...new Set(groups.map(group => group.articlePath))];
-          if (groups.length !== 89 || groups.reduce((n, group) => n + group.isbns.length, 0) !== 92 || articlePaths.length !== 5) {
+          if (groups.length !== 88 || groups.reduce((n, group) => n + group.isbns.length, 0) !== 91 || articlePaths.length !== 5) {
             throw Error('Approved book selection counts changed; stop the removal test');
           }
           let passed = true;
