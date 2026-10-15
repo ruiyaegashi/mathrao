@@ -75,14 +75,14 @@ jobs:
           NODE
 
       - name: Generate a single private book snapshot for preview build
-        if: (github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP19 remove trial 7-day expiry'))
+        if: (github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP19 remove trial 7-day expiry')) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')
         env:
           RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
           RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
           RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
         run: node scripts/refresh_rakuten_books.mjs
       - name: Check and build Rakuten pilot
-        if: (github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP19 remove trial 7-day expiry'))
+        if: (github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP19 remove trial 7-day expiry')) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')
         run: |
           corepack enable
           corepack pnpm install --frozen-lockfile
@@ -135,7 +135,7 @@ jobs:
           NODE
 
       - name: Deploy preview
-        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates)) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
         id: deploy
         uses: cloudflare/wrangler-action@v4
         with:
@@ -144,7 +144,7 @@ jobs:
           command: pages deploy dist --project-name=mathrao --branch=improve/mathrao-layout-step2-20261013 --commit-hash=${{ github.sha }}
 
       - name: Verify published preview
-        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates)) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
         env:
           PREVIEW_URL: ${{ steps.deploy.outputs.deployment-url }}
           BOOKLESS_PUBLISH: ${{ (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) }}
@@ -161,17 +161,36 @@ jobs:
               echo "Published bookless page: PASS $slug"
             done
           else
-            curl -fsSL --retry 5 --retry-delay 3 "$PREVIEW_URL/recommended-study-aid-books-of-mathematics-1/" -o /tmp/mathrao-preview.html
-            grep -q 'data-rakuten-book-card' /tmp/mathrao-preview.html
-            if grep -q 'data-expires-at' /tmp/mathrao-preview.html; then
-              echo 'FAIL: removed trial expiry attribute is present'
-              exit 1
-            fi
-            echo "Published preview HTML: PASS"
+            for item in recommended-study-aid-books-of-mathematics-1:22 recommended-study-aid-books-of-mathematics-2:49 recommended-study-aid-books-of-mathematics-3:12 math-is-useful:7 how-to-overcome-impatience-and-anxiety:1; do
+              slug="${item%:*}"
+              expected="${item#*:}"
+              curl -fsSL --retry 5 --retry-delay 3 "$PREVIEW_URL/$slug/" -o /tmp/mathrao-preview.html
+              grep -q 'class="article-body"' /tmp/mathrao-preview.html
+              actual="$(grep -o 'data-rakuten-book-card' /tmp/mathrao-preview.html | wc -l | tr -d ' ')"
+              test "$actual" -eq "$expected"
+              grep -q 'data-rakuten-book-slot' /tmp/mathrao-preview.html
+              grep -q '広告・書籍紹介' /tmp/mathrao-preview.html
+              grep -q 'Supported by Rakuten Developers' /tmp/mathrao-preview.html
+              grep -q 'rel="sponsored nofollow noopener noreferrer"' /tmp/mathrao-preview.html
+              grep -q 'adsbygoogle.js?client=ca-pub-7781274978364717' /tmp/mathrao-preview.html
+              grep -q 'Amazonのアソシエイトとして' /tmp/mathrao-preview.html
+              if grep -q 'data-expires-at' /tmp/mathrao-preview.html; then
+                echo "FAIL: removed trial expiry attribute is present in $slug"
+                exit 1
+              fi
+              echo "Published Rakuten cards and ad markup: PASS $slug ($actual)"
+            done
+            curl -fsSL --retry 5 --retry-delay 3 "$PREVIEW_URL/shikujiri-pythagoras/" -o /tmp/mathrao-amazon.html
+            grep -q 'www.amazon.co.jp/dp/4046019972' /tmp/mathrao-amazon.html
+            grep -q 'www.amazon.co.jp/dp/4822259218' /tmp/mathrao-amazon.html
+            grep -q 'tag=mathrao-22' /tmp/mathrao-amazon.html
+            grep -q 'rel="sponsored noopener noreferrer"' /tmp/mathrao-amazon.html
+            grep -q 'Amazonのアソシエイトとして' /tmp/mathrao-amazon.html
+            echo 'Published Amazon links and disclosure: PASS'
           fi
 
       - name: Delete older previews from the same branch
-        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates)) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
         env:
           CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
