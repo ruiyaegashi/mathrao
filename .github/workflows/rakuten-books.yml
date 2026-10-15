@@ -251,3 +251,56 @@ jobs:
             throw Error('Production cleanup not confirmed');
           console.log(JSON.stringify({productionCleanup:'PASS',deleted:old.length,protected:CURRENT_ID}));
           NODE
+
+  step35-read-only:
+    if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && github.event.head_commit.message == '[CF-Pages-Skip] STEP35 read-only post-delete verification 20261016'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect Cloudflare Production and remaining history
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          node --input-type=module <<'NODE'
+          const {CF_ACCOUNT,CF_TOKEN}=process.env;
+          if(!CF_ACCOUNT||!CF_TOKEN)throw Error('Missing credentials');
+          const base='https://api.cloudflare.com/client/v4/accounts/'+CF_ACCOUNT+'/pages/projects/mathrao';
+          async function get(url){
+            const r=await fetch(url,{headers:{Authorization:'Bearer '+CF_TOKEN}});
+            const d=await r.json();
+            if(!r.ok||d.success!==true)throw Error('GET failed HTTP '+r.status+' '+JSON.stringify(d.errors??[]));
+            return d;
+          }
+          const p=(await get(base)).result;
+          if(p?.name!=='mathrao'||p.production_branch!=='main'||
+             p.source?.config?.production_deployments_enabled!==false)throw Error('Project identity or production configuration mismatch');
+          const current=p.canonical_deployment?.id;
+          const rows=[];
+          let pageCount;
+          for(let page=1;page<=20;page++){
+            const d=await get(base+'/deployments?env=production&per_page=25&page='+page);
+            if(!Number.isInteger(d.result_info?.total_pages)||d.result_info.total_pages<1||
+               d.result_info.total_pages>20||!Array.isArray(d.result))throw Error('Incomplete list');
+            if(pageCount===undefined)pageCount=d.result_info.total_pages;
+            if(pageCount!==d.result_info.total_pages)throw Error('Listing changed during scan');
+            rows.push(...d.result);
+            if(page===pageCount)break;
+          }
+          if(rows.some(d=>d.environment!=='production'||!d.id)||new Set(rows.map(d=>d.id)).size!==rows.length)throw Error('Invalid production entries');
+          const status=(d)=>d.latest_stage?.status??'unknown';
+          const currentEntry=rows.find(d=>d.id===current);
+          const oldSuccess=rows.filter(d=>d.id!==current&&status(d)==='success');
+          const others=rows.filter(d=>d.id!==current&&status(d)!=='success');
+          const prior='c3a6d88e-51e1-4851-93fa-1c2e14b87787';
+          const expected='24be82a0-739d-4f59-8633-b2af6dcb84d3';
+          console.log('POST_DELETE_INSPECTION '+JSON.stringify({project:p.name,current,currentStatus:currentEntry?status(currentEntry):null,expectedCurrent:expected,currentMatches:current===expected,oldSuccessCount:oldSuccess.length,oldSuccess:oldSuccess.map(d=>({id:d.id,created:d.created_on,url:d.url})),priorStillPresent:rows.some(d=>d.id===prior),otherHistoryCount:others.length,otherHistory:others.map(d=>({id:d.id,status:status(d)})),total:rows.length}));
+          const [site,ads]=await Promise.all([
+            fetch('https://mathrao.com/recommended-study-aid-books-of-mathematics-1/'),
+            fetch('https://mathrao.com/ads.txt')
+          ]);
+          const html=await site.text(),adsText=await ads.text();
+          const cards=(html.match(/data-rakuten-book-card(?=[\\s>])/g)||[]).length;
+          console.log('LIVE_HTTP '+JSON.stringify({articleStatus:site.status,articleCards:cards,adsStatus:ads.status,adsMatches:adsText.trim()==='google.com, pub-7781274978364717, DIRECT, f08c47fec0942fa0'}));
+          if(!current||!currentEntry||status(currentEntry)!=='success'||site.status!==200||ads.status!==200||cards!==22||!adsText.startsWith('google.com,'))throw Error('Current production/read-only HTTP verification incomplete');
+          NODE
