@@ -191,3 +191,116 @@ jobs:
           }
           console.log(JSON.stringify({ previewCleanup: 'PASS', deleted: deleted.length, currentPreserved: true }));
           NODE
+
+  step30-http-audit:
+    if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && github.event.head_commit.message == '[CF-Pages-Skip] STEP30 frontmatter-URL audit retry 20261015'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify live production URL from article frontmatter, books, ads and media
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync,readdirSync} from 'node:fs';
+          import {join} from 'node:path';
+          const origin='https://mathrao.com';
+          const ensure=(condition,label)=>{if(!condition)throw Error(label)};
+          const result={pages:[],books:0,amazon:[],assets:[],notFound:[]};
+          async function request(path,method='GET',binary=false){
+            const response=await fetch(origin+path,{method,redirect:'manual',headers:{'user-agent':'Mathrao-Independent-HTTP-Audit/1.0'}});
+            let body='',byteLength=0;
+            if(method!=='HEAD'){
+              if(binary){byteLength=(await response.arrayBuffer()).byteLength}
+              else{body=await response.text();byteLength=Buffer.byteLength(body)}
+            }
+            return {status:response.status,body,byteLength,headers:response.headers,location:response.headers.get('location')};
+          }
+          function html(path,r){
+            ensure(r.status===200,path+' HTTP '+r.status+' '+(r.location??''));
+            ensure((r.headers.get('content-type')??'').includes('text/html'),path+' non-HTML');
+            ensure(r.body.includes('<title>'),path+' missing title');
+            ensure(r.body.includes('adsbygoogle.js?client=ca-pub-7781274978364717'),path+' AdSense loader missing');
+            ensure(r.body.includes('Amazonのアソシエイトとして'),path+' Amazon disclosure missing');
+            ensure(r.body.includes('href="https://mathrao.com'+path+'"'),path+' canonical mismatch');
+          }
+          const home=await request('/');
+          html('/',home);
+          result.pages.push({path:'/',status:200});
+          const sel=JSON.parse(readFileSync('src/data/rakuten-book-selections.json','utf8'));
+          const expected=new Map();
+          for(const g of sel.selections){const x=expected.get(g.articlePath)??[];x.push(...g.isbns);expected.set(g.articlePath,x)}
+          ensure(sel.selections.length===88&&[...expected.values()].flat().length===91,'selection count changed');
+          for(const [path,isbnList] of expected){
+            const r=await request(path);html(path,r);
+            const count=(r.body.match(/data-rakuten-book-card(?=[\s>])/g)??[]).length;
+            const isbns=[...r.body.matchAll(/ISBN ([0-9]{13})/g)].map(m=>m[1]);
+            ensure(count===isbnList.length&&isbns.length===isbnList.length,path+' book count mismatch '+count+'/'+isbnList.length);
+            ensure(isbnList.every(isbn=>isbns.filter(x=>x===isbn).length===1),path+' ISBN mismatch');
+            const links=[...r.body.matchAll(/class="rakuten-book-link" href="([^"]+)"/g)].map(m=>m[1].replaceAll('&amp;','&'));
+            const imgs=[...r.body.matchAll(/<img src="([^"]+)" alt="[^"]*の表紙"/g)].map(m=>m[1].replaceAll('&amp;','&'));
+            ensure(links.length===isbnList.length&&imgs.length===isbnList.length,path+' book link/image count mismatch');
+            for(const link of links){const u=new URL(link);ensure(u.protocol==='https:'&&u.hostname.endsWith('rakuten.co.jp'),path+' invalid Rakuten URL')}
+            for(const img of imgs){ensure(new URL(img).protocol==='https:',path+' image URL not HTTPS')}
+            ensure(r.body.includes('Supported by Rakuten Developers'),path+' Rakuten attribution missing');
+            ensure(r.body.includes('rel="sponsored nofollow noopener noreferrer"'),path+' sponsored rel missing');
+            result.books+=count;result.pages.push({path,status:200,cards:count,bookLinks:links.length});
+          }
+          ensure(result.books===91,'Total book count incorrect');
+          console.log('STEP30_BOOKS_PASS '+JSON.stringify({verified:result.books,articles:expected.size}));
+          for(const path of ['/shikujiri-pythagoras/','/sitemap/']){
+            const r=await request(path);html(path,r);
+            result.pages.push({path,status:200});
+            if(path==='/shikujiri-pythagoras/'){
+              for(const tag of ['www.amazon.co.jp/dp/4046019972','www.amazon.co.jp/dp/4822259218','tag=mathrao-22'])
+                ensure(r.body.includes(tag),path+' Amazon link missing '+tag);
+              result.amazon.push({path,verifiedLinks:2});
+            }
+          }
+          const folder='src/content/articles';
+          const names=readdirSync(folder).filter(n=>n.endsWith('.md')).sort();
+          const published=[];
+          for(const name of names){
+            const raw=readFileSync(join(folder,name),'utf8');
+            const front=raw.split('---',3)[1]??'';
+            const status=front.match(/^status:\s*["']?([a-z]+)["']?\s*$/m)?.[1];
+            const path=front.match(/^path:\s*["']([^"']+)["']\s*$/m)?.[1];
+            if(status!=='published')continue;
+            ensure(path?.startsWith('/')&&path.endsWith('/'),'Published article missing path: '+name);
+            published.push({name,path});
+          }
+          ensure(published.length>=300,'Unexpected published article count '+published.length);
+          const specific=published.find(x=>x.name==='basics-hb-1-3.md');
+          ensure(specific?.path==='/basics-of-high-school-math/basics-hb-1-3/','Known article frontmatter mismatch');
+          const cases=[specific,published[0],published[Math.floor(published.length/3)],published[Math.floor(published.length*2/3)],published.at(-1)];
+          const sampled=[...new Map(cases.map(x=>[x.path,x])).values()];
+          for(const a of sampled){
+            const r=await request(a.path);html(a.path,r);
+            result.pages.push({path:a.path,status:r.status,sampledFrom:a.name});
+          }
+          console.log('STEP30_ARTICLES_PASS '+JSON.stringify({publishedInRepo:published.length,sampled:sampled.length}));
+          const ads=await request('/ads.txt');
+          ensure(ads.status===200,'ads.txt GET '+ads.status);
+          ensure(ads.body===readFileSync('public/ads.txt','utf8'),'ads.txt content mismatch');
+          const adsHead=await request('/ads.txt','HEAD');
+          ensure(adsHead.status===200,'ads.txt HEAD '+adsHead.status);
+          result.adsTxt={GET:ads.status,HEAD:adsHead.status,match:true};
+          console.log('STEP30_ADSTXT_PASS');
+          for(const path of ['/media/logo_wide.png','/media/math_classroom.jpg']){
+            const g=await request(path,'GET',true),h=await request(path,'HEAD');
+            ensure(g.status===200&&h.status===200,path+' media GET/HEAD mismatch '+g.status+'/'+h.status);
+            ensure(g.byteLength>0,path+' empty GET media');
+            ensure((g.headers.get('content-type')??'').startsWith('image/'),path+' bad media content-type');
+            const n=Number(h.headers.get('content-length'));
+            ensure(Number.isFinite(n)&&n>0,path+' missing HEAD content-length');
+            result.assets.push({path,GET:g.status,HEAD:h.status,getBytes:g.byteLength,headBytes:n,etagPresent:!!h.headers.get('etag')});
+          }
+          console.log('STEP30_MEDIA_PASS '+JSON.stringify(result.assets));
+          for(const path of ['/media/__step30_not_found_20261015__.png','/media/subdir/nested.png','/__step30_not_found_20261015__/']){
+            const r=await request(path);
+            ensure(r.status===404,path+' expected 404 got '+r.status);
+            result.notFound.push({path,status:r.status});
+          }
+          console.log('STEP30_404_PASS '+JSON.stringify(result.notFound));
+          console.log('STEP30_AUDIT '+JSON.stringify(result));
+          console.log('STEP30_PASS: independent mathrao.com verified');
+          NODE
