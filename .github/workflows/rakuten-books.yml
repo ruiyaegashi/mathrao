@@ -191,3 +191,119 @@ jobs:
           }
           console.log(JSON.stringify({ previewCleanup: 'PASS', deleted: deleted.length, currentPreserved: true }));
           NODE
+
+  step31-browser-audit:
+    if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && github.event.head_commit.message == '[CF-Pages-Skip] STEP31 browser ad and links audit 20261015'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Install isolated browser inspection dependency
+        run: |
+          set -eu
+          command -v google-chrome || command -v chromium || command -v chromium-browser
+          mkdir -p /tmp/ydi-step31
+          npm install --prefix /tmp/ydi-step31 --no-audit --no-fund --ignore-scripts playwright@1.56.1
+      - name: Inspect production with desktop and mobile browser viewports
+        run: |
+          cat > /tmp/ydi-step31/inspect.mjs <<'NODE'
+          import { chromium } from 'playwright';
+          import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+          import { execFileSync } from 'node:child_process';
+          const executablePath=['/usr/bin/google-chrome','/usr/bin/chromium','/usr/bin/chromium-browser'].find(existsSync);
+          if(!executablePath)throw Error('System chromium executable not found');
+          const browser=await chromium.launch({headless:true,executablePath,args:['--no-sandbox','--disable-dev-shm-usage']});
+          mkdirSync('/tmp/ydi-step31/evidence',{recursive:true});
+          const pages=[
+            {name:'home',url:'https://mathrao.com/',expectedBooks:0},
+            {name:'books',url:'https://mathrao.com/recommended-study-aid-books-of-mathematics-1/',expectedBooks:22},
+            {name:'math',url:'https://mathrao.com/math-is-useful/',expectedBooks:7},
+            {name:'amazon',url:'https://mathrao.com/shikujiri-pythagoras/',expectedBooks:0}
+          ];
+          const setups=[
+            {name:'desktop',viewport:{width:1365,height:900},isMobile:false,hasTouch:false},
+            {name:'mobile',viewport:{width:390,height:844},isMobile:true,hasTouch:true}
+          ];
+          const results=[];
+          for(const setup of setups){
+            const context=await browser.newContext({...setup,locale:'ja-JP',timezoneId:'Asia/Tokyo'});
+            for(const target of pages){
+              const page=await context.newPage();
+              const pageErrors=[],consoleErrors=[],adsResponses=[],adsFailures=[];
+              page.on('pageerror',e=>pageErrors.push(e.message.slice(0,250)));
+              page.on('console',m=>{if(m.type()==='error')consoleErrors.push(m.text().slice(0,250))});
+              page.on('response',r=>{
+                const u=r.url();
+                if(/googlesyndication|googleadservices|doubleclick|googleads|googletagservices/i.test(u)){
+                  try{const parsed=new URL(u);adsResponses.push({host:parsed.hostname,path:parsed.pathname.slice(0,100),status:r.status()})}catch{}
+                }
+              });
+              page.on('requestfailed',r=>{
+                const u=r.url();
+                if(/googlesyndication|googleadservices|doubleclick|googleads|googletagservices/i.test(u)){
+                  try{adsFailures.push({host:new URL(u).hostname,reason:String(r.failure()?.errorText??'unknown').slice(0,100)})}catch{}
+                }
+              });
+              const response=await page.goto(target.url,{waitUntil:'domcontentloaded',timeout:45000});
+              await page.waitForTimeout(6500);
+              await page.evaluate(()=>window.scrollTo(0,Math.floor(document.body.scrollHeight*0.6)));
+              await page.waitForTimeout(2500);
+              await page.evaluate(()=>window.scrollTo(0,0));
+              const dom=await page.evaluate(()=>{
+                const visible=e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return r.width>2&&r.height>2&&s.display!=='none'&&s.visibility!=='hidden'};
+                const scripts=[...document.querySelectorAll('script[src]')].map(x=>x.getAttribute('src'));
+                const slots=[...document.querySelectorAll('ins.adsbygoogle')];
+                const iframes=[...document.querySelectorAll('iframe')];
+                const adFrames=iframes.filter(x=>/google|doubleclick|adsbygoogle|aswift|ad_iframe/i.test((x.src||'')+' '+x.id+' '+x.name));
+                const cards=[...document.querySelectorAll('.rakuten-book-card')];
+                const links=[...document.querySelectorAll('a.rakuten-book-link')];
+                const bookImgs=[...document.querySelectorAll('.rakuten-book-link img')];
+                const amazonLinks=[...document.querySelectorAll('a[href*="amazon.co.jp"]')];
+                return {
+                  title:document.title,documentWidth:document.documentElement.scrollWidth,
+                  windowWidth:innerWidth,devicePixelRatio:devicePixelRatio,
+                  adLoaderPresent:scripts.some(s=>s?.includes('adsbygoogle.js?client=ca-pub-7781274978364717')),
+                  adSlots:slots.map(x=>({status:x.getAttribute('data-ad-status'),loaded:x.getAttribute('data-adsbygoogle-status'),visible:visible(x)})),
+                  adFrames:adFrames.map(x=>({visible:visible(x),width:Math.round(x.getBoundingClientRect().width),height:Math.round(x.getBoundingClientRect().height)})),
+                  framesAll:iframes.length,
+                  bookCardNodes:cards.length,
+                  visibleBookCards:cards.filter(visible).length,
+                  bookLinks:links.filter(x=>x.href.startsWith('https://')&&x.hostname.endsWith('rakuten.co.jp')).length,
+                  coverImages:bookImgs.length,loadedCovers:bookImgs.filter(x=>x.complete&&x.naturalWidth>0).length,
+                  amazonLinks:amazonLinks.length,
+                  amazonDisclosure:document.body.innerText.includes('Amazonのアソシエイトとして'),
+                  rakutenDisclosure:document.body.innerText.includes('広告・書籍紹介'),
+                  bodyTextLength:document.body.innerText.length
+                };
+              });
+              const screenshot='/tmp/ydi-step31/evidence/'+setup.name+'-'+target.name+'.png';
+              await page.screenshot({path:screenshot,fullPage:false});
+              const record={mode:setup.name,page:target.name,status:response?.status()??null,dom,adsResponses:adsResponses.slice(0,30),adsFailures:adsFailures.slice(0,15),pageErrors:pageErrors.slice(0,10),consoleErrors:consoleErrors.slice(0,10),screenshot:screenshot.split('/').at(-1)};
+              results.push(record);
+              console.log('STEP31_BROWSER '+JSON.stringify(record));
+              if(record.status!==200)throw Error('Page HTTP non-200 '+setup.name+' '+target.name);
+              if(!dom.adLoaderPresent||!dom.amazonDisclosure)throw Error('Required baseline missing '+setup.name+' '+target.name);
+              if(dom.visibleBookCards!==target.expectedBooks||dom.bookLinks!==target.expectedBooks)throw Error('Rendered book cards/links mismatch '+setup.name+' '+target.name+' got '+dom.visibleBookCards+'/'+dom.bookLinks);
+              if(target.expectedBooks&&(!dom.rakutenDisclosure||dom.loadedCovers!==target.expectedBooks))throw Error('Rendered Rakuten disclosure or cover images absent '+setup.name+' '+target.name);
+              await page.close();
+            }
+            await context.close();
+          }
+          writeFileSync('/tmp/ydi-step31/evidence/summary.json',JSON.stringify(results,null,2));
+          const adFrames=results.reduce((n,r)=>n+r.dom.adFrames.filter(x=>x.visible).length,0);
+          const filled=results.reduce((n,r)=>n+r.dom.adSlots.filter(x=>x.status==='filled').length,0);
+          const adsNetwork=results.reduce((n,r)=>n+r.adsResponses.length,0);
+          const loaderSuccess=results.reduce((n,r)=>n+r.adsResponses.filter(x=>x.path.includes('/pagead/js/adsbygoogle.js')&&x.status===200).length,0);
+          const netErrors=results.reduce((n,r)=>n+r.adsFailures.length,0);
+          console.log('STEP31_SUMMARY '+JSON.stringify({sessions:results.length,adFramesVisible:adFrames,slotsFilled:filled,adsNetworkResponses:adsNetwork,loaderStatus200Count:loaderSuccess,adsNetworkFailures:netErrors,uiBaselinePass:true,adActualDisplayConfirmed:adFrames>0||filled>0}));
+          console.log('STEP31_BROWSER_AUDIT_COMPLETE');
+          await browser.close();
+          NODE
+          node /tmp/ydi-step31/inspect.mjs
+      - name: Upload inspection screenshots and JSON for BOD review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: step31-browser-evidence-20261015
+          path: /tmp/ydi-step31/evidence/
+          if-no-files-found: warn
+          retention-days: 7
