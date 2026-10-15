@@ -86,7 +86,11 @@ if (selectedBooks.length) {
       }
     }
   } catch {
-    // Normal Git-backed builds have no API snapshot; the original article remains.
+    // Cloudflare's automatic production build must never overwrite approved cards with a bookless build.
+    if (process.env.CF_PAGES === '1' && process.env.CF_PAGES_BRANCH === 'main') {
+      throw new Error('Production Pages Git build has no approved Rakuten snapshot; deployment blocked');
+    }
+    // Local builds may omit the temporary API snapshot.
   }
 }
 
