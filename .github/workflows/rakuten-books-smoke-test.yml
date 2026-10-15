@@ -1,4 +1,5 @@
 name: Rakuten Books refresh and preview
+# STEP22: one-time BOD-approved preview validation trigger (no functional changes)
 on:
   push:
     branches:
