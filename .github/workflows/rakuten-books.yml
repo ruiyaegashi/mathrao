@@ -1,0 +1,173 @@
+name: Mathrao Rakuten Books
+on:
+  push:
+    branches:
+      - main
+      - improve/mathrao-layout-step2-20261013
+permissions:
+  contents: read
+concurrency:
+  group: mathrao-rakuten-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: (startsWith(github.event.head_commit.message, '[mathrao-books:update]') || startsWith(github.event.head_commit.message, '[mathrao-books:remove]')) && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013')
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      MODE: ${{ startsWith(github.event.head_commit.message, '[mathrao-books:remove]') && 'remove' || 'update' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate approved operation and selection changes
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          import {execFileSync} from 'node:child_process';
+          const f = 'src/data/rakuten-book-selections.json';
+          const current = JSON.parse(readFileSync(f,'utf8'));
+          if (current.schemaVersion !== 2 || !Array.isArray(current.selections)) throw Error('Invalid selections');
+          const now = new Set(current.selections.flatMap(g => g.isbns));
+          if (now.size !== current.selections.reduce((n,g) => n + g.isbns.length,0)) throw Error('Duplicate ISBN');
+          if (process.env.MODE === 'remove') {
+            const before = process.env.BEFORE_SHA;
+            if (!/^[0-9a-f]{40}$/.test(before) || /^0+$/.test(before)) throw Error('Previous commit unavailable');
+            const prev = JSON.parse(execFileSync('git',['show',before+':'+f],{encoding:'utf8'}));
+            if (!Array.isArray(prev.selections)) throw Error('Invalid previous selections');
+            const prior = new Set(prev.selections.flatMap(g => g.isbns));
+            const removed = [...prior].filter(isbn => !now.has(isbn));
+            if (!removed.length || [...now].some(isbn => !prior.has(isbn))) throw Error('Remove must remove only selected ISBNs');
+            console.log(JSON.stringify({operation:'remove',removed:removed.length,remaining:now.size}));
+          } else {
+            console.log(JSON.stringify({operation:'update',selected:now.size}));
+          }
+          NODE
+      - name: Fetch and validate selected ISBNs
+        env:
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+        run: |
+          corepack enable
+          corepack pnpm install --frozen-lockfile
+          node scripts/refresh_rakuten_books.mjs --check-selections
+          node scripts/refresh_rakuten_books.mjs
+      - name: Build and validate article cards
+        run: |
+          corepack pnpm run check
+          corepack pnpm run build
+          test -f src/generated/rakuten-books.json
+          test -f dist/ads.txt
+          cmp -s public/ads.txt dist/ads.txt
+          cat > /tmp/mathrao-verify.mjs <<'NODE'
+          import {readFileSync} from 'node:fs';
+          import {join} from 'node:path';
+          const root=process.env.HTML_ROOT;
+          if (!root) throw Error('HTML_ROOT missing');
+          const slugs=['recommended-study-aid-books-of-mathematics-1','recommended-study-aid-books-of-mathematics-2','recommended-study-aid-books-of-mathematics-3','math-is-useful','how-to-overcome-impatience-and-anxiety'];
+          const groups=JSON.parse(readFileSync('src/data/rakuten-book-selections.json','utf8')).selections;
+          if (groups.some(g=>!slugs.includes(g.articlePath.replaceAll('/','')))) throw Error('Unexpected article selection');
+          let total=0;
+          for(const slug of slugs){
+            const expected=groups.filter(g=>g.articlePath==='/'+slug+'/').flatMap(g=>g.isbns);
+            const html=readFileSync(join(root,slug,'index.html'),'utf8');
+            const count=(html.match(/data-rakuten-book-card(?=[\s>])/g)||[]).length;
+            const isbns=[...html.matchAll(/ISBN ([0-9]{13})/g)].map(m=>m[1]);
+            if(count!==expected.length||isbns.length!==expected.length||
+               expected.some(isbn=>isbns.filter(x=>x===isbn).length!==1)||
+               html.includes('data-expires-at')||!html.includes('class="article-body"')||
+               !html.includes('adsbygoogle.js?client=ca-pub-7781274978364717')||
+               !html.includes('Amazonのアソシエイトとして'))throw Error('Article card or disclosure mismatch: '+slug);
+            if(expected.length&&(!html.includes('Supported by Rakuten Developers')||
+               !html.includes('rel="sponsored nofollow noopener noreferrer"')))throw Error('Rakuten attribution missing');
+            console.log(JSON.stringify({slug,cards:count,pass:true}));
+            total+=count;
+          }
+          const amazon=readFileSync(join(root,'shikujiri-pythagoras','index.html'),'utf8');
+          for(const v of ['www.amazon.co.jp/dp/4046019972','www.amazon.co.jp/dp/4822259218','tag=mathrao-22','Amazonのアソシエイトとして']){
+            if(!amazon.includes(v))throw Error('Amazon link/disclosure missing');
+          }
+          console.log(JSON.stringify({verifiedCards:total}));
+          NODE
+          HTML_ROOT=dist node /tmp/mathrao-verify.mjs
+      - name: Deploy validated build
+        id: deploy
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=mathrao --branch=${{ github.ref_name }} --commit-hash=${{ github.sha }}
+      - name: Verify published HTTP
+        env:
+          DEPLOY_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          set -eu
+          test -n "$DEPLOY_URL"
+          mkdir -p /tmp/mathrao-http
+          for slug in recommended-study-aid-books-of-mathematics-1 recommended-study-aid-books-of-mathematics-2 recommended-study-aid-books-of-mathematics-3 math-is-useful how-to-overcome-impatience-and-anxiety shikujiri-pythagoras; do
+            mkdir -p "/tmp/mathrao-http/$slug"
+            curl -fsSL --retry 5 --retry-delay 3 --max-time 40 "$DEPLOY_URL/$slug/" -o "/tmp/mathrao-http/$slug/index.html"
+          done
+          status="$(curl -sSL --retry 5 --retry-delay 3 --max-time 40 -w '%{http_code}' "$DEPLOY_URL/ads.txt" -o /tmp/mathrao-published-ads.txt)"
+          test "$status" = "200"
+          cmp -s public/ads.txt /tmp/mathrao-published-ads.txt
+          HTML_ROOT=/tmp/mathrao-http node /tmp/mathrao-verify.mjs
+          echo 'Published cards, links, and ads.txt: PASS'
+      - name: Delete old previews of same branch only
+        if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CURRENT_ID: ${{ steps.deploy.outputs.pages-deployment-id }}
+        run: |
+
+          node --input-type=module <<'NODE'
+          const { CF_ACCOUNT, CF_TOKEN, CURRENT_ID } = process.env;
+          if (![CF_ACCOUNT, CF_TOKEN, CURRENT_ID].every(Boolean)) throw Error('Missing Cloudflare configuration or deployment ID');
+          const branch = 'improve/mathrao-layout-step2-20261013';
+          const base = `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT}/pages/projects/mathrao/deployments`;
+          const headers = { Authorization: `Bearer ${CF_TOKEN}` };
+          async function api(url, options = {}) {
+            const response = await fetch(url, { ...options, headers });
+            const body = await response.json();
+            if (!response.ok || !body.success) throw Error('Cloudflare deployment API failed: HTTP ' + response.status + ' ' + JSON.stringify(body.errors ?? []));
+            return body;
+          }
+          const deployments = [];
+          for (let page = 1; page <= 20; page++) {
+            const data = await api(`${base}?env=preview&per_page=25&page=${page}`);
+            deployments.push(...data.result);
+            if (page >= (data.result_info?.total_pages ?? 1)) break;
+            if (page === 20) throw Error('Too many deployments; do not delete from an incomplete list');
+          }
+          const same = deployments.filter(d => d.environment === 'preview' && d.deployment_trigger?.metadata?.branch === branch);
+          const current = same.find(d => d.id === CURRENT_ID);
+          if (!current || current.latest_stage?.status !== 'success') throw Error('Verified current preview not found');
+          const currentTime = Date.parse(current.created_on);
+          if (!Number.isFinite(currentTime) || same.some(d => d.id !== CURRENT_ID && Date.parse(d.created_on) >= currentTime)) {
+            throw Error('A newer or equal-time preview exists; cleanup stopped');
+          }
+          for (const old of same.filter(d => d.id !== CURRENT_ID)) {
+            await api(`${base}/${encodeURIComponent(old.id)}?force=true`, { method: 'DELETE' });
+            console.log('Deleted previous preview: ' + old.id.slice(0, 8));
+          }
+          const remaining = [];
+          for (let page = 1; page <= 20; page++) {
+            const data = await api(base + '?env=preview&per_page=25&page=' + page);
+            remaining.push(...data.result);
+            if (page >= (data.result_info?.total_pages ?? 1)) break;
+            if (page === 20) throw Error('Incomplete post-deletion list');
+          }
+          const deleted = same.filter(d => d.id !== CURRENT_ID);
+          if (!remaining.some(d => d.id === CURRENT_ID) ||
+              deleted.some(old => remaining.some(d => d.id === old.id))) {
+            throw Error('Preview deletion verification failed');
+          }
+          console.log(JSON.stringify({ previewCleanup: 'PASS', deleted: deleted.length, currentPreserved: true }));
+          NODE
