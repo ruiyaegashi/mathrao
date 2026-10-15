@@ -191,3 +191,148 @@ jobs:
           }
           console.log(JSON.stringify({ previewCleanup: 'PASS', deleted: deleted.length, currentPreserved: true }));
           NODE
+
+      - name: Delete verified old productions
+        if: github.ref == 'refs/heads/main'
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CURRENT_ID: ${{ steps.deploy.outputs.pages-deployment-id }}
+        run: |
+          node --input-type=module <<'NODE'
+          const {CF_ACCOUNT, CF_TOKEN, CURRENT_ID}=process.env;
+          if(!CF_ACCOUNT || !CF_TOKEN || !CURRENT_ID) throw Error('Missing Cloudflare production cleanup identity');
+          const root='https://api.cloudflare.com/client/v4/accounts/'+encodeURIComponent(CF_ACCOUNT)+'/pages/projects/mathrao';
+          const base=root+'/deployments';
+          const headers={Authorization:'Bearer '+CF_TOKEN};
+          async function call(url, options={}) {
+            const r=await fetch(url,{...options,headers});
+            const data=r.status===204?{success:true}:await r.json();
+            if(!r.ok || data?.success!==true) throw Error('Cloudflare request failed: HTTP '+r.status+' '+JSON.stringify(data?.errors??[]));
+            return data;
+          }
+          async function project() {
+            const r=(await call(root)).result;
+            if(!r || r.name!=='mathrao' || r.production_branch!=='main' ||
+               r.source?.config?.production_deployments_enabled!==false ||
+               !r.canonical_deployment?.id) throw Error('Production project identity or Git setting mismatch');
+            return r.canonical_deployment.id;
+          }
+          async function allProduction() {
+            let rows=[], pages=null;
+            for(let i=1;i<=50;i++){
+              const data=await call(base+'?env=production&per_page=25&page='+i);
+              const n=data.result_info?.total_pages;
+              if(!Number.isInteger(n)||n<1||n>50||!Array.isArray(data.result) ||
+                 (pages!==null && n!==pages)) throw Error('Incomplete or changing deployment list');
+              pages=n;
+              rows.push(...data.result);
+              if(i===pages)break;
+              if(i===50) throw Error('Deployment list exceeds safe scan limit');
+            }
+            if(new Set(rows.map(d=>d.id)).size!==rows.length ||
+               rows.some(d=>!d.id || d.environment!=='production')) throw Error('Mixed or duplicate deployment list');
+            return rows;
+          }
+          async function ensureCurrent() {
+            const live=await project();
+            if(live!==CURRENT_ID) throw Error('Live Production changed; cleanup stopped');
+          }
+          await ensureCurrent();
+          const before=await allProduction();
+          const cur=before.find(d=>d.id===CURRENT_ID);
+          if(!cur || cur.latest_stage?.status!=='success') throw Error('Deployed Production missing or unsuccessful');
+          const currentTime=Date.parse(cur.created_on);
+          if(!Number.isFinite(currentTime)) throw Error('Invalid Production timestamp');
+          const old=[];
+          let excluded=0;
+          for(const d of before){
+            if(d.id===CURRENT_ID)continue;
+            if(d.latest_stage?.status!=='success'){excluded++;continue;}
+            const t=Date.parse(d.created_on);
+            if(!Number.isFinite(t)||t>=currentTime)throw Error('Uncertain or newer successful Production; stop');
+            old.push(d);
+          }
+          await ensureCurrent();
+          console.log(JSON.stringify({productionCleanupPlan:old.map(d=>d.id),protected:CURRENT_ID,excluded}));
+          const deleted=[];
+          for(const d of old){
+            await ensureCurrent();
+            await call(base+'/'+encodeURIComponent(d.id),{method:'DELETE'});
+            deleted.push(d.id);
+            console.log('Deleted prior successful Production: '+d.id);
+          }
+          await ensureCurrent();
+          const after=await allProduction();
+          if(!after.some(d=>d.id===CURRENT_ID) || deleted.some(id=>after.some(d=>d.id===id))){
+            throw Error('Production cleanup result differs from planned deletions');
+          }
+          if(old.length!==deleted.length)throw Error('Incomplete Production cleanup');
+          console.log(JSON.stringify({productionCleanup:'PASS',deleted:deleted.length,excluded,protected:CURRENT_ID}));
+          NODE
+
+
+  step33-mock:
+    if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && github.event.head_commit.message == '[CF-Pages-Skip] STEP33 non-destructive cleanup tests 20261016'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test production deletion guard without real Cloudflare access
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          import {runInNewContext} from 'node:vm';
+          const y=readFileSync('.github/workflows/rakuten-books.yml','utf8');
+          const block=y.split('      - name: Delete verified old productions\n')[1];
+          if(!block)throw Error('Production cleanup step not found');
+          const code=block.split("          node --input-type=module <<'NODE'\n")[1]?.split('\n          NODE')[0]?.replace(/^          /gm,'');
+          if(!code || code.includes('?force=true'))throw Error('Unexpected cleanup script');
+          const stamp=(n)=>new Date(Date.UTC(2026,9,15,12,0,n)).toISOString();
+          const row=(id,status='success',n=0)=>({id,environment:'production',latest_stage:{status},created_on:stamp(n),url:'https://'+id+'.mathrao.pages.dev'});
+          async function trial(name,settings,shouldPass,expectDelete){
+            let deployments=[row('now','success',50),...Array.from({length:26},(_,i)=>row('old'+i,'success',i)),row('skip','idle',1)];
+            if(settings.newer)deployments.push(row('newer','success',51));
+            let deleted=[],pageReads=0,projectReads=0;
+            const mock=async(url,options={})=>{
+              const method=options.method||'GET';
+              if(!url.startsWith('https://api.cloudflare.com/client/v4/accounts/mock/pages/projects/mathrao'))throw Error('Unexpected API host');
+              if(url.endsWith('/projects/mathrao')){
+                projectReads++;
+                const canonical=settings.wrongCurrent || (settings.race && projectReads>=4) ? 'other' : 'now';
+                return {ok:true,status:200,json:async()=>({success:true,result:{name:'mathrao',production_branch:'main',canonical_deployment:{id:canonical},source:{config:{production_deployments_enabled:false}}}})};
+              }
+              if(method==='DELETE'){
+                const id=decodeURIComponent(url.split('/').at(-1));
+                if(id==='now'||id==='skip'||id==='newer'||url.includes('?force'))throw Error('Unsafe DELETE '+id);
+                if(settings.deleteFail && deleted.length===1)return {ok:false,status:403,json:async()=>({success:false,errors:[{message:'denied'}]})};
+                deleted.push(id);deployments=deployments.filter(d=>d.id!==id);
+                return {ok:true,status:200,json:async()=>({success:true,result:{}})};
+              }
+              if(method!=='GET'||!url.includes('?env=production&per_page=25&page='))throw Error('Unexpected request '+url);
+              pageReads++;
+              const page=Number(url.split('page=').at(-1));
+              if(settings.badPage && page===2)return {ok:false,status:502,json:async()=>({success:false,errors:[{message:'unavailable'}]})};
+              const res=deployments.slice((page-1)*25,page*25);
+              return {ok:true,status:200,json:async()=>({success:true,result:res,result_info:{total_pages:Math.max(1,Math.ceil(deployments.length/25))}})};
+            };
+            let error=null;
+            try{
+              await runInNewContext('(async()=>{'+code+'\n})()',{
+                process:{env:{CF_ACCOUNT:'mock',CF_TOKEN:'dummy',CURRENT_ID:'now'}},
+                fetch:mock,console:{log:()=>{}},Date,Number,JSON,Set,Array,encodeURIComponent
+              });
+            }catch(e){error=e;}
+            if((!error)!==shouldPass||deleted.length!==expectDelete)
+              throw Error(name+' failed: error='+String(error)+' deleted='+deleted.length+' expected='+expectDelete);
+            if(deleted.includes('now')||deleted.includes('skip')||deleted.includes('newer'))throw Error('Protected deployment deleted');
+            console.log('PASS '+name+' deletions='+deleted.length+' listRequests='+pageReads);
+          }
+          await trial('success pages and skipped entries',{},true,26);
+          await trial('wrong canonical ID',{wrongCurrent:true},false,0);
+          await trial('concurrent new production',{race:true},false,0);
+          await trial('newer successful production',{newer:true},false,0);
+          await trial('incomplete pagination',{badPage:true},false,0);
+          await trial('DELETE denied midstream',{deleteFail:true},false,1);
+          console.log('STEP33_MOCK_PASS 6/6');
+          NODE
