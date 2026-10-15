@@ -251,3 +251,45 @@ jobs:
             throw Error('Production cleanup not confirmed');
           console.log(JSON.stringify({productionCleanup:'PASS',deleted:old.length,protected:CURRENT_ID}));
           NODE
+
+  step34-read-only:
+    if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && github.event.head_commit.message == '[CF-Pages-Skip] STEP34 read-only production inventory 20261016'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read Pages current production and old deployment candidates
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          node --input-type=module <<'NODE'
+          const {CF_ACCOUNT,CF_TOKEN}=process.env;
+          if(!CF_ACCOUNT||!CF_TOKEN)throw Error('Missing read-only credentials');
+          const base='https://api.cloudflare.com/client/v4/accounts/'+CF_ACCOUNT+'/pages/projects/mathrao';
+          async function get(url){
+            const r=await fetch(url,{headers:{Authorization:'Bearer '+CF_TOKEN}});
+            const data=await r.json();
+            if(!r.ok||data.success!==true)throw Error('GET failed HTTP '+r.status);
+            return data;
+          }
+          const p=(await get(base)).result;
+          if(p?.name!=='mathrao'||p.production_branch!=='main'||
+             p.source?.config?.production_deployments_enabled!==false||
+             !p.canonical_deployment?.id)throw Error('Unexpected Production configuration');
+          const current=p.canonical_deployment.id;
+          const rows=[];
+          for(let page=1;page<=20;page++){
+            const data=await get(base+'/deployments?env=production&per_page=25&page='+page);
+            const count=data.result_info?.total_pages;
+            if(!Array.isArray(data.result)||!Number.isInteger(count)||count<1||count>20)throw Error('Incomplete inventory');
+            rows.push(...data.result);
+            if(page===count)break;
+          }
+          if(new Set(rows.map(x=>x.id)).size!==rows.length||rows.some(x=>x.environment!=='production'))
+            throw Error('Unexpected inventory entries');
+          const live=rows.find(x=>x.id===current);
+          if(!live||live.latest_stage?.status!=='success')throw Error('Live Production missing or not successful');
+          const older=rows.filter(x=>x.id!==current&&x.latest_stage?.status==='success');
+          const excluded=rows.filter(x=>x.id!==current&&x.latest_stage?.status!=='success');
+          console.log(JSON.stringify({readOnly:'PASS',project:p.name,gitAutomaticProduction:false,current,liveStatus:live.latest_stage.status,oldSuccessCount:older.length,oldSuccessIDs:older.map(x=>x.id),otherHistoryCount:excluded.length,productionHistoryTotal:rows.length}));
+          NODE
