@@ -76,14 +76,14 @@ jobs:
           NODE
 
       - name: Generate a single private book snapshot for preview build
-        if: (github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP19 remove trial 7-day expiry')) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')
+        if: (github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP19 remove trial 7-day expiry')) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015') || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP25 ads.txt preview 20261015')
         env:
           RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
           RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
           RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
         run: node scripts/refresh_rakuten_books.mjs
       - name: Check and build Rakuten pilot
-        if: (github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP19 remove trial 7-day expiry')) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')
+        if: (github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP19 remove trial 7-day expiry')) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015') || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP25 ads.txt preview 20261015')
         run: |
           corepack enable
           corepack pnpm install --frozen-lockfile
@@ -136,7 +136,7 @@ jobs:
           NODE
 
       - name: Deploy preview
-        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015') || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP25 ads.txt preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
         id: deploy
         uses: cloudflare/wrangler-action@v4
         with:
@@ -145,12 +145,21 @@ jobs:
           command: pages deploy dist --project-name=mathrao --branch=improve/mathrao-layout-step2-20261013 --commit-hash=${{ github.sha }}
 
       - name: Verify published preview
-        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015') || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP25 ads.txt preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
         env:
           PREVIEW_URL: ${{ steps.deploy.outputs.deployment-url }}
+          STEP25_ADS_CHECK: ${{ github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP25 ads.txt preview 20261015' }}
           BOOKLESS_PUBLISH: ${{ (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) }}
         run: |
           test -n "$PREVIEW_URL"
+          if [ "$STEP25_ADS_CHECK" = "true" ]; then
+            test -f "dist/ads.txt"
+            cmp -s public/ads.txt dist/ads.txt
+            status="$(curl -sSL --retry 5 --retry-delay 3 --max-time 30 -w '%{http_code}' "$PREVIEW_URL/ads.txt" -o /tmp/mathrao-published-ads.txt)"
+            test "$status" = "200"
+            cmp -s public/ads.txt /tmp/mathrao-published-ads.txt
+            echo "Published ads.txt: PASS (HTTP $status, exact historical bytes)"
+          fi
           if [ "$BOOKLESS_PUBLISH" = "true" ]; then
             for slug in recommended-study-aid-books-of-mathematics-1 recommended-study-aid-books-of-mathematics-2 recommended-study-aid-books-of-mathematics-3 math-is-useful how-to-overcome-impatience-and-anxiety; do
               curl -fsSL --retry 5 --retry-delay 3 "$PREVIEW_URL/$slug/" -o /tmp/mathrao-preview.html
@@ -191,7 +200,7 @@ jobs:
           fi
 
       - name: Delete older previews from the same branch
-        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
+        if: ((github.event_name == 'workflow_dispatch' && !inputs.verify_candidates && !inputs.build_without_books && !inputs.publish_bookless_preview) || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[CF-Pages-Skip] STEP18 bookless preview once')) || (github.event_name == 'workflow_dispatch' && inputs.build_without_books && inputs.publish_bookless_preview && !inputs.verify_candidates) || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP22 approved preview 20261015') || (github.event_name == 'push' && github.event.head_commit.message == '[CF-Pages-Skip] STEP25 ads.txt preview 20261015')) && github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013'
         env:
           CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
