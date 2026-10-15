@@ -6,7 +6,7 @@ path: "/how-to-set-priorities/"
 featured_image: /media/howtosetpriorities.jpg
 ---
 
-[/take-a-small-step-for-studying/](/take-a-small-step-for-studying/)
+[面倒くささを振り払って勉強に1歩踏み出すなら「超スモールステップ→次回予告→習慣化」](/take-a-small-step-for-studying/)
 
 
 
@@ -256,7 +256,7 @@ featured_image: /media/howtosetpriorities.jpg
 
 
 
-[/how-to-concentrate-at-home/](/how-to-concentrate-at-home/)
+[小中高生が自宅で集中して勉強する方法「人目のあるリビングで監視されろ！」は正しいのか？](/how-to-concentrate-at-home/)
 
 
 
@@ -286,4 +286,4 @@ featured_image: /media/howtosetpriorities.jpg
 
 
 
-[/take-a-small-step-for-studying/](/take-a-small-step-for-studying/)
+[面倒くささを振り払って勉強に1歩踏み出すなら「超スモールステップ→次回予告→習慣化」](/take-a-small-step-for-studying/)

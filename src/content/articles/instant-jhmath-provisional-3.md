@@ -5,7 +5,7 @@ published_at: "2019-03-01 18:27:49"
 path: "/instant-jhmath-provisional-3/"
 ---
 
-[/instant-jhmath-provisional-2/](/instant-jhmath-provisional-2/)
+[【インスタント中高数学】第2講 数学において「正しい」とは何か？【集合と論証】](/instant-jhmath-provisional-2/)
 
 
 
@@ -15,7 +15,7 @@ path: "/instant-jhmath-provisional-3/"
 
 
 
-<img class="aligncenter size-full wp-image-1672" src="/media/numberline1.png" alt="" width="600" height="94" />
+<img class="aligncenter size-full wp-image-1672" src="/media/numberline1.png" alt="0以上の数を示した数直線"/>
 
 
 
@@ -35,7 +35,7 @@ path: "/instant-jhmath-provisional-3/"
 
 
 
-<img class="aligncenter size-full wp-image-1673" src="/media/numberline2.png" alt="" width="600" height="97" />
+<img class="aligncenter size-full wp-image-1673" src="/media/numberline2.png" alt="負の数まで広がった数直線"/>
 
 
 
@@ -885,9 +885,9 @@ $a \boldsymbol{ \geqq } b$ ( $a$ 大なりイコール $b$ )：$a$ は $b$ 以�
 
 
 
-[/instant-jhmath-provisional-2/](/instant-jhmath-provisional-2/)
+[【インスタント中高数学】第2講 数学において「正しい」とは何か？【集合と論証】](/instant-jhmath-provisional-2/)
 
 
 
 
-[/instant-jhmath-provisional-4/](/instant-jhmath-provisional-4/)
+[【インスタント中高数学】第4講 xyzという箱を自由自在に操ろう①【文字式と計算】](/instant-jhmath-provisional-4/)

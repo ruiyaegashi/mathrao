@@ -71,12 +71,12 @@ featured_image: /media/theearlybirdcatchestheworm.jpg
 
 
 
-[/what-to-study-before-going-to-bed/](/what-to-study-before-going-to-bed/)
+[スマホをいじるな！勉強の夢を見ろ！寝る直前にすべき勉強は暗記と復習](/what-to-study-before-going-to-bed/)
 
 
 
 
-[/how-to-wake-up-well-to-study/](/how-to-wake-up-well-to-study/)
+[【朝にすっきり目覚める方法】自分の睡眠スパンを知り不快でない方法で起きて朝勉強しよう](/how-to-wake-up-well-to-study/)
 
 
 
@@ -131,7 +131,7 @@ featured_image: /media/theearlybirdcatchestheworm.jpg
 
 
 
-[/build-a-strategy-and-make-a-schedule/](/build-a-strategy-and-make-a-schedule/)
+[受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方](/build-a-strategy-and-make-a-schedule/)
 
 
 

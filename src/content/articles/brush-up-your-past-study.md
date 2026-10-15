@@ -11,7 +11,7 @@ featured_image: /media/brushupyourpaststudy.jpg
 
 
 
-[/mathmap-elementaryschool-to-highschool/](/mathmap-elementaryschool-to-highschool/)
+[小学校算数・中学校数学・高等学校数学単元対応表(系統一覧表)](/mathmap-elementaryschool-to-highschool/)
 
 
 

@@ -119,4 +119,4 @@ featured_image: /media/jukeizu.png
 <p style="padding-left: 30px;">$\mathrm{A}$，$\mathrm{B}$，$\mathrm{C}$ の3つの文字を並べる</p>
 
 
-<img class="size-full wp-image-372 alignnone" src="/media/jukeizu.png" alt="" width="600" height="76" />
+<img class="size-full wp-image-372 alignnone" src="/media/jukeizu.png" alt="A、B、Cの3文字の並べ方を整理する樹形図"/>

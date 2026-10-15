@@ -126,12 +126,12 @@ featured_image: /media/difficultyofobeyingmyownrules.jpg
 
 
 
-[/take-a-small-step-for-studying/](/take-a-small-step-for-studying/)
+[面倒くささを振り払って勉強に1歩踏み出すなら「超スモールステップ→次回予告→習慣化」](/take-a-small-step-for-studying/)
 
 
 
 
-[/build-a-strategy-and-make-a-schedule/](/build-a-strategy-and-make-a-schedule/)
+[受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方](/build-a-strategy-and-make-a-schedule/)
 
 
 

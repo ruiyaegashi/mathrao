@@ -456,32 +456,32 @@ featured_image: /media/theprosandconsofcramschool.jpg
 
 
 
-[/how-to-choose-a-private-school-1/](/how-to-choose-a-private-school-1/)
+[【私立中学受験・公立中学進学】保護者の方へ，小学生の塾へ行かせる時期と塾の選び方【前編】](/how-to-choose-a-private-school-1/)
 
 
 
 
-[/how-to-choose-a-private-school-2/](/how-to-choose-a-private-school-2/)
+[【私立中学受験・公立中学進学】保護者の方へ，小学生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-2/)
 
 
 
 
-[/how-to-choose-a-private-school-3/](/how-to-choose-a-private-school-3/)
+[【私立・公立高校受験】保護者の方へ，中学生の塾へ行かせる時期と塾の選び方【前編】](/how-to-choose-a-private-school-3/)
 
 
 
 
-[/how-to-choose-a-private-school-4/](/how-to-choose-a-private-school-4/)
+[【私立・公立高校受験】保護者の方へ，中学生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-4/)
 
 
 
 
-[/how-to-choose-a-private-school-5/](/how-to-choose-a-private-school-5/)
+[【大学受験】保護者の方へ，高校生の塾へ行かせる時期と塾の選び方【前編】](/how-to-choose-a-private-school-5/)
 
 
 
 
-[/how-to-choose-a-private-school-6/](/how-to-choose-a-private-school-6/)
+[【大学受験】保護者の方へ，高校生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-6/)
 
 
 

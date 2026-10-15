@@ -216,7 +216,7 @@ featured_image: /media/thinkaboutthegoalfirst.jpg
 
 
 
-[/study-aid-books-of-mathematics/](/study-aid-books-of-mathematics/)
+[高校数学学習参考書の種類、使い方、選び方、おすすめ](/study-aid-books-of-mathematics/)
 
 
 
@@ -266,7 +266,7 @@ featured_image: /media/thinkaboutthegoalfirst.jpg
 
 
 
-[/build-a-strategy-and-make-a-schedule/](/build-a-strategy-and-make-a-schedule/)
+[受験勉強の戦略は目に見える形にせよ！計画表の作り方・使い方](/build-a-strategy-and-make-a-schedule/)
 
 
 

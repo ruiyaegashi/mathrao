@@ -11,7 +11,7 @@ featured_image: /media/listentomusictostudy.jpg
 
 
 
-[/how-to-concentrate-at-home/](/how-to-concentrate-at-home/)
+[小中高生が自宅で集中して勉強する方法「人目のあるリビングで監視されろ！」は正しいのか？](/how-to-concentrate-at-home/)
 
 
 

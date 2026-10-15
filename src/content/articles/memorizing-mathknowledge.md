@@ -386,4 +386,4 @@ featured_image: /media/senbiki.jpg
 
 
 
-[/strength-of-mathematics/](/strength-of-mathematics/)
+[【定義】「数学力」とは何か？](/strength-of-mathematics/)

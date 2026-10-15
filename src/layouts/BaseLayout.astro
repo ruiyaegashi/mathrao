@@ -10,36 +10,166 @@ const {
   title = 'Mathrao',
   description = '数学を学ぶための教材サイト',
 } = Astro.props;
-const fullTitle = title === 'Mathrao' ? title : `${title} | Mathrao`;
+const fullTitle = title === 'Mathrao' ? title : title + ' | Mathrao';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <title>{fullTitle}</title>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7781274978364717"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">本文へ移動</a>
     <header class="site-header">
-      <a href="/"><img src="/media/logo_wide.png" alt="Mathrao" width="600" height="60" /></a>
+      <div class="site-header-inner">
+        <a class="site-brand" href="/" aria-label="Mathrao トップページへ">
+          <img src="/media/logo_wide.png" alt="Mathrao" width="600" height="60" />
+        </a>
+        <p class="site-tagline">算数・数学を学ぶための読みもの</p>
+      </div>
     </header>
-    <main><slot /></main>
+    <main id="main-content" class="site-main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span>Mathrao</span>
+        <a href="/">記事一覧へ</a>
+        <span class="amazon-disclosure">Amazonのアソシエイトとして、Mathraoは適格販売により収入を得ています。</span>
+      </div>
+    </footer>
   </body>
 </html>
 
 <style is:global>
-  body {
-    margin: 0;
+  :root {
+    color-scheme: light;
+    font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+    line-height: 1.8;
+    color: #23323b;
+    background: #f6f8f8;
   }
 
-  .site-header,
-  main {
-    max-width: 960px;
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-padding-top: 1.5rem;
+  }
+
+  body {
+    margin: 0;
+    min-width: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: #096b70;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+
+  a:hover {
+    color: #075156;
+  }
+
+  a:focus-visible {
+    outline: 3px solid #0e8387;
+    outline-offset: 4px;
+    border-radius: 3px;
+  }
+
+  .skip-link {
+    position: absolute;
+    z-index: 20;
+    top: -6rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background: #fff;
+    color: #075156;
+    border: 2px solid #0e8387;
+  }
+
+  .skip-link:focus {
+    top: 0.75rem;
+  }
+
+  .site-header {
+    background: #fff;
+    border-bottom: 1px solid #dde5e5;
+  }
+
+  .site-header-inner {
+    max-width: 1060px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+  }
+
+  .site-brand {
+    display: block;
+    width: min(100%, 280px);
+    flex: 0 1 280px;
+  }
+
+  .site-brand img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .site-tagline {
+    margin: 0;
+    color: #63767b;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: right;
+  }
+
+  .site-main {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3.5rem) 1.5rem 5rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .site-footer {
+    border-top: 1px solid #dde5e5;
+    background: #fff;
+    color: #5f7278;
+    font-size: 0.875rem;
+  }
+
+  .amazon-disclosure {
+    max-width: 26rem;
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .site-footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   img {
@@ -47,25 +177,147 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     height: auto;
   }
 
-  pre,
-  table,
+  article {
+    min-width: 0;
+  }
+
+  article h1,
+  article h2,
+  article h3,
+  article h4 {
+    overflow-wrap: anywhere;
+    line-height: 1.45;
+    color: #1b323a;
+  }
+
+  article h2 {
+    margin: 2.6rem 0 1rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid #dfe7e7;
+    font-size: clamp(1.3rem, 2.8vw, 1.6rem);
+  }
+
+  article h3 {
+    margin: 2rem 0 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  article p,
+  article li {
+    line-height: 1.95;
+  }
+
+  article p {
+    margin: 1.15rem 0;
+  }
+
+  article ul,
+  article ol {
+    padding-left: 1.6rem;
+  }
+
+  article li + li {
+    margin-top: 0.35rem;
+  }
+
+  article blockquote {
+    margin: 1.5rem 0;
+    padding: 0.25rem 1.25rem;
+    background: #f4f8f8;
+    border-left: 3px solid #75aeb0;
+  }
+
+  article pre,
+  article table,
   article .katex-display,
   article .katex-scroll {
     max-width: 100%;
     overflow-x: auto;
   }
 
+  article pre {
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f1f4f5;
+  }
+
+  article table {
+    display: block;
+    border-collapse: collapse;
+    width: max-content;
+    margin: 1.5rem 0;
+  }
+
+  article th,
+  article td {
+    padding: 0.55rem 0.85rem;
+    border: 1px solid #dfe7e7;
+    text-align: left;
+  }
+
   article .katex {
     white-space: nowrap;
   }
 
-  .article-note {
-    border-left: 2px solid;
+  article .katex-display,
+  article .katex-scroll {
+    overflow-y: hidden;
+  }
+
+  article .katex-display {
+    padding: 0.4rem 0;
+  }
+
+  article .katex-scroll {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  article img {
+    border-radius: 6px;
+  }
+
+  article .article-note {
+    border-left: 3px solid #75aeb0;
     padding-left: 1rem;
   }
 
-  .article-details {
-    border: 1px solid;
-    padding: 0.5rem 1rem;
+  article .article-details {
+    border: 1px solid #dfe7e7;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 680px) {
+    .site-header-inner {
+      padding: 1rem 1.1rem;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .site-brand {
+      width: min(100%, 240px);
+      flex: none;
+    }
+
+    .site-tagline {
+      text-align: left;
+      font-size: 0.8rem;
+    }
+
+    .site-main {
+      padding: 1.4rem 1rem 3.5rem;
+    }
+
+    .site-footer-inner {
+      padding: 1.25rem 1rem;
+      flex-direction: column;
+    }
+
+    article ul,
+    article ol {
+      padding-left: 1.3rem;
+    }
   }
 </style>

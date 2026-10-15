@@ -1,0 +1,713 @@
+{
+  "schemaVersion": 2,
+  "selections": [
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-1",
+      "legacySlotIndex": 1,
+      "isbns": [
+        "9784866154237"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-2",
+      "legacySlotIndex": 2,
+      "isbns": [
+        "9784866153568"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-3",
+      "legacySlotIndex": 3,
+      "isbns": [
+        "9784866154152"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-4",
+      "legacySlotIndex": 4,
+      "isbns": [
+        "9784866154169"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-5",
+      "legacySlotIndex": 5,
+      "isbns": [
+        "9784866154183"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-6",
+      "legacySlotIndex": 6,
+      "isbns": [
+        "9784866154282"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-7",
+      "legacySlotIndex": 7,
+      "isbns": [
+        "9784866153407"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-8",
+      "legacySlotIndex": 8,
+      "isbns": [
+        "9784866152592"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-9",
+      "legacySlotIndex": 9,
+      "isbns": [
+        "9784866152622"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-10",
+      "legacySlotIndex": 10,
+      "isbns": [
+        "9784866152790",
+        "9784866152806"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-11",
+      "legacySlotIndex": 11,
+      "isbns": [
+        "9784053054692"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-12",
+      "legacySlotIndex": 12,
+      "isbns": [
+        "9784053055958"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-13",
+      "legacySlotIndex": 13,
+      "isbns": [
+        "9784053056825"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-14",
+      "legacySlotIndex": 14,
+      "isbns": [
+        "9784010349342"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-15",
+      "legacySlotIndex": 15,
+      "isbns": [
+        "9784010349359"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-19",
+      "legacySlotIndex": 19,
+      "isbns": [
+        "9784010349304"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-20",
+      "legacySlotIndex": 20,
+      "isbns": [
+        "9784010349311"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-21",
+      "legacySlotIndex": 21,
+      "isbns": [
+        "9784010349328"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-22",
+      "legacySlotIndex": 22,
+      "isbns": [
+        "9784010349335"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "reference-23",
+      "legacySlotIndex": 23,
+      "isbns": [
+        "9784410105791"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-1/",
+      "slotId": "book-24",
+      "legacySlotIndex": 24,
+      "isbns": [
+        "9784410105883"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-1",
+      "legacySlotIndex": 1,
+      "isbns": [
+        "9784010349182"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-2",
+      "legacySlotIndex": 2,
+      "isbns": [
+        "9784010349199"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-3",
+      "legacySlotIndex": 3,
+      "isbns": [
+        "9784010349205"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-4",
+      "legacySlotIndex": 4,
+      "isbns": [
+        "9784010349212"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-5",
+      "legacySlotIndex": 5,
+      "isbns": [
+        "9784010349229"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-6",
+      "legacySlotIndex": 6,
+      "isbns": [
+        "9784010349236"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-9",
+      "legacySlotIndex": 9,
+      "isbns": [
+        "9784410142925"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-10",
+      "legacySlotIndex": 10,
+      "isbns": [
+        "9784410142574"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-11",
+      "legacySlotIndex": 11,
+      "isbns": [
+        "9784777228669"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-12",
+      "legacySlotIndex": 12,
+      "isbns": [
+        "9784777231461"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-13",
+      "legacySlotIndex": 13,
+      "isbns": [
+        "9784777227204"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-14",
+      "legacySlotIndex": 14,
+      "isbns": [
+        "9784777227211"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-15",
+      "legacySlotIndex": 15,
+      "isbns": [
+        "9784777227228"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-16",
+      "legacySlotIndex": 16,
+      "isbns": [
+        "9784865315936"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-18",
+      "legacySlotIndex": 18,
+      "isbns": [
+        "9784860669935"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-21",
+      "legacySlotIndex": 21,
+      "isbns": [
+        "9784796113618"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-22",
+      "legacySlotIndex": 22,
+      "isbns": [
+        "9784866152332"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-23",
+      "legacySlotIndex": 23,
+      "isbns": [
+        "9784866152349"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-24",
+      "legacySlotIndex": 24,
+      "isbns": [
+        "9784866152646"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-25",
+      "legacySlotIndex": 25,
+      "isbns": [
+        "9784866152653"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-26",
+      "legacySlotIndex": 26,
+      "isbns": [
+        "9784866152905",
+        "9784866152912"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-27",
+      "legacySlotIndex": 27,
+      "isbns": [
+        "9784866152929"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-28",
+      "legacySlotIndex": 28,
+      "isbns": [
+        "9784777213634"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-29",
+      "legacySlotIndex": 29,
+      "isbns": [
+        "9784777213641"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-30",
+      "legacySlotIndex": 30,
+      "legacySlotEnd": 32,
+      "isbns": [
+        "9784866151687",
+        "9784866152493"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-33",
+      "legacySlotIndex": 33,
+      "isbns": [
+        "9784046007315"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-34",
+      "legacySlotIndex": 34,
+      "isbns": [
+        "9784887420441"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-35",
+      "legacySlotIndex": 35,
+      "isbns": [
+        "9784010352632"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-36",
+      "legacySlotIndex": 36,
+      "isbns": [
+        "9784887423053"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-37",
+      "legacySlotIndex": 37,
+      "isbns": [
+        "9784887423060"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-38",
+      "legacySlotIndex": 38,
+      "isbns": [
+        "9784410106385"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-39",
+      "legacySlotIndex": 39,
+      "isbns": [
+        "9784796123907"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-40",
+      "legacySlotIndex": 40,
+      "isbns": [
+        "9784796123914"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-41",
+      "legacySlotIndex": 41,
+      "isbns": [
+        "9784410142444"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-42",
+      "legacySlotIndex": 42,
+      "isbns": [
+        "9784410142338"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-43",
+      "legacySlotIndex": 43,
+      "isbns": [
+        "9784777227501"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-44",
+      "legacySlotIndex": 44,
+      "isbns": [
+        "9784777227518"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-45",
+      "legacySlotIndex": 45,
+      "isbns": [
+        "9784887422605"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-46",
+      "legacySlotIndex": 46,
+      "isbns": [
+        "9784887422612"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-47",
+      "legacySlotIndex": 47,
+      "isbns": [
+        "9784887422704"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-48",
+      "legacySlotIndex": 48,
+      "isbns": [
+        "9784887422711"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-49",
+      "legacySlotIndex": 49,
+      "isbns": [
+        "9784887422636"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-50",
+      "legacySlotIndex": 50,
+      "isbns": [
+        "9784887422643"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-51",
+      "legacySlotIndex": 51,
+      "isbns": [
+        "9784887422728"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-52",
+      "legacySlotIndex": 52,
+      "isbns": [
+        "9784887422735"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-53",
+      "legacySlotIndex": 53,
+      "isbns": [
+        "9784887422797"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-2/",
+      "slotId": "book-54",
+      "legacySlotIndex": 54,
+      "isbns": [
+        "9784887422773"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-1",
+      "legacySlotIndex": 1,
+      "isbns": [
+        "9784777230877"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-2",
+      "legacySlotIndex": 2,
+      "isbns": [
+        "9784777230884"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-5",
+      "legacySlotIndex": 5,
+      "isbns": [
+        "9784865317282"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-6",
+      "legacySlotIndex": 6,
+      "isbns": [
+        "9784865317299"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-7",
+      "legacySlotIndex": 7,
+      "isbns": [
+        "9784777231041"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-8",
+      "legacySlotIndex": 8,
+      "isbns": [
+        "9784325273387"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-11",
+      "legacySlotIndex": 11,
+      "isbns": [
+        "9784578243434"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-12",
+      "legacySlotIndex": 12,
+      "isbns": [
+        "9784578243441"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-13",
+      "legacySlotIndex": 13,
+      "isbns": [
+        "9784578243458"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-16",
+      "legacySlotIndex": 16,
+      "isbns": [
+        "9784796113649"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-17",
+      "legacySlotIndex": 17,
+      "isbns": [
+        "9784796113656"
+      ]
+    },
+    {
+      "articlePath": "/recommended-study-aid-books-of-mathematics-3/",
+      "slotId": "book-18",
+      "legacySlotIndex": 18,
+      "isbns": [
+        "9784796113663"
+      ]
+    },
+    {
+      "articlePath": "/math-is-useful/",
+      "slotId": "book-1",
+      "legacySlotIndex": 1,
+      "isbns": [
+        "9784534050977"
+      ]
+    },
+    {
+      "articlePath": "/math-is-useful/",
+      "slotId": "book-3",
+      "legacySlotIndex": 3,
+      "isbns": [
+        "9784798156262"
+      ]
+    },
+    {
+      "articlePath": "/math-is-useful/",
+      "slotId": "book-5",
+      "legacySlotIndex": 5,
+      "isbns": [
+        "9784791763054"
+      ]
+    },
+    {
+      "articlePath": "/math-is-useful/",
+      "slotId": "book-7",
+      "legacySlotIndex": 7,
+      "isbns": [
+        "9784534053381"
+      ]
+    },
+    {
+      "articlePath": "/math-is-useful/",
+      "slotId": "book-8",
+      "legacySlotIndex": 8,
+      "isbns": [
+        "9784797345261"
+      ]
+    },
+    {
+      "articlePath": "/math-is-useful/",
+      "slotId": "book-12",
+      "legacySlotIndex": 12,
+      "isbns": [
+        "9784816353277"
+      ]
+    },
+    {
+      "articlePath": "/math-is-useful/",
+      "slotId": "book-13",
+      "legacySlotIndex": 13,
+      "isbns": [
+        "9784041026267"
+      ]
+    },
+    {
+      "articlePath": "/how-to-overcome-impatience-and-anxiety/",
+      "slotId": "book-1",
+      "legacySlotIndex": 1,
+      "isbns": [
+        "9784048650953"
+      ]
+    }
+  ]
+}

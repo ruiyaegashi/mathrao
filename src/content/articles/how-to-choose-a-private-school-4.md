@@ -6,7 +6,7 @@ path: "/how-to-choose-a-private-school-4/"
 featured_image: /media/howtochooseaprivateschool.jpg
 ---
 
-[/how-to-choose-a-private-school-3/](/how-to-choose-a-private-school-3/)
+[【私立・公立高校受験】保護者の方へ，中学生の塾へ行かせる時期と塾の選び方【前編】](/how-to-choose-a-private-school-3/)
 
 
 
@@ -674,4 +674,4 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-[/how-to-choose-a-private-school-3/](/how-to-choose-a-private-school-3/)
+[【私立・公立高校受験】保護者の方へ，中学生の塾へ行かせる時期と塾の選び方【前編】](/how-to-choose-a-private-school-3/)

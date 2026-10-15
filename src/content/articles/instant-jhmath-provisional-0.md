@@ -95,4 +95,4 @@ path: "/instant-jhmath-provisional-0/"
 
 
 
-[/instant-jhmath-provisional-1/](/instant-jhmath-provisional-1/)
+[【インスタント中高数学】第1講 プロローグ](/instant-jhmath-provisional-1/)

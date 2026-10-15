@@ -5,7 +5,7 @@ published_at: "2019-05-23 21:54:33"
 path: "/instant-jhmath-provisional-6/"
 ---
 
-[/instant-jhmath-provisional-5/](/instant-jhmath-provisional-5/)
+[【インスタント中高数学】第5講 xyzという箱を自由自在に操ろう②【展開と因数分解】](/instant-jhmath-provisional-5/)
 
 
 
@@ -174,7 +174,7 @@ path: "/instant-jhmath-provisional-6/"
 
 
 
-<img class="alignnone size-full wp-image-2270" src="/media/complexnumber.png" alt="" width="600" height="261" />
+<img class="alignnone size-full wp-image-2270" src="/media/complexnumber.png" alt="実数・虚数・複素数などの数の分類と包含関係を示す図"/>
 
 
 </div>
@@ -1824,9 +1824,9 @@ $a$，$b$ を実数，$\alpha$，$\beta$ を複素数とする。
 
 
 
-[/instant-jhmath-provisional-5/](/instant-jhmath-provisional-5/)
+[【インスタント中高数学】第5講 xyzという箱を自由自在に操ろう②【展開と因数分解】](/instant-jhmath-provisional-5/)
 
 
 
 
-[/instant-jhmath-provisional-7/](/instant-jhmath-provisional-7/)
+[【インスタント中高数学】第7講 整数は奥深くて悩ましい【整数の性質】](/instant-jhmath-provisional-7/)

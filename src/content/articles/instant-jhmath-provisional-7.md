@@ -5,7 +5,7 @@ published_at: "2019-05-27 17:15:51"
 path: "/instant-jhmath-provisional-7/"
 ---
 
-[/instant-jhmath-provisional-6/](/instant-jhmath-provisional-6/)
+[【インスタント中高数学】第6講 広がり続ける数の果て【数】](/instant-jhmath-provisional-6/)
 
 
 
@@ -714,9 +714,9 @@ $1111=1 \times 2^10 +0 \times 2^9 +0 \times 2^8 +0 \times 2^7 +1 \times 2^6 +0 \
 
 
 
-[/instant-jhmath-provisional-6/](/instant-jhmath-provisional-6/)
+[【インスタント中高数学】第6講 広がり続ける数の果て【数】](/instant-jhmath-provisional-6/)
 
 
 
 
-[/instant-jhmath-provisional-8/](/instant-jhmath-provisional-8/)
+[【インスタント中高数学】第8講 未知なる解を求めて①【恒等式・方程式・不等式】](/instant-jhmath-provisional-8/)

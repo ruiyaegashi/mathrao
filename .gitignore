@@ -11,3 +11,5 @@ dist/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+# API-derived Rakuten data is valid only for temporary CI builds.
+src/generated/rakuten-books.json

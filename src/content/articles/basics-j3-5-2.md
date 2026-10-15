@@ -38,7 +38,7 @@ $\triangle \mathrm{ABC}$ の辺 $\mathrm{AB}$，$\mathrm{AC}$ 上の点をそれ
 
 
 
-<img class="size-full wp-image-426 alignnone" src="/media/heikousentohi.png" alt="" width="600" height="473" />
+<img class="size-full wp-image-426 alignnone" src="/media/heikousentohi.png" alt="3本の平行線と線分の比の関係を示す図"/>
 
 
 

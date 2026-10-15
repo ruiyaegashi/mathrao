@@ -18,7 +18,7 @@ featured_image: /media/hanseisuhosei.png
 <p style="padding-left: 30px;">$\sigma=\sqrt{npq}=\sqrt{16\times0.5\times0.5}=2$</p>
 
 
-<img class="size-full wp-image-1126 alignnone" src="/media/hanseisuhosei.png" alt="" width="600" height="460" />
+<img class="size-full wp-image-1126 alignnone" src="/media/hanseisuhosei.png" alt="二項分布の確率を長方形で表し、正規分布の曲線と比べた図"/>
 
 
 

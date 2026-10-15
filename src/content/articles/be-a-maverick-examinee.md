@@ -61,7 +61,7 @@ featured_image: /media/beamaverickexaminee.jpg
 
 
 
-[/study-with-friends/](/study-with-friends/)
+[高校・大学受験には仲間・ライバル・目標・救世主になる友達がほしい](/study-with-friends/)
 
 
 

@@ -56,12 +56,12 @@ featured_image: /media/whattostudybeforegoingtobed.jpg
 
 
 
-[/the-early-bird-catches-the-worm/](/the-early-bird-catches-the-worm/)
+[「夜型」で良いことなんて何もない！「朝型」生活で健康的に勉強を](/the-early-bird-catches-the-worm/)
 
 
 
 
-[/how-to-wake-up-well-to-study/](/how-to-wake-up-well-to-study/)
+[【朝にすっきり目覚める方法】自分の睡眠スパンを知り不快でない方法で起きて朝勉強しよう](/how-to-wake-up-well-to-study/)
 
 
 
@@ -131,7 +131,7 @@ featured_image: /media/whattostudybeforegoingtobed.jpg
 
 
 
-[/how-to-take-notes/](/how-to-take-notes/)
+[中高生必見！授業を最大限に活用して得点に結びつける教科別ノートの取り方・テクニック](/how-to-take-notes/)
 
 
 

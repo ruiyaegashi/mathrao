@@ -6,7 +6,7 @@ path: "/how-to-choose-a-private-school-1/"
 featured_image: /media/howtochooseaprivateschool.jpg
 ---
 
-[/how-to-choose-a-private-school-2/](/how-to-choose-a-private-school-2/)
+[【私立中学受験・公立中学進学】保護者の方へ，小学生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-2/)
 
 
 
@@ -300,7 +300,7 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-[/soroban-and-math/](/soroban-and-math/)
+[「珠算(そろばん)」ができるとと算数・数学が得意になる？](/soroban-and-math/)
 
 
 
@@ -490,4 +490,4 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-[/how-to-choose-a-private-school-2/](/how-to-choose-a-private-school-2/)
+[【私立中学受験・公立中学進学】保護者の方へ，小学生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-2/)

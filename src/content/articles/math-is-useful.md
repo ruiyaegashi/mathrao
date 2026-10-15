@@ -412,7 +412,7 @@ calculate：計算する(英語)
 
 
 
-[/shikujiri-pythagoras/](/shikujiri-pythagoras/)
+[【しくじり先生】中田塾：ピタゴラスのしくじりから学ぶ「勉強する理由」【しくじり偉人伝】](/shikujiri-pythagoras/)
 
 
 <p><span class="article-embed-placeholder">[旧埋め込み]</span><span class="article-embed-placeholder">[旧埋め込み]</span></p>

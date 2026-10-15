@@ -6,7 +6,7 @@ path: "/how-to-choose-a-private-school-3/"
 featured_image: /media/howtochooseaprivateschool.jpg
 ---
 
-[/how-to-choose-a-private-school-4/](/how-to-choose-a-private-school-4/)
+[【私立・公立高校受験】保護者の方へ，中学生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-4/)
 
 
 
@@ -26,7 +26,7 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-<img class="aligncenter size-full wp-image-1784" src="/media/benesse_graph_1.gif" alt="" width="600" height="291" />
+<img class="aligncenter size-full wp-image-1784" src="/media/benesse_graph_1.gif" alt="ベネッセ教育総合研究所による2005年の調査グラフ"/>
 
 
 
@@ -292,4 +292,4 @@ featured_image: /media/howtochooseaprivateschool.jpg
 
 
 
-[/how-to-choose-a-private-school-4/](/how-to-choose-a-private-school-4/)
+[【私立・公立高校受験】保護者の方へ，中学生の塾へ行かせる時期と塾の選び方【後編】](/how-to-choose-a-private-school-4/)

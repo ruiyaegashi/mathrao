@@ -5,7 +5,7 @@ published_at: "2019-06-15 20:35:33"
 path: "/instant-jhmath-provisional-9/"
 ---
 
-[/instant-jhmath-provisional-8/](/instant-jhmath-provisional-8/)
+[【インスタント中高数学】第8講 未知なる解を求めて①【恒等式・方程式・不等式】](/instant-jhmath-provisional-8/)
 
 
 
@@ -1177,9 +1177,9 @@ $2(a^2+b^2) \geqq 3ab$ を示せ。また，等号成立条件を求めよ。
 
 
 
-[/instant-jhmath-provisional-8/](/instant-jhmath-provisional-8/)
+[【インスタント中高数学】第8講 未知なる解を求めて①【恒等式・方程式・不等式】](/instant-jhmath-provisional-8/)
 
 
 
 
-[/instant-jhmath-provisional-10/](/instant-jhmath-provisional-10/)
+[【インスタント中高数学】第10講 図形は数学の分水嶺【図形の性質】](/instant-jhmath-provisional-10/)
