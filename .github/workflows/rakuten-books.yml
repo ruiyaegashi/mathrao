@@ -10,6 +10,56 @@ concurrency:
   group: mathrao-rakuten-${{ github.ref }}
   cancel-in-progress: false
 jobs:
+  disable-production-git-auto:
+    if: github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013' && github.event.head_commit.message == '[CF-Pages-Skip] STEP27 disable production Git auto deploy approved 20261015'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Disable only production Git auto-deployment and verify
+        env:
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          node --input-type=module <<'NODE'
+          const {CF_ACCOUNT,CF_TOKEN}=process.env;
+          if(!CF_ACCOUNT||!CF_TOKEN)throw Error('Cloudflare credentials unavailable');
+          const url='https://api.cloudflare.com/client/v4/accounts/'+encodeURIComponent(CF_ACCOUNT)+'/pages/projects/mathrao';
+          const headers={Authorization:'Bearer '+CF_TOKEN};
+          async function getProject(){
+            const r=await fetch(url,{headers});
+            if(!r.ok)throw Error('Cloudflare project GET unsuccessful: HTTP '+r.status);
+            const d=await r.json();
+            if(!d.success||d.result?.name!=='mathrao')throw Error('Unexpected project GET response');
+            return d.result;
+          }
+          const before=await getProject();
+          const config=before.source?.config;
+          if(before.source?.type!=='github'||before.production_branch!=='main'||config?.repo_name!=='mathrao'||
+             config?.production_deployments_enabled!==true||config?.preview_deployment_setting!=='custom'){
+            throw Error('Safety precondition failed: project/branch/repo/preview/production state changed');
+          }
+          const sameSource={...config};
+          delete sameSource.production_deployments_enabled;
+          const original={sourceType:before.source.type,branch:before.production_branch,config:sameSource,
+            domains:before.domains??[],canonical:before.canonical_deployment?.id??null};
+          console.log('Before: productionGitAuto=true preview=custom branch=main source=github project=mathrao');
+          const change=await fetch(url,{
+            method:'PATCH',
+            headers:{...headers,'Content-Type':'application/json'},
+            body:JSON.stringify({source:{type:'github',config:{production_deployments_enabled:false}}})
+          });
+          if(!change.ok)throw Error('Cloudflare project PATCH unsuccessful: HTTP '+change.status);
+          const patch=await change.json();
+          if(!patch.success)throw Error('Cloudflare project PATCH reported failure');
+          const after=await getProject();
+          const rest={...after.source?.config};
+          delete rest.production_deployments_enabled;
+          const observed={sourceType:after.source?.type,branch:after.production_branch,config:rest,
+            domains:after.domains??[],canonical:after.canonical_deployment?.id??null};
+          if(after.source?.config?.production_deployments_enabled!==false)throw Error('Production Git auto-deploy not disabled after PATCH');
+          if(JSON.stringify(observed)!==JSON.stringify(original))throw Error('Unintended Cloudflare Pages project configuration change');
+          console.log('Cloudflare verification PASS: productionGitAuto=false preview=custom branch=main githubConnected=true canonicalDeploymentUnchanged=true');
+          NODE
   publish:
     if: (startsWith(github.event.head_commit.message, '[mathrao-books:update]') || startsWith(github.event.head_commit.message, '[mathrao-books:remove]')) && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/improve/mathrao-layout-step2-20261013')
     runs-on: ubuntu-latest
