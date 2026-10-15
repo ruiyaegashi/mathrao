@@ -200,73 +200,54 @@ jobs:
           CURRENT_ID: ${{ steps.deploy.outputs.pages-deployment-id }}
         run: |
           node --input-type=module <<'NODE'
-          const {CF_ACCOUNT, CF_TOKEN, CURRENT_ID}=process.env;
-          if(!CF_ACCOUNT || !CF_TOKEN || !CURRENT_ID) throw Error('Missing Cloudflare production cleanup identity');
-          const root='https://api.cloudflare.com/client/v4/accounts/'+encodeURIComponent(CF_ACCOUNT)+'/pages/projects/mathrao';
-          const base=root+'/deployments';
-          const headers={Authorization:'Bearer '+CF_TOKEN};
-          async function call(url, options={}) {
-            const r=await fetch(url,{...options,headers});
-            const data=r.status===204?{success:true}:await r.json();
-            if(!r.ok || data?.success!==true) throw Error('Cloudflare request failed: HTTP '+r.status+' '+JSON.stringify(data?.errors??[]));
+          const {CF_ACCOUNT,CF_TOKEN,CURRENT_ID}=process.env;
+          if (![CF_ACCOUNT,CF_TOKEN,CURRENT_ID].every(Boolean)) throw Error('Missing cleanup settings');
+          const project='https://api.cloudflare.com/client/v4/accounts/'+CF_ACCOUNT+'/pages/projects/mathrao';
+          const deployments=project+'/deployments';
+          async function api(url,method='GET'){
+            const r=await fetch(url,{method,headers:{Authorization:'Bearer '+CF_TOKEN}});
+            const data=await r.json();
+            if(!r.ok||data.success!==true)throw Error('Cloudflare '+method+' failed: '+r.status);
             return data;
           }
-          async function project() {
-            const r=(await call(root)).result;
-            if(!r || r.name!=='mathrao' || r.production_branch!=='main' ||
-               r.source?.config?.production_deployments_enabled!==false ||
-               !r.canonical_deployment?.id) throw Error('Production project identity or Git setting mismatch');
-            return r.canonical_deployment.id;
+          async function current(){
+            const p=(await api(project)).result;
+            if(p?.production_branch!=='main'||p?.source?.config?.production_deployments_enabled!==false)
+              throw Error('Unexpected Pages production configuration');
+            return p.canonical_deployment?.id;
           }
-          async function allProduction() {
-            let rows=[], pages=null;
-            for(let i=1;i<=50;i++){
-              const data=await call(base+'?env=production&per_page=25&page='+i);
-              const n=data.result_info?.total_pages;
-              if(!Number.isInteger(n)||n<1||n>50||!Array.isArray(data.result) ||
-                 (pages!==null && n!==pages)) throw Error('Incomplete or changing deployment list');
-              pages=n;
-              rows.push(...data.result);
-              if(i===pages)break;
-              if(i===50) throw Error('Deployment list exceeds safe scan limit');
+          async function list(){
+            const result=[];
+            for(let page=1;page<=20;page++){
+              const data=await api(deployments+'?env=production&per_page=25&page='+page);
+              const count=data.result_info?.total_pages;
+              if(!Array.isArray(data.result)||!Number.isInteger(count)||count<1||count>20)
+                throw Error('Incomplete Production listing');
+              result.push(...data.result);
+              if(page===count){
+                if(new Set(result.map(x=>x.id)).size!==result.length||
+                   result.some(x=>x.environment!=='production'||!x.id))throw Error('Invalid Production listing');
+                return result;
+              }
             }
-            if(new Set(rows.map(d=>d.id)).size!==rows.length ||
-               rows.some(d=>!d.id || d.environment!=='production')) throw Error('Mixed or duplicate deployment list');
-            return rows;
+            throw Error('Production listing exceeded page limit');
           }
-          async function ensureCurrent() {
-            const live=await project();
-            if(live!==CURRENT_ID) throw Error('Live Production changed; cleanup stopped');
-          }
-          await ensureCurrent();
-          const before=await allProduction();
-          const cur=before.find(d=>d.id===CURRENT_ID);
-          if(!cur || cur.latest_stage?.status!=='success') throw Error('Deployed Production missing or unsuccessful');
-          const currentTime=Date.parse(cur.created_on);
-          if(!Number.isFinite(currentTime)) throw Error('Invalid Production timestamp');
-          const old=[];
-          let excluded=0;
-          for(const d of before){
-            if(d.id===CURRENT_ID)continue;
-            if(d.latest_stage?.status!=='success'){excluded++;continue;}
-            const t=Date.parse(d.created_on);
-            if(!Number.isFinite(t)||t>=currentTime)throw Error('Uncertain or newer successful Production; stop');
-            old.push(d);
-          }
-          await ensureCurrent();
-          console.log(JSON.stringify({productionCleanupPlan:old.map(d=>d.id),protected:CURRENT_ID,excluded}));
-          const deleted=[];
+          if(await current()!==CURRENT_ID)throw Error('New deployment is not current Production');
+          const before=await list();
+          const newDeploy=before.find(d=>d.id===CURRENT_ID&&d.latest_stage?.status==='success');
+          if(!newDeploy)throw Error('New Production success not confirmed');
+          const currentTime=Date.parse(newDeploy.created_on);
+          if(!Number.isFinite(currentTime))throw Error('Missing deployment date');
+          const old=before.filter(d=>d.id!==CURRENT_ID&&d.latest_stage?.status==='success');
+          if(old.some(d=>!Number.isFinite(Date.parse(d.created_on))||
+                          Date.parse(d.created_on)>=currentTime))throw Error('Unexpected newer Production');
           for(const d of old){
-            await ensureCurrent();
-            await call(base+'/'+encodeURIComponent(d.id),{method:'DELETE'});
-            deleted.push(d.id);
-            console.log('Deleted prior successful Production: '+d.id);
+            if(await current()!==CURRENT_ID)throw Error('Production changed during cleanup');
+            await api(deployments+'/'+encodeURIComponent(d.id),'DELETE');
           }
-          await ensureCurrent();
-          const after=await allProduction();
-          if(!after.some(d=>d.id===CURRENT_ID) || deleted.some(id=>after.some(d=>d.id===id))){
-            throw Error('Production cleanup result differs from planned deletions');
-          }
-          if(old.length!==deleted.length)throw Error('Incomplete Production cleanup');
-          console.log(JSON.stringify({productionCleanup:'PASS',deleted:deleted.length,excluded,protected:CURRENT_ID}));
+          const remaining=await list();
+          if(await current()!==CURRENT_ID||!remaining.some(d=>d.id===CURRENT_ID)||
+             old.some(d=>remaining.some(x=>x.id===d.id)))
+            throw Error('Production cleanup not confirmed');
+          console.log(JSON.stringify({productionCleanup:'PASS',deleted:old.length,protected:CURRENT_ID}));
           NODE
